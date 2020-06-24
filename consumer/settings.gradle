@@ -1,0 +1,5 @@
+rootProject.name = 'consumer'
+
+// tag::include-build[]
+includeBuild './../../randoop-gradle-plugin'
+// end::include-build[]

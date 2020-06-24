@@ -1,0 +1,28 @@
+apply plugin: 'java'
+
+buildscript {
+    dependencies {
+        classpath 'com.sri.gradle:randoop-gradle-plugin:1.0'
+    }
+}
+
+// tag::apply-configure-plugin[]
+apply plugin: 'com.sri.gradle.randoop'   // <1>
+
+randoop {                                  // <2>
+    packageName = 'com.foo'
+    outdir = "src/test/java"
+    timeoutSeconds = 30
+    randoopJar = file("libs/randoop.jar")
+}
+// end::apply-configure-plugin[]
+
+// tasks.withType(JavaCompile) {
+//     options.compilerArgs += "--enable-preview"
+// }
+// tasks.withType(Test) {
+//     jvmArgs += "--enable-preview"
+// }
+// tasks.withType(JavaExec) {
+//     jvmArgs += "--enable-preview"
+// }
