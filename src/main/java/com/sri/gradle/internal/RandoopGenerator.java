@@ -106,7 +106,7 @@ public class RandoopGenerator implements Generator {
         }
       });
 
-      project.files(project.getLayout().getBuildDirectory().dir("classes/java/main/com/foo"))
+      project.files(project.getLayout().getBuildDirectory().dir("classes/java/main/"))
           .forEach(e -> {
             try {
               urls.add(e.toURI().toURL());
