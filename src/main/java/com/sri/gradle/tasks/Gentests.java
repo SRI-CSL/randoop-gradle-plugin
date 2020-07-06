@@ -1,5 +1,6 @@
 package com.sri.gradle.tasks;
 
+import com.sri.gradle.internal.RandoopRunner;
 import org.gradle.api.DefaultTask;
 import org.gradle.api.GradleException;
 import org.gradle.api.file.DirectoryProperty;
@@ -11,10 +12,10 @@ import org.gradle.api.tasks.InputFile;
 import org.gradle.api.tasks.Optional;
 import org.gradle.api.tasks.OutputDirectory;
 import org.gradle.api.tasks.TaskAction;
-import com.sri.gradle.internal.GeneratorOptions;
-import com.sri.gradle.internal.RandoopGenerator;
 
 public class Gentests extends DefaultTask {
+
+  private static final String BAD_RANDOOP_ERROR = "Unable to run Randoop. Are you sure randoop.jar is in your path?";
 
   private final Property<String> packageName;
   private final DirectoryProperty outdir;
@@ -63,16 +64,15 @@ public class Gentests extends DefaultTask {
 
   @TaskAction public void generate() {
     try {
-      final RandoopGenerator generator = new RandoopGenerator(getProject());
+      final RandoopRunner runner = new RandoopRunner(getProject())
+          .setClasspath(getRandoopJar(), getOutdir())
+          .setTimelimit(getTimeoutSeconds())
+          .setPackageName(getPackageName());
+
       getLogger().quiet("About to start generating tests");
-
-      String outD = getOutdir().getAsFile().get().getAbsolutePath();
-      String ranJ = getRandoopJar().getAsFile().get().getAbsolutePath();
-      int timeoutSeconds = getTimeoutSeconds();
-      String pkgN = getPackageName();
-
-      final GeneratorOptions options = new GeneratorOptions(ranJ, outD, pkgN, timeoutSeconds);
-      generator.generate(options);
+      if (!runner.run()){
+        throw new GradleException(BAD_RANDOOP_ERROR);
+      }
     } catch (Exception e) {
       throw new GradleException("Failed to generate tests", e);
     }
