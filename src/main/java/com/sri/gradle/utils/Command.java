@@ -9,14 +9,15 @@ import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Command {
+
   private final PrintStream stdout;
   private final PrintStream stderr;
   private final List<String> args;
@@ -26,31 +27,6 @@ public class Command {
   private final boolean permitNonZeroExitStatus;
 
   private volatile Process process;
-
-  /**
-   * Constructs a new Command object for a list of arguments.
-   *
-   * @param args the list of arguments.
-   */
-  public Command(List<String> args) {
-    this(System.out, System.err, args);
-  }
-
-  /**
-   * Constructs a new command.
-   *
-   * @param stdout the log viewer
-   * @param args   the list of arguments needed by the command
-   */
-  public Command(PrintStream stdout, PrintStream stderr, List<String> args) {
-    this.stdout = stdout;
-    this.stderr = stderr;
-    this.args = new ArrayList<>(args);
-    this.environment = Collections.emptyMap();
-
-    this.workingDirectory = null;
-    this.permitNonZeroExitStatus = false;
-  }
 
   /**
    * Constructs a new Command using elements specified in its builder.
@@ -73,7 +49,8 @@ public class Command {
       final String string = toString();
       if (string.length() > nonNullBuilder.maxCommandLength) {
         throw new IllegalStateException(
-            "Maximum command length " + nonNullBuilder.maxCommandLength + " exceeded by: " + string);
+            "Maximum command length " +
+                nonNullBuilder.maxCommandLength + " exceeded by: " + string);
       }
     }
   }
@@ -104,7 +81,8 @@ public class Command {
 
     stdout.println("executing " + this);
 
-    final ProcessBuilder processBuilder = new ProcessBuilder().command(args).redirectErrorStream(true);
+    final ProcessBuilder processBuilder = new ProcessBuilder().command(args)
+        .redirectErrorStream(true);
 
     if (workingDirectory != null) {
       processBuilder.directory(workingDirectory);
@@ -139,7 +117,6 @@ public class Command {
    * Returns the output returned by process.
    *
    * @return the output on terminal.
-   *
    * @throws IOException          unexpected behavior occurred.
    * @throws InterruptedException unexpected behavior occurred.
    */
@@ -188,8 +165,7 @@ public class Command {
     }
   }
 
-  @Override
-  public String toString() {
+  @Override public String toString() {
     final String entrySetAsString = environment.entrySet().stream().map(Object::toString)
         .collect(Collectors.joining(" "));
     String envString = !environment.isEmpty() ? (entrySetAsString + " ") : "";
@@ -201,6 +177,7 @@ public class Command {
    * Command builder
    */
   public static class Builder {
+
     private final PrintStream stdout;
     private final PrintStream stderr;
     private final List<String> args;
@@ -226,7 +203,7 @@ public class Command {
       this.env = new LinkedHashMap<>();
     }
 
-    public List<String> getArgs(){
+    public List<String> getArgs() {
       return Immutable.listOf(args);
     }
 
@@ -275,8 +252,7 @@ public class Command {
     }
 
     /**
-     * Prevents execute() from throwing if the invoked process returns a nonzero
-     * exit code.
+     * Prevents command from throwing if the invoked process returns a nonzero exit code.
      *
      * @return self
      */
@@ -313,10 +289,11 @@ public class Command {
     }
 
 
-    @Override
-    public String toString() {
+    @Override public String toString() {
       final String left = this.args.toString();
-      final String right = Objects.isNull(workingDirectory) ? "" : workingDirectory.toString();
+      String right = Optional.ofNullable(workingDirectory)
+          .map(File::toString)
+          .orElse("");
       return left + " : " + right;
     }
   }
