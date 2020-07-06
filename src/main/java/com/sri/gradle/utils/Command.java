@@ -252,7 +252,7 @@ public class Command {
     }
 
     /**
-     * Prevents runner() from throwing if the invoked process returns a nonzero exit code.
+     * Prevents command from throwing if the invoked process returns a nonzero exit code.
      *
      * @return self
      */
@@ -280,7 +280,7 @@ public class Command {
     }
 
     /**
-     * Shortcut to runner a command
+     * Shortcut to execute a command
      *
      * @return a list of lines representing the output of the command.
      */
@@ -299,7 +299,7 @@ public class Command {
   }
 
   /**
-   * Command failed to runner exception.
+   * Command failed to execute exception.
    */
   private static class CommandFailedException extends RuntimeException {
 
