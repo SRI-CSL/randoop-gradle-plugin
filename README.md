@@ -34,11 +34,16 @@ apply plugin: 'com.sri.gradle.randoop'
 
 In the build.gradle of the project that applies the plugin:
 ```groovy
-randoop {
-    packageName = '<PACKAGE_OF_INTEREST>'
-    outdir = "src/test/java"
-    timeoutSeconds = 30
+runRandoop {
     randoopJar = file("libs/randoop.jar")
+    junitOutputDir = file("${projectDir}/src/test/java")
+    timeoutSeconds = 30
+    stopOnErrorTest = false
+    flakyTestBehavior = 'output'
+    noErrorRevealingTests = true
+    junitReflectionAllowed = false
+    usethreads = true
+    outputLimit = 2000
 }
 ```
 
