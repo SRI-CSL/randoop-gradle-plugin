@@ -7,22 +7,19 @@ buildscript {
 }
 
 // tag::apply-configure-plugin[]
-apply plugin: 'com.sri.gradle.randoop'   // <1>
+apply plugin: 'com.sri.gradle.randoop'
 
-randoop {                                  // <2>
-    packageName = 'com.foo'
-    outdir = "src/test/java"
-    timeoutSeconds = 30
+runRandoop {
     randoopJar = file("libs/randoop.jar")
+    junitOutputDir = file("${projectDir}/src/test/java")
+    timeoutSeconds = 30
+    stopOnErrorTest = false
+    flakyTestBehavior = 'output'
+    noErrorRevealingTests = true
+    junitReflectionAllowed = false
+    usethreads = true
+    outputLimit = 2000
 }
+
 // end::apply-configure-plugin[]
 
-// tasks.withType(JavaCompile) {
-//     options.compilerArgs += "--enable-preview"
-// }
-// tasks.withType(Test) {
-//     jvmArgs += "--enable-preview"
-// }
-// tasks.withType(JavaExec) {
-//     jvmArgs += "--enable-preview"
-// }
