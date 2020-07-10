@@ -45,7 +45,7 @@ public class RandoopPlugin implements Plugin<Project> {
   private Gentests createGentestsTask(Project project, RandoopPluginExtension extension) {
     final Gentests generateTestTask = project.getTasks().create(TASK_GENERATE_TESTS, Gentests.class);
     generateTestTask.setGroup(GROUP);
-		generateTestTask.setDescription(RANDOOP_PLUGIN_DESCRIPTION);
+    generateTestTask.setDescription(RANDOOP_PLUGIN_DESCRIPTION);
     generateTestTask.dependsOn("assemble");
 
     generateTestTask.getRandoopJar().set(extension.getRandoopJar());
