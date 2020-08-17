@@ -1,0 +1,5 @@
+*.lock
+*.bin
+cache.properties
+consumer/.gradle/5.6.4/
+consumer/.gradle/
