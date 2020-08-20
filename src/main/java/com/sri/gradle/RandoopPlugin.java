@@ -57,6 +57,7 @@ public class RandoopPlugin implements Plugin<Project> {
     generateTestTask.getJunitReflectionAllowed().set(extension.getJunitReflectionAllowed());
     generateTestTask.getUsethreads().set(extension.getUsethreads());
     generateTestTask.getOutputLimit().set(extension.getOutputLimit());
+    generateTestTask.getJunitPackageName().set(extension.getJunitPackageName());
 
     setClasslistIfAvailable(generateTestTask);
 

@@ -26,6 +26,7 @@ public class Gentests extends RandoopTask {
   private final Property<Boolean> junitReflectionAllowed;
   private final Property<Boolean> stopOnErrorTest;
   private final Property<String> flakyTestBehavior;
+  private final Property<String> junitPackageName;
 
   private File classListFile;
 
@@ -41,12 +42,17 @@ public class Gentests extends RandoopTask {
     this.junitReflectionAllowed = getProject().getObjects().property(Boolean.class);
     this.stopOnErrorTest = getProject().getObjects().property(Boolean.class);
     this.flakyTestBehavior = getProject().getObjects().property(String.class);
+    this.junitPackageName = getProject().getObjects().property(String.class);
 
     this.classListFile = null;
   }
 
   @Input public Property<String> getFlakyTestBehavior() {
     return flakyTestBehavior;
+  }
+
+  @Input public Property<String> getJunitPackageName() {
+    return junitPackageName;
   }
 
   @OutputDirectory public DirectoryProperty getJunitOutputDir() {
@@ -98,6 +104,7 @@ public class Gentests extends RandoopTask {
       command = command.setFlakyTestBehavior(getFlakyTestBehavior().getOrElse("discard"));
       command = command.setNoErrorRevealingTests(getNoErrorRevealingTests().getOrElse(true));
       command = command.setJUnitReflectionAllowed(getJunitReflectionAllowed().getOrElse(false));
+      command = command.setJUnitPackageName(getJunitPackageName().get());
 
       if (getUsethreads().isPresent() && getUsethreads().get()){
         command = command.setUseThreads();

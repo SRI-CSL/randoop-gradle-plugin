@@ -19,6 +19,19 @@ runRandoop {
     junitReflectionAllowed = false
     usethreads = true
     outputLimit = 2000
+    junitPackageName = 'com.foo'
+}
+
+allprojects {
+    repositories {
+        jcenter()
+
+    }
+}
+
+dependencies {
+    testImplementation 'org.hamcrest:hamcrest:2.2'
+    testImplementation 'junit:junit:4.12'
 }
 
 // end::apply-configure-plugin[]

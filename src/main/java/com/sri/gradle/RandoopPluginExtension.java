@@ -19,6 +19,7 @@ public class RandoopPluginExtension {
   private final Property<Boolean> junitReflectionAllowed;
   private final Property<Boolean> stopOnErrorTest;
   private final Property<String> flakyTestBehavior;
+  private final Property<String> junitPackageName;
 
 
   @SuppressWarnings("UnstableApiUsage")
@@ -34,10 +35,15 @@ public class RandoopPluginExtension {
     this.junitReflectionAllowed = project.getObjects().property(Boolean.class);
     this.stopOnErrorTest = project.getObjects().property(Boolean.class);
     this.flakyTestBehavior = project.getObjects().property(String.class);
+    this.junitPackageName = project.getObjects().property(String.class);
   }
 
   public Property<String> getFlakyTestBehavior() {
     return flakyTestBehavior;
+  }
+
+  public Property<String> getJunitPackageName() {
+    return junitPackageName;
   }
 
   public DirectoryProperty getJunitOutputDir() {
