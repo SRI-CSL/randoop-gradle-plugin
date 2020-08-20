@@ -44,6 +44,7 @@ runRandoop {
     junitReflectionAllowed = false
     usethreads = true
     outputLimit = 2000
+    junitPackageName = 'com.foo'
 }
 ```
 
