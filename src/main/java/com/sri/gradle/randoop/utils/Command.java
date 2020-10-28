@@ -1,4 +1,4 @@
-package com.sri.gradle.utils;
+package com.sri.gradle.randoop.utils;
 
 import com.google.common.base.MoreObjects;
 import java.io.BufferedReader;

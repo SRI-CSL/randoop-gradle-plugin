@@ -1,12 +1,12 @@
-package com.sri.gradle.internal;
+package com.sri.gradle.randoop.internal;
 
-import static com.sri.gradle.Constants.BAD_RANDOOP_ERROR;
+import static com.sri.gradle.randoop.Constants.BAD_RANDOOP_ERROR;
 import static java.util.Arrays.stream;
 
-import com.sri.gradle.Constants;
-import com.sri.gradle.utils.Classfinder;
-import com.sri.gradle.utils.Command;
-import com.sri.gradle.utils.Immutable;
+import com.sri.gradle.randoop.Constants;
+import com.sri.gradle.randoop.utils.Classfinder;
+import com.sri.gradle.randoop.utils.Command;
+import com.sri.gradle.randoop.utils.Immutable;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;

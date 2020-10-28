@@ -1,7 +1,7 @@
-package com.sri.gradle.tasks;
+package com.sri.gradle.randoop.tasks;
 
-import com.sri.gradle.Constants;
-import com.sri.gradle.internal.RandoopCommand;
+import com.sri.gradle.randoop.Constants;
+import com.sri.gradle.randoop.internal.RandoopCommand;
 import java.io.File;
 import org.gradle.api.GradleException;
 import org.gradle.api.tasks.TaskAction;

@@ -1,4 +1,4 @@
-package com.sri.gradle;
+package com.sri.gradle.randoop;
 
 import org.gradle.api.Project;
 import org.gradle.api.file.DirectoryProperty;

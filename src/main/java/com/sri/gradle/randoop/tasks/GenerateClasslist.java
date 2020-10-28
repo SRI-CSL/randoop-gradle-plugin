@@ -1,10 +1,10 @@
-package com.sri.gradle.tasks;
+package com.sri.gradle.randoop.tasks;
 
-import static com.sri.gradle.Constants.BAD_CLASS_LIST_ERROR;
-import static com.sri.gradle.Constants.PATH_TO_SRC_DIR;
+import static com.sri.gradle.randoop.Constants.BAD_CLASS_LIST_ERROR;
+import static com.sri.gradle.randoop.Constants.PATH_TO_SRC_DIR;
 
-import com.sri.gradle.utils.ClasslistGenerator;
-import com.sri.gradle.utils.Javafinder;
+import com.sri.gradle.randoop.utils.ClasslistGenerator;
+import com.sri.gradle.randoop.utils.Javafinder;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;

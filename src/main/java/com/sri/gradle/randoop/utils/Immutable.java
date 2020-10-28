@@ -1,4 +1,4 @@
-package com.sri.gradle.utils;
+package com.sri.gradle.randoop.utils;
 
 import java.util.Collection;
 import java.util.Collections;

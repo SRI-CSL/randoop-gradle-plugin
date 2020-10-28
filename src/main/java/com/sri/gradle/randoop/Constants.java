@@ -1,4 +1,4 @@
-package com.sri.gradle;
+package com.sri.gradle.randoop;
 
 public class Constants {
   public static final String GROUP = "Randoop";

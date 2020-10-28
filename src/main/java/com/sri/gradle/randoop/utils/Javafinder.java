@@ -1,4 +1,4 @@
-package com.sri.gradle.utils;
+package com.sri.gradle.randoop.utils;
 
 import java.io.File;
 import java.io.IOException;

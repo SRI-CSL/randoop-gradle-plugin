@@ -1,16 +1,16 @@
-package com.sri.gradle;
+package com.sri.gradle.randoop;
 
-import static com.sri.gradle.Constants.EXTENSION_RANDOOP_PLUGIN_NAME;
-import static com.sri.gradle.Constants.GROUP;
-import static com.sri.gradle.Constants.RANDOOP_PLUGIN_DESCRIPTION;
-import static com.sri.gradle.Constants.TASK_CHECK;
-import static com.sri.gradle.Constants.TASK_CHECK_FOR_RANDOOP;
-import static com.sri.gradle.Constants.TASK_GENERATE_CLASS_LIST;
-import static com.sri.gradle.Constants.TASK_GENERATE_TESTS;
+import static com.sri.gradle.randoop.Constants.EXTENSION_RANDOOP_PLUGIN_NAME;
+import static com.sri.gradle.randoop.Constants.GROUP;
+import static com.sri.gradle.randoop.Constants.RANDOOP_PLUGIN_DESCRIPTION;
+import static com.sri.gradle.randoop.Constants.TASK_CHECK;
+import static com.sri.gradle.randoop.Constants.TASK_CHECK_FOR_RANDOOP;
+import static com.sri.gradle.randoop.Constants.TASK_GENERATE_CLASS_LIST;
+import static com.sri.gradle.randoop.Constants.TASK_GENERATE_TESTS;
 
-import com.sri.gradle.tasks.CheckForRandoop;
-import com.sri.gradle.tasks.GenerateClasslist;
-import com.sri.gradle.tasks.Gentests;
+import com.sri.gradle.randoop.tasks.CheckForRandoop;
+import com.sri.gradle.randoop.tasks.GenerateClasslist;
+import com.sri.gradle.randoop.tasks.Gentests;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;

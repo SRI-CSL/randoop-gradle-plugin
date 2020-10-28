@@ -1,4 +1,4 @@
-package com.sri.gradle.internal;
+package com.sri.gradle.randoop.internal;
 
 import org.gradle.api.GradleException;
 

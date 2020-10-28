@@ -1,4 +1,4 @@
-package com.sri.gradle.tasks;
+package com.sri.gradle.randoop.tasks;
 
 import javax.annotation.Nonnull;
 import org.gradle.api.DefaultTask;

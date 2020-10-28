@@ -1,15 +1,13 @@
-package com.sri.gradle;
+package com.sri.gradle.randoop;
 
-import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-import com.sri.gradle.utils.Classfinder;
-import com.sri.gradle.utils.ClasslistGenerator;
-import com.sri.gradle.utils.Command;
-import com.sri.gradle.utils.Javafinder;
+import com.sri.gradle.randoop.utils.Classfinder;
+import com.sri.gradle.randoop.utils.ClasslistGenerator;
+import com.sri.gradle.randoop.utils.Command;
+import com.sri.gradle.randoop.utils.Javafinder;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -25,17 +23,19 @@ public class RandoopPluginTest {
   }
 
   @Test public void testJavafinder(){
-    Path dir = new File("src/main/java/com/sri/gradle/utils").toPath();
+    Path dir = new File("src/main/java/com/sri/gradle/randoop/utils").toPath();
     System.out.println(dir);
     List<File> filesAvailable = Javafinder.findJavaFiles(dir);
     assertEquals(filesAvailable.size(), 5);
   }
 
   @Test public void testCommandBuilder(){
-    List<String> filesAvailable = Command.create().arguments("ls")
+    List<String> filesAvailable = Command.create()
+        .workingDirectory(new File("src/main/java/com/sri/gradle/randoop/utils"))
+        .arguments("ls")
         .permitNonZeroExitStatus().execute();
 
-    assertEquals(10, filesAvailable.size());
+    assertEquals(5, filesAvailable.size());
   }
 
   @Test public void testClasslistGeneration(){
