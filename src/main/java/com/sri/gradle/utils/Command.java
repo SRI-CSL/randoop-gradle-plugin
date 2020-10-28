@@ -1,5 +1,6 @@
 package com.sri.gradle.utils;
 
+import com.google.common.base.MoreObjects;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -114,7 +115,8 @@ public class Command {
   }
 
   /**
-   * Returns the output returned by process.
+   * Reads from standard input and writes to standard output.
+   * Once the process completes, the command's output is returned.
    *
    * @return the output on terminal.
    * @throws IOException          unexpected behavior occurred.
@@ -150,7 +152,7 @@ public class Command {
   }
 
   /**
-   * @return the output displayed on the terminal.
+   * @return the output of the command displayed on the terminal.
    */
   public List<String> execute() {
     try {
@@ -166,6 +168,11 @@ public class Command {
   }
 
   @Override public String toString() {
+    MoreObjects.ToStringHelper toString =  MoreObjects.toStringHelper(this);
+    for (String key : environment.keySet()){
+      toString = toString.add(key, environment.get(key));
+    }
+
     final String entrySetAsString = environment.entrySet().stream().map(Object::toString)
         .collect(Collectors.joining(" "));
     String envString = !environment.isEmpty() ? (entrySetAsString + " ") : "";

@@ -51,7 +51,7 @@ public class Javafinder {
           walkDirectory(directory, skipHints)
       );
     } catch (IOException e) {
-      System.err.println(String.format("Error: unable to crawl %s. See %s", directory.getName(), e));
+      System.err.printf("Error: unable to crawl %s. See %s%n", directory.getName(), e);
     }
 
     return Immutable.list();

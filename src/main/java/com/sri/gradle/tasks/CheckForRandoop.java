@@ -17,7 +17,8 @@ public class CheckForRandoop extends RandoopTask {
           .getAsFile();
 
       new RandoopCommand(getTaskName())
-          .setGeneratorJar(randoopJar).execute();
+          .setGeneratorJar(randoopJar)
+          .execute();
 
     } catch (Exception e){
       throw new GradleException(
@@ -31,5 +32,9 @@ public class CheckForRandoop extends RandoopTask {
 
   @Override protected String getTaskName() {
     return "help";
+  }
+
+  @Override protected String getTaskDescription() {
+    return null;
   }
 }

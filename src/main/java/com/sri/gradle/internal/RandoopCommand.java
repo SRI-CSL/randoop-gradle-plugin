@@ -1,5 +1,6 @@
 package com.sri.gradle.internal;
 
+import static com.sri.gradle.Constants.BAD_RANDOOP_ERROR;
 import static java.util.Arrays.stream;
 
 import com.sri.gradle.Constants;
@@ -25,9 +26,6 @@ import org.gradle.api.file.DirectoryProperty;
 import org.gradle.api.file.RegularFileProperty;
 
 public class RandoopCommand {
-
-  private static final String BAD_RANDOOP_ERROR = "Unable to run Randoop. Are you sure randoop.jar is in your path?";
-
   private final Command.Builder builder;
 
   private final List<URL> classpathUrls;
@@ -63,7 +61,7 @@ public class RandoopCommand {
         .setProjectDependencies(project);
   }
 
-  public RandoopCommand silentlyIgnoreBadClassNames(){
+  public RandoopCommand setSilentlyIgnoreBadClassNames(){
     args("--silently-ignore-bad-class-names=true");
     return this;
   }

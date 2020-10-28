@@ -7,7 +7,6 @@ import org.gradle.api.provider.Property;
 
 public class RandoopPluginExtension {
 
-  private final Property<String> packageName;
   private final Property<Integer> timeoutSeconds;
   private final DirectoryProperty junitOutputDir;
   private final RegularFileProperty randoopJar;
@@ -24,7 +23,6 @@ public class RandoopPluginExtension {
 
   @SuppressWarnings("UnstableApiUsage")
   public RandoopPluginExtension(Project project) {
-    this.packageName = project.getObjects().property(String.class);
     this.timeoutSeconds = project.getObjects().property(Integer.class);
     this.junitOutputDir = project.getObjects().directoryProperty();
     this.randoopJar = project.getObjects().fileProperty();

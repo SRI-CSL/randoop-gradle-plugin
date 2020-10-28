@@ -13,4 +13,6 @@ public class Constants {
   public static final String TASK_CHECK_FOR_RANDOOP = "randoopCheck";
   public static final String TASK_GENERATE_CLASS_LIST = "getClassList";
   public static final String TASK_CHECK = "check";
+  public static final String BAD_RANDOOP_ERROR = "Unable to run Randoop. Are you sure randoop.jar is in your path?";
+  public static final String BAD_CLASS_LIST_ERROR = "Unable to find src directory. Are you sure src exists?";
 }

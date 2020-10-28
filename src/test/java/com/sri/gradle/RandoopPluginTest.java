@@ -1,6 +1,7 @@
 package com.sri.gradle;
 
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -27,14 +28,14 @@ public class RandoopPluginTest {
     Path dir = new File("src/main/java/com/sri/gradle/utils").toPath();
     System.out.println(dir);
     List<File> filesAvailable = Javafinder.findJavaFiles(dir);
-    assertThat(filesAvailable.size(), is(5));
+    assertEquals(filesAvailable.size(), 5);
   }
 
   @Test public void testCommandBuilder(){
     List<String> filesAvailable = Command.create().arguments("ls")
         .permitNonZeroExitStatus().execute();
 
-    assertThat(filesAvailable.size(), is(9));
+    assertEquals(10, filesAvailable.size());
   }
 
   @Test public void testClasslistGeneration(){

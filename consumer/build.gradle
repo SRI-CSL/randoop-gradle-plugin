@@ -1,13 +1,22 @@
-apply plugin: 'java'
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'com.sri.gradle.randoop' version '0.0.1-SNAPSHOT'
+}
 
-buildscript {
-    dependencies {
-        classpath 'com.sri.gradle:randoop-gradle-plugin:1.0'
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url 'https://plugins.gradle.org/m2/'
     }
 }
 
-// tag::apply-configure-plugin[]
-apply plugin: 'com.sri.gradle.randoop'
+dependencies {
+    implementation 'com.google.guava:guava:28.0-jre'
+    testImplementation 'org.hamcrest:hamcrest:2.2'
+    testImplementation 'junit:junit:4.13'
+}
 
 runRandoop {
     randoopJar = file("libs/randoop.jar")
@@ -21,18 +30,4 @@ runRandoop {
     outputLimit = 2000
     junitPackageName = 'com.foo'
 }
-
-allprojects {
-    repositories {
-        jcenter()
-
-    }
-}
-
-dependencies {
-    testImplementation 'org.hamcrest:hamcrest:2.2'
-    testImplementation 'junit:junit:4.12'
-}
-
-// end::apply-configure-plugin[]
 

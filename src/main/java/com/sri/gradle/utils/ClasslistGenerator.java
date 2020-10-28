@@ -13,13 +13,15 @@ public class ClasslistGenerator {
   public static void generateClasslist(List<File> javaFiles, Path classListFile, Path resourcesDirPath){
     final List<String> filenames = Immutable.listOf(javaFiles.stream().map(f -> {
       try {
+        final String pathSeparator = System.getProperty("path.separator");
         final String canonicalPath = f.getCanonicalPath();
         final String deletingPrefix = canonicalPath
-            .substring(0, f.getCanonicalPath().indexOf(Constants.PATH_TO_SRC_DIR)) + Constants.PATH_TO_SRC_DIR + "/";
+            .substring(0, f.getCanonicalPath().indexOf(Constants.PATH_TO_SRC_DIR)) + Constants.PATH_TO_SRC_DIR + pathSeparator;
 
         return canonicalPath.replace(deletingPrefix, "")
             .replaceAll(".java","")
-            .replaceAll("/",".");
+            .replaceAll(pathSeparator,".");
+
       } catch (IOException ignored){}
       return null;
     }).filter(Objects::nonNull));

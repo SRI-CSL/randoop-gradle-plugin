@@ -132,4 +132,8 @@ public class Gentests extends RandoopTask {
   @Override protected String getTaskName() {
     return Constants.TASK_GENERATE_TESTS;
   }
+
+  @Override protected String getTaskDescription() {
+    return null;
+  }
 }

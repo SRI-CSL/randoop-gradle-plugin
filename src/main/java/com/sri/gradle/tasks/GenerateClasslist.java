@@ -1,6 +1,8 @@
 package com.sri.gradle.tasks;
 
-import com.sri.gradle.Constants;
+import static com.sri.gradle.Constants.BAD_CLASS_LIST_ERROR;
+import static com.sri.gradle.Constants.PATH_TO_SRC_DIR;
+
 import com.sri.gradle.utils.ClasslistGenerator;
 import com.sri.gradle.utils.Javafinder;
 import java.io.File;
@@ -13,12 +15,11 @@ import org.gradle.api.file.Directory;
 import org.gradle.api.tasks.TaskAction;
 
 public class GenerateClasslist extends DefaultTask {
-  private static final String BAD_CLASS_LIST_ERROR = "Unable to find src directory. Are you sure src exists?";
 
   @TaskAction public void generate() {
     final File sourceDir = getProject().getLayout()
         .getProjectDirectory()
-        .dir(Constants.PATH_TO_SRC_DIR).getAsFile();
+        .dir(PATH_TO_SRC_DIR).getAsFile();
 
     final Path sourceDirPath = sourceDir.toPath();
 
