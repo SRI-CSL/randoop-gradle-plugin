@@ -1,25 +1,24 @@
 package com.sri.gradle.randoop.tasks;
 
 import static com.sri.gradle.randoop.Constants.BAD_CLASS_LIST_ERROR;
-import static com.sri.gradle.randoop.Constants.PATH_TO_SRC_DIR;
 
+import com.sri.gradle.randoop.Constants;
 import com.sri.gradle.randoop.utils.ClasslistGenerator;
+import com.sri.gradle.randoop.utils.JavaProjectHelper;
 import com.sri.gradle.randoop.utils.Javafinder;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import org.gradle.api.DefaultTask;
 import org.gradle.api.GradleException;
 import org.gradle.api.file.Directory;
 import org.gradle.api.tasks.TaskAction;
 
-public class GenerateClasslist extends DefaultTask {
+public class GenerateClasslist extends DescribedTask {
 
-  @TaskAction public void generate() {
-    final File sourceDir = getProject().getLayout()
-        .getProjectDirectory()
-        .dir(PATH_TO_SRC_DIR).getAsFile();
+  @TaskAction public void generateClassListFile() {
+    final JavaProjectHelper projectHelper = new JavaProjectHelper(getProject());
+    final File sourceDir = projectHelper.getSrcMainDir().getAsFile();
 
     final Path sourceDirPath = sourceDir.toPath();
 
@@ -27,13 +26,10 @@ public class GenerateClasslist extends DefaultTask {
 
     final List<File> javaFiles = Javafinder.findJavaFiles(sourceDirPath, "package-info");
 
-    final Directory resourcesDir = getProject().getLayout()
-        .getProjectDirectory()
-        .dir("src/test/resources");
-
+    final Directory resourcesDir = projectHelper.getTestResourcesDir();
     final Path resourcesDirPath = resourcesDir.getAsFile().toPath();
 
-    final Path classListFile = resourcesDir.file("classlist.txt").getAsFile().toPath();
+    final Path classListFile = projectHelper.getClassListFile().getAsFile().toPath();
     try {
       ClasslistGenerator.generateClasslist(javaFiles, classListFile, resourcesDirPath);
     } catch (Exception e){
@@ -42,5 +38,13 @@ public class GenerateClasslist extends DefaultTask {
 
     getLogger().quiet("Successfully generated classlist.txt");
 
+  }
+
+  @Override protected String getTaskName() {
+    return Constants.TASK_GENERATE_CLASS_LIST;
+  }
+
+  @Override protected String getTaskDescription() {
+    return Constants.TASK_GENERATE_CLASS_LIST_DESCRIPTION;
   }
 }

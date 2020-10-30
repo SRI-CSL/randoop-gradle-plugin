@@ -24,7 +24,7 @@ gradlePlugin {
             id = 'com.sri.gradle.randoop'
             displayName = 'Randoop Gradle Plugin'
             description = 'Automatic unit test generation for Java'
-            implementationClass = 'com.sri.gradle.RandoopPlugin'
+            implementationClass = 'com.sri.gradle.randoop.RandoopPlugin'
         }
     }
 }

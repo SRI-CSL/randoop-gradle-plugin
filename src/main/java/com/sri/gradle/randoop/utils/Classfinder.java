@@ -1,5 +1,6 @@
 package com.sri.gradle.randoop.utils;
 
+import com.google.common.collect.ImmutableList;
 import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public final class Classfinder {
     }
 
     final File scannedDir = new File(scannedUrl.getFile());
-    return Immutable.listOf(collectClassesIfAny(scannedPackage, classLoader, scannedDir));
+    return ImmutableList.copyOf(collectClassesIfAny(scannedPackage, classLoader, scannedDir));
   }
 
   private static List<Class<?>> findClasses(File file, String scannedPackage, ClassLoader classLoader) {

@@ -7,32 +7,29 @@ import org.gradle.api.provider.Property;
 
 public class RandoopPluginExtension {
 
-  private final Property<Integer> timeoutSeconds;
-  private final DirectoryProperty junitOutputDir;
   private final RegularFileProperty randoopJar;
-
-
-  private final Property<Integer> outputLimit;
-  private final Property<Boolean> usethreads;
-  private final Property<Boolean> noErrorRevealingTests;
-  private final Property<Boolean> junitReflectionAllowed;
+  private final DirectoryProperty junitOutputDir;
+  private final Property<Integer> timeoutSeconds;
   private final Property<Boolean> stopOnErrorTest;
   private final Property<String> flakyTestBehavior;
+  private final Property<Boolean> noErrorRevealingTests;
+  private final Property<Boolean> junitReflectionAllowed;
+  private final Property<Boolean> usethreads;
+  private final Property<Integer> outputLimit;
   private final Property<String> junitPackageName;
 
 
   @SuppressWarnings("UnstableApiUsage")
   public RandoopPluginExtension(Project project) {
-    this.timeoutSeconds = project.getObjects().property(Integer.class);
-    this.junitOutputDir = project.getObjects().directoryProperty();
     this.randoopJar = project.getObjects().fileProperty();
-
-    this.outputLimit = project.getObjects().property(Integer.class);
-    this.usethreads = project.getObjects().property(Boolean.class);
-    this.noErrorRevealingTests = project.getObjects().property(Boolean.class);
-    this.junitReflectionAllowed = project.getObjects().property(Boolean.class);
+    this.junitOutputDir = project.getObjects().directoryProperty();
+    this.timeoutSeconds = project.getObjects().property(Integer.class);
     this.stopOnErrorTest = project.getObjects().property(Boolean.class);
     this.flakyTestBehavior = project.getObjects().property(String.class);
+    this.noErrorRevealingTests = project.getObjects().property(Boolean.class);
+    this.junitReflectionAllowed = project.getObjects().property(Boolean.class);
+    this.usethreads = project.getObjects().property(Boolean.class);
+    this.outputLimit = project.getObjects().property(Integer.class);
     this.junitPackageName = project.getObjects().property(String.class);
   }
 

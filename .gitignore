@@ -1,5 +1,15 @@
 *.lock
 *.bin
 cache.properties
-consumer/.gradle/5.6.4/
-consumer/.gradle/*.*
+bin/
+.idea/
+.classpath
+.settings/
+bin/*.*
+.project
+.gradle/
+build/
+!consumer/com
+!consumer/.gradle/*
+consumer/build
+consumer/bin

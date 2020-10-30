@@ -6,7 +6,6 @@ import static org.junit.Assert.assertTrue;
 
 import com.sri.gradle.randoop.utils.Classfinder;
 import com.sri.gradle.randoop.utils.ClasslistGenerator;
-import com.sri.gradle.randoop.utils.Command;
 import com.sri.gradle.randoop.utils.Javafinder;
 import java.io.File;
 import java.nio.file.Files;
@@ -17,7 +16,7 @@ import org.junit.Test;
 public class RandoopPluginTest {
   @Test public void testClassfinder(){
     List<Class<?>> files = Classfinder.findClasses(
-        "com.sri.gradle", getClass().getClassLoader());
+        "com.sri.gradle.randoop", getClass().getClassLoader());
 
     assertFalse(files.isEmpty());
   }
@@ -27,15 +26,6 @@ public class RandoopPluginTest {
     System.out.println(dir);
     List<File> filesAvailable = Javafinder.findJavaFiles(dir);
     assertEquals(filesAvailable.size(), 5);
-  }
-
-  @Test public void testCommandBuilder(){
-    List<String> filesAvailable = Command.create()
-        .workingDirectory(new File("src/main/java/com/sri/gradle/randoop/utils"))
-        .arguments("ls")
-        .permitNonZeroExitStatus().execute();
-
-    assertEquals(5, filesAvailable.size());
   }
 
   @Test public void testClasslistGeneration(){

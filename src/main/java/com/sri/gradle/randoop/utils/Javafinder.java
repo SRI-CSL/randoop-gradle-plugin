@@ -1,5 +1,7 @@
 package com.sri.gradle.randoop.utils;
 
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableSet;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileSystems;
@@ -31,7 +33,7 @@ public class Javafinder {
    * @return the list of files matching a given extension.
    */
   public static List<File> findJavaFiles(Path directory, String... exclude){
-    if (!Files.exists(directory)) return Immutable.list();
+    if (!Files.exists(directory)) return ImmutableList.of();
 
     return findJavaFiles(directory.toFile(), exclude);
   }
@@ -47,14 +49,14 @@ public class Javafinder {
   private static List<File> findJavaFiles(File directory, String... skipHints){
 
     try {
-      return Immutable.listOf(
+      return ImmutableList.copyOf(
           walkDirectory(directory, skipHints)
       );
     } catch (IOException e) {
       System.err.printf("Error: unable to crawl %s. See %s%n", directory.getName(), e);
     }
 
-    return Immutable.list();
+    return ImmutableList.of();
   }
 
 
@@ -73,7 +75,7 @@ public class Javafinder {
     final String dirName = start.toFile().getName();
 
     final List<File>  files   = new ArrayList<>();
-    final Set<String> excluded = Immutable.setOf(Arrays.asList(keywords));
+    final Set<String> excluded = ImmutableSet.copyOf(Arrays.asList(keywords));
 
     try {
       Files.walkFileTree(start, new SimpleFileVisitor<Path>(){

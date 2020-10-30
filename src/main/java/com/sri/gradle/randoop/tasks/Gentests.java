@@ -1,10 +1,11 @@
 package com.sri.gradle.randoop.tasks;
 
 import com.sri.gradle.randoop.Constants;
-import com.sri.gradle.randoop.internal.RandoopCommand;
+import com.sri.gradle.randoop.internal.RandoopExecutor;
+import com.sri.gradle.randoop.utils.JavaProjectHelper;
 import java.io.File;
-import java.util.Arrays;
-import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 import org.gradle.api.GradleException;
 import org.gradle.api.file.DirectoryProperty;
 import org.gradle.api.file.RegularFileProperty;
@@ -15,20 +16,17 @@ import org.gradle.api.tasks.Optional;
 import org.gradle.api.tasks.OutputDirectory;
 import org.gradle.api.tasks.TaskAction;
 
-public class Gentests extends RandoopTask {
+public class Gentests extends DescribedTask {
+  private final RegularFileProperty randoopJar;
   private final DirectoryProperty junitOutputDir;
   private final Property<Integer> timeoutSeconds;
-  private final RegularFileProperty randoopJar;
-
-  private final Property<Integer> outputLimit;
-  private final Property<Boolean> usethreads;
-  private final Property<Boolean> noErrorRevealingTests;
-  private final Property<Boolean> junitReflectionAllowed;
   private final Property<Boolean> stopOnErrorTest;
   private final Property<String> flakyTestBehavior;
+  private final Property<Boolean> noErrorRevealingTests;
+  private final Property<Boolean> junitReflectionAllowed;
+  private final Property<Boolean> usethreads;
+  private final Property<Integer> outputLimit;
   private final Property<String> junitPackageName;
-
-  private File classListFile;
 
   @SuppressWarnings("UnstableApiUsage")
   public Gentests() {
@@ -44,7 +42,6 @@ public class Gentests extends RandoopTask {
     this.flakyTestBehavior = getProject().getObjects().property(String.class);
     this.junitPackageName = getProject().getObjects().property(String.class);
 
-    this.classListFile = null;
   }
 
   @Input public Property<String> getFlakyTestBehavior() {
@@ -87,40 +84,38 @@ public class Gentests extends RandoopTask {
     return stopOnErrorTest;
   }
 
-  public void setClassListFile(File file){
-    this.classListFile = file;
-  }
-
-  public File getClassListFile(){
-    return classListFile;
-  }
-
-  @TaskAction public void generate() {
+  @TaskAction public void generateTests() {
     try {
-      RandoopCommand command = new RandoopCommand(getTaskName());
-      command = command.setClasspath(getProject(), getRandoopJar(), getJunitOutputDir());
-      command = command.setTimelimit(getTimeoutSeconds().getOrElse(30));
-      command = command.setStopOnErrorTest(getStopOnErrorTest().getOrElse(false));
-      command = command.setFlakyTestBehavior(getFlakyTestBehavior().getOrElse("discard"));
-      command = command.setNoErrorRevealingTests(getNoErrorRevealingTests().getOrElse(true));
-      command = command.setJUnitReflectionAllowed(getJunitReflectionAllowed().getOrElse(false));
-      command = command.setJUnitPackageName(getJunitPackageName().get());
+      final JavaProjectHelper projectHelper = new JavaProjectHelper(getProject());
+      final File classListFile = projectHelper.findClassListFile().orElseThrow(IllegalArgumentException::new);
 
-      if (getUsethreads().isPresent() && getUsethreads().get()){
-        command = command.setUseThreads();
-      }
+      final File randoopJar = Objects.requireNonNull(getRandoopJar().getAsFile().get());
+      final Set<File> classpath = projectHelper.getClasspath(randoopJar);
 
-      getLogger().quiet(getClassListFile().toString());
-      command = command.setClassListFile(getClassListFile());
-      command = command.setOutputLimit(getOutputLimit().getOrElse(2000));
-      command = command.setDebugChecks(true);
+      final File junitOutputDir = getJunitOutputDir().getAsFile().get();
 
-      getLogger().quiet("About to start generating tests");
-      getLogger().quiet("Randoop configuration:");
-      Arrays.stream(command.getArgs()).forEach(System.out::println);
+      final RandoopExecutor mainExecutor = new RandoopExecutor(getProject());
+      mainExecutor.exec(spec -> {
+        spec.setWorkingDir(getProject().getProjectDir());
+        spec.setClasspath(getProject().files(classpath));
+        spec.setMain(Constants.RANDOOP_MAIN_CLASS);
+        spec.setCommand("gentests");
+        spec.setTimelimit(getTimeoutSeconds().getOrElse(30));
+        spec.setStopOnErrorTest(getStopOnErrorTest().getOrElse(false));
+        spec.setFlakyTestBehavior(getFlakyTestBehavior().getOrElse("discard"));
+        spec.setNoErrorRevealingTests(getNoErrorRevealingTests().getOrElse(true));
+        spec.setJUnitReflectionAllowed(getJunitReflectionAllowed().getOrElse(false));
+        spec.setJUnitPackageName(getJunitPackageName().get());
+        spec.setJUnitOutputDir(junitOutputDir);
 
-      final List<String> out = command.execute();
-      out.forEach(System.out::println);
+        if (getUsethreads().isPresent() && getUsethreads().get()){
+          spec.setUseThreads();
+        }
+
+        spec.setClassListFile(classListFile);
+        spec.setOutputLimit(getOutputLimit().getOrElse(2000));
+        spec.setDebugChecks(true);
+      });
 
     } catch (Exception e) {
       throw new GradleException("Failed to generate tests", e);
@@ -134,6 +129,6 @@ public class Gentests extends RandoopTask {
   }
 
   @Override protected String getTaskDescription() {
-    return null;
+    return Constants.TASK_GENERATE_TESTS_DESCRIPTION;
   }
 }

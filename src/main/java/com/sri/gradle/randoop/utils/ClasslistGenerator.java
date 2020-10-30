@@ -11,16 +11,16 @@ import java.util.Objects;
 
 public class ClasslistGenerator {
   public static void generateClasslist(List<File> javaFiles, Path classListFile, Path resourcesDirPath){
-    final List<String> filenames = Immutable.listOf(javaFiles.stream().map(f -> {
+    final List<String> filenames = ImmutableStream.listCopyOf(javaFiles.stream().map(f -> {
       try {
-        final String pathSeparator = System.getProperty("path.separator");
         final String canonicalPath = f.getCanonicalPath();
         final String deletingPrefix = canonicalPath
-            .substring(0, f.getCanonicalPath().indexOf(Constants.PATH_TO_SRC_DIR)) + Constants.PATH_TO_SRC_DIR + pathSeparator;
+            .substring(0, f.getCanonicalPath().indexOf(Constants.PROJECT_MAIN_SRC_DIR)) + Constants.PROJECT_MAIN_SRC_DIR
+            + Constants.FILE_SEPARATOR;
 
         return canonicalPath.replace(deletingPrefix, "")
             .replaceAll(".java","")
-            .replaceAll(pathSeparator,".");
+            .replaceAll(Constants.FILE_SEPARATOR,".");
 
       } catch (IOException ignored){}
       return null;
