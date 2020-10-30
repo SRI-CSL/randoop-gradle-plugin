@@ -13,3 +13,13 @@ build/
 !consumer/.gradle/*
 consumer/build
 consumer/bin
+target/
+consumer/com
+consumer/.gradle
+
+.gradle
+.settings
+bin
+build
+*.iml
+.vscode
