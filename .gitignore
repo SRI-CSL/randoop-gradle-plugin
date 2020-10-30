@@ -23,3 +23,5 @@ bin
 build
 *.iml
 .vscode
+/consumer/.gradle
+/consumer/build
