@@ -24,9 +24,13 @@ public class RandoopPlugin implements Plugin<Project> {
 
     final CheckForRandoop checkForRandoop = createCheckForRandoop(project);
     final GenerateClasslist generateClasslist = createGenerateClasslist(project);
+    generateClasslist.dependsOn(checkForRandoop);
 
     final Gentests gentests = createGentestsTask(project, extension);
-    gentests.dependsOn("build", checkForRandoop, generateClasslist);
+    // FIXME Randoop files get generated but not compiled as part of the project's
+    //  build process. You need to run the build process twice in order
+    //  for these files to be compiled.
+    gentests.dependsOn(generateClasslist, "build");
 
     project.getLogger().quiet("Executing " + gentests.getName());
   }
