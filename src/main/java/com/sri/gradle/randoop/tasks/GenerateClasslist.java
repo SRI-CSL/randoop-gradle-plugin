@@ -33,19 +33,20 @@ public class GenerateClasslist extends DescribedTask {
     final Path classListFile = projectHelper.getClassListFile().getAsFile().toPath();
     try {
       ClasslistGenerator.generateClasslist(javaFiles, classListFile, resourcesDirPath);
-    } catch (Exception e){
+    } catch (Exception e) {
       throw new GradleException(e.getMessage());
     }
 
     getLogger().quiet("Successfully generated classlist.txt");
-
   }
 
-  @Override protected String getTaskName() {
+  @Override
+  protected String getTaskName() {
     return Constants.GENERATE_CLASS_LIST_TASK_NAME;
   }
 
-  @Override protected String getTaskDescription() {
+  @Override
+  protected String getTaskDescription() {
     return Constants.GENERATE_CLASS_LIST_TASK_DESCRIPTION;
   }
 }

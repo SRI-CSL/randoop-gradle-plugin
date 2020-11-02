@@ -6,7 +6,6 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
@@ -22,13 +21,13 @@ public class JavaProjectHelper {
 
   private final Project project;
 
-  public JavaProjectHelper(Project project){
+  public JavaProjectHelper(Project project) {
     this.project = project;
   }
 
-  public Set<File> getClasspath(File... additionalFiles){
+  public Set<File> getClasspath(File... additionalFiles) {
     final Set<File> classpath = new HashSet<>();
-    for (File each : additionalFiles){
+    for (File each : additionalFiles) {
       if (each == null) continue;
       classpath.add(each);
     }
@@ -48,8 +47,7 @@ public class JavaProjectHelper {
     return project.getTasks().getByName(taskName);
   }
 
-  public <T extends Task> Optional<T> findTask(
-      String taskName, Class<T> taskType) {
+  public <T extends Task> Optional<T> findTask(String taskName, Class<T> taskType) {
     return findTask(taskName).map(taskType::cast);
   }
 
@@ -57,8 +55,7 @@ public class JavaProjectHelper {
     return Optional.ofNullable(project.getTasks().findByName(taskName));
   }
 
-
-  public Optional<File> findClassListFile(){
+  public Optional<File> findClassListFile() {
     final Directory resourcesDir = getTestResourcesDir();
     final Path resourcesDirPath = resourcesDir.getAsFile().toPath();
     if (!Files.exists(resourcesDirPath)) {
@@ -73,13 +70,11 @@ public class JavaProjectHelper {
     return Optional.of(cf);
   }
 
-  public Set<File> getRuntimeClasspath(){
-    return ImmutableSet.copyOf(getTestSourceSet(
-        getProject())
-        .getRuntimeClasspath().getFiles());
+  public Set<File> getRuntimeClasspath() {
+    return ImmutableSet.copyOf(getTestSourceSet(getProject()).getRuntimeClasspath().getFiles());
   }
 
-  public Project getProject(){
+  public Project getProject() {
     return project;
   }
 
@@ -87,31 +82,31 @@ public class JavaProjectHelper {
     return new File(getProject().getBuildDir(), "driver");
   }
 
-  public DirectoryProperty getBuildDir(){
+  public DirectoryProperty getBuildDir() {
     Objects.requireNonNull(getProject());
     return getProject().getLayout().getBuildDirectory();
   }
 
-  public Directory getSrcMainDir(){
+  public Directory getSrcMainDir() {
     Objects.requireNonNull(getProject());
     return getProjectDir().dir(Constants.PROJECT_MAIN_SRC_DIR);
   }
 
-  public Directory getSrcTestDir(){
+  public Directory getSrcTestDir() {
     Objects.requireNonNull(getProject());
     return getProjectDir().dir(Constants.PROJECT_TEST_SRC_DIR);
   }
 
-  public Directory getTestResourcesDir(){
+  public Directory getTestResourcesDir() {
     Objects.requireNonNull(getProject());
     return getProjectDir().dir(Constants.PROJECT_TEST_RESOURCES_DIR);
   }
 
-  public RegularFile getClassListFile(){
+  public RegularFile getClassListFile() {
     return getTestResourcesDir().file(Constants.CLASS_LIST_FILE);
   }
 
-  public Directory getProjectDir(){
+  public Directory getProjectDir() {
     Objects.requireNonNull(getProject());
     return getProject().getLayout().getProjectDirectory();
   }

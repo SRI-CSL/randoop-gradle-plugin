@@ -9,26 +9,27 @@ public enum OutOfMemoryError {
   INCLUDE_IN_REGRESSION_TESTS("EXPECTED");
 
   private final String value;
-  OutOfMemoryError(String value){
+
+  OutOfMemoryError(String value) {
     this.value = value;
   }
 
-  public String getValue(){
+  public String getValue() {
     return value;
   }
 
-  public static OutOfMemoryError of(String value){
+  public static OutOfMemoryError of(String value) {
     Preconditions.checkArgument(value != null && !value.isEmpty());
 
-    for (OutOfMemoryError each : values()){
+    for (OutOfMemoryError each : values()) {
       if (each.getValue().equals(value)) return each;
     }
 
     throw new NoSuchElementException("OutOfMemoryError value not found");
   }
 
-
-  @Override public String toString() {
+  @Override
+  public String toString() {
     return getValue();
   }
 }

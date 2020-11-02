@@ -11,7 +11,9 @@ public abstract class DescribedTask extends DefaultTask {
   @Internal
   protected abstract String getTaskDescription();
 
-  @Override @Nonnull public String toString() {
+  @Override
+  @Nonnull
+  public String toString() {
     return getTaskName() + ": " + getTaskDescription();
   }
 }
