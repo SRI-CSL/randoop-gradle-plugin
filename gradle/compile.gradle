@@ -1,0 +1,24 @@
+java {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+}
+
+tasks.withType(JavaCompile) {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    // Show all warnings except boot classpath
+    options.compilerArgs += ['-Werror', '-Xlint:deprecation']
+    options.encoding = 'utf-8'
+}
+
+tasks.withType(Test) {
+    // Turn on logging for all tests, filter to show failures/skips only
+    testLogging {
+        exceptionFormat 'full'
+        showCauses true
+        showExceptions true
+        showStackTraces true
+        events 'failed', 'skipped'
+    }
+}

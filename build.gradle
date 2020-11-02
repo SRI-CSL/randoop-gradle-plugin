@@ -1,16 +1,42 @@
-apply plugin: 'java'
-apply plugin: 'java-gradle-plugin'
+plugins {
+    id 'com.gradle.plugin-publish' version '0.12.0'
+    id 'java'
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+}
 
-group = 'com.sri.gradle'
-version = '1.0'
-
-// tag::test-framework[]
 repositories {
     jcenter()
+    mavenCentral()
+
+    // The gradle plugin portal, so that we can depend on other plugins.
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
+}
+
+group = 'com.sri'
+version = '0.0.1-SNAPSHOT'
+
+gradlePlugin {
+    plugins {
+        randoopPlugin {
+            id = 'com.sri.gradle.randoop'
+            displayName = 'Randoop Gradle Plugin'
+            description = 'Automatic unit test generation for Java'
+            implementationClass = 'com.sri.gradle.randoop.RandoopPlugin'
+        }
+    }
 }
 
 dependencies {
+    implementation gradleApi()
+    implementation 'com.google.guava:guava:28.0-jre'
+
     testImplementation 'org.hamcrest:hamcrest:2.2'
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
+    testImplementation 'org.assertj:assertj-core:3.11.1'
 }
-// end::test-framework[]
+
+
+apply from: 'gradle/compile.gradle'
