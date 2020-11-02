@@ -1,0 +1,2 @@
+com.foo.Foo
+com.foo.FooManager
