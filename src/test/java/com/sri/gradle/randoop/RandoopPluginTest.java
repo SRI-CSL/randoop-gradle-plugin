@@ -25,7 +25,7 @@ public class RandoopPluginTest {
     Path dir = new File("src/main/java/com/sri/gradle/randoop/utils").toPath();
     System.out.println(dir);
     List<File> filesAvailable = Javafinder.findJavaFiles(dir);
-    assertEquals(filesAvailable.size(), 5);
+    assertEquals(filesAvailable.size(), 6);
   }
 
   @Test public void testClasslistGeneration(){

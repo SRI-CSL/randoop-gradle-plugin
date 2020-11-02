@@ -16,7 +16,8 @@ import org.gradle.api.tasks.TaskAction;
 
 public class GenerateClasslist extends DescribedTask {
 
-  @TaskAction public void generateClassListFile() {
+  @TaskAction
+  public void generateClassListFile() {
     final JavaProjectHelper projectHelper = new JavaProjectHelper(getProject());
     final File sourceDir = projectHelper.getSrcMainDir().getAsFile();
 
@@ -41,10 +42,10 @@ public class GenerateClasslist extends DescribedTask {
   }
 
   @Override protected String getTaskName() {
-    return Constants.TASK_GENERATE_CLASS_LIST;
+    return Constants.GENERATE_CLASS_LIST_TASK_NAME;
   }
 
   @Override protected String getTaskDescription() {
-    return Constants.TASK_GENERATE_CLASS_LIST_DESCRIPTION;
+    return Constants.GENERATE_CLASS_LIST_TASK_DESCRIPTION;
   }
 }

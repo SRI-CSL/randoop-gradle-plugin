@@ -1,18 +1,29 @@
 package com.sri.gradle.randoop;
 
+import static com.sri.gradle.randoop.Constants.CHECK_FOR_RANDOOP_TASK_NAME;
+import static com.sri.gradle.randoop.Constants.CHECK_FOR_RANDOOP_TESTS_TASK_NAME;
+import static com.sri.gradle.randoop.Constants.CLEANUP_RANDOOP_TASK_NAME;
+import static com.sri.gradle.randoop.Constants.GENERATE_CLASS_LIST_TASK_NAME;
+import static com.sri.gradle.randoop.Constants.GENERATE_TESTS_TASK_NAME;
 import static com.sri.gradle.randoop.Constants.GROUP;
 import static com.sri.gradle.randoop.Constants.RANDOOP_PLUGIN_DESCRIPTION;
 import static com.sri.gradle.randoop.Constants.RANDOOP_PLUGIN_EXTENSION;
-import static com.sri.gradle.randoop.Constants.TASK_CHECK_FOR_RANDOOP;
-import static com.sri.gradle.randoop.Constants.TASK_GENERATE_CLASS_LIST;
-import static com.sri.gradle.randoop.Constants.TASK_GENERATE_TESTS;
 
 import com.sri.gradle.randoop.tasks.CheckForRandoop;
+import com.sri.gradle.randoop.tasks.CheckForRandoopTests;
+import com.sri.gradle.randoop.tasks.CleanupRandoopOutput;
 import com.sri.gradle.randoop.tasks.GenerateClasslist;
 import com.sri.gradle.randoop.tasks.Gentests;
+import com.sri.gradle.randoop.utils.JavaProjectHelper;
+import java.util.Optional;
+import org.gradle.api.Action;
+import org.gradle.api.GradleException;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
+import org.gradle.api.Task;
+import org.gradle.api.plugins.JavaBasePlugin;
 import org.gradle.api.plugins.JavaPlugin;
+import org.gradle.api.tasks.compile.JavaCompile;
 
 public class RandoopPlugin implements Plugin<Project> {
 
@@ -22,21 +33,96 @@ public class RandoopPlugin implements Plugin<Project> {
     RandoopPluginExtension extension = project.getExtensions().create(
         RANDOOP_PLUGIN_EXTENSION, RandoopPluginExtension.class, project);
 
+    // Cleans up any previously generated files (if needed)
+    if (project.hasProperty(Constants.FORCE_CLEANUP_PROPERTY)){
+      configureCleanupRandoopOutput(project, extension);
+    }
+
+    // Checks if Randoop is in your CLASSPATH
     final CheckForRandoop checkForRandoop = createCheckForRandoop(project);
+    checkForRandoop.dependsOn(JavaBasePlugin.BUILD_TASK_NAME);
+
+    // Generates a list of classes that Randoop will use as input in order to generate unit tests.
     final GenerateClasslist generateClasslist = createGenerateClasslist(project);
     generateClasslist.dependsOn(checkForRandoop);
 
     final Gentests gentests = createGentestsTask(project, extension);
-    // FIXME Randoop files get generated but not compiled as part of the project's
-    //  build process. You need to run the build process twice in order
-    //  for these files to be compiled.
-    gentests.dependsOn(generateClasslist, "build");
+    gentests.dependsOn(generateClasslist);
 
-    project.getLogger().quiet("Executing " + gentests.getName());
+    // Compiles
+    final JavaCompile randoopJavaCompile = configureJavaCompile(project, gentests);
+    CheckForRandoopTests checkForRandoopTests = createCheckForTests(project, extension);
+    checkForRandoopTests.dependsOn(randoopJavaCompile, JavaBasePlugin.BUILD_TASK_NAME);
+
+    project.getLogger().quiet("Executing " + checkForRandoopTests.getName());
+  }
+
+  private void configureCleanupRandoopOutput(Project project, RandoopPluginExtension extension){
+    final CleanupRandoopOutput cleanupRandoopOutput = createCleanupRandoop(project, extension);
+    cleanupRandoopOutput.dependsOn("clean");
+
+    final JavaProjectHelper projectHelper = new JavaProjectHelper(project);
+    Optional<JavaCompile> javaCompile =
+        projectHelper.findTask(JavaPlugin.COMPILE_JAVA_TASK_NAME, JavaCompile.class);
+
+    if (!javaCompile.isPresent()) {
+      throw new GradleException("JavaPlugin is available in this project");
+    }
+
+    final JavaCompile aJavaCompile = javaCompile.get();
+    aJavaCompile.dependsOn(cleanupRandoopOutput);
+  }
+
+  private JavaCompile configureJavaCompile(Project project, Gentests gentests){
+    final JavaProjectHelper projectHelper = new JavaProjectHelper(project);
+
+    Optional<JavaCompile> javaCompile =
+        projectHelper.findTask(JavaPlugin.COMPILE_TEST_JAVA_TASK_NAME, JavaCompile.class);
+
+    if (!javaCompile.isPresent()) {
+      throw new GradleException("JavaPlugin is available in this project");
+    }
+
+    final JavaCompile aJavaCompile = javaCompile.get();
+    // Creates a new Randoop JavaCompile extension, which creates a
+    // Constants.COMPILE_TEST_DRIVER task.
+    final RandoopJavaCompileExtension driverExtension =
+        aJavaCompile
+            .getExtensions()
+            .create("driverExtension", RandoopJavaCompileExtension.class, project);
+
+    driverExtension.setCompileTestDriverSeparately(true);
+
+    // Gets the newly created Randoop task
+    final JavaCompile testDriverJavaCompile =
+        projectHelper.task(Constants.COMPILE_TEST_DRIVER, JavaCompile.class);
+    testDriverJavaCompile.dependsOn(gentests);
+    final JavaCompileMutator compileMutator =
+        new JavaCompileMutator(project, aJavaCompile.getClasspath());
+
+    // Don't convert to lambda. More info:
+    // https://github.com/gradle/gradle/issues/5510#issuecomment-416860213
+    gentests.doLast(new Action<Task>() {
+      @Override public void execute(Task ignored) {
+        compileMutator.mutateJavaCompileTask(testDriverJavaCompile);
+      }
+    });
+
+    return testDriverJavaCompile;
+  }
+
+  private CheckForRandoopTests createCheckForTests(Project project, RandoopPluginExtension extension){
+    final CheckForRandoopTests checkRandoopTestTask = project.getTasks().create(
+        CHECK_FOR_RANDOOP_TESTS_TASK_NAME, CheckForRandoopTests.class);
+    checkRandoopTestTask.setGroup(GROUP);
+
+    checkRandoopTestTask.getJunitOutputDir().set(extension.getJunitOutputDir());
+
+    return checkRandoopTestTask;
   }
 
   private Gentests createGentestsTask(Project project, RandoopPluginExtension extension) {
-    final Gentests generateTestTask = project.getTasks().create(TASK_GENERATE_TESTS, Gentests.class);
+    final Gentests generateTestTask = project.getTasks().create(GENERATE_TESTS_TASK_NAME, Gentests.class);
     generateTestTask.setGroup(GROUP);
     generateTestTask.setDescription(RANDOOP_PLUGIN_DESCRIPTION);
 
@@ -54,17 +140,26 @@ public class RandoopPlugin implements Plugin<Project> {
     return generateTestTask;
   }
 
+  private CleanupRandoopOutput createCleanupRandoop(Project project, RandoopPluginExtension extension){
+    final CleanupRandoopOutput cleanupRandoopOutput = project.getTasks().create(
+        CLEANUP_RANDOOP_TASK_NAME, CleanupRandoopOutput.class);
+    cleanupRandoopOutput.setGroup(GROUP);
+    cleanupRandoopOutput.setDescription(Constants.CLEANUP_RANDOOP_TASK_DESCRIPTION);
+    cleanupRandoopOutput.getJunitOutputDir().set(extension.getJunitOutputDir());
+    return cleanupRandoopOutput;
+  }
+
   private CheckForRandoop createCheckForRandoop(Project project){
     final CheckForRandoop checkForRandoop = project.getTasks().create(
-        TASK_CHECK_FOR_RANDOOP, CheckForRandoop.class);
+        CHECK_FOR_RANDOOP_TASK_NAME, CheckForRandoop.class);
     checkForRandoop.setGroup(GROUP);
-    checkForRandoop.setDescription(Constants.TASK_CHECK_FOR_RANDOOP_DESCRIPTION);
+    checkForRandoop.setDescription(Constants.CHECK_FOR_RANDOOP_TASK_DESCRIPTION);
     return checkForRandoop;
   }
 
   private GenerateClasslist createGenerateClasslist(Project project){
     final GenerateClasslist generateClasslist = project.getTasks().create(
-        TASK_GENERATE_CLASS_LIST, GenerateClasslist.class);
+        GENERATE_CLASS_LIST_TASK_NAME, GenerateClasslist.class);
     generateClasslist.setGroup(GROUP);
     generateClasslist.setDescription("");
     return generateClasslist;

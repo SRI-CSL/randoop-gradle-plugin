@@ -125,10 +125,10 @@ public class Gentests extends DescribedTask {
   }
 
   @Override protected String getTaskName() {
-    return Constants.TASK_GENERATE_TESTS;
+    return Constants.GENERATE_TESTS_TASK_NAME;
   }
 
   @Override protected String getTaskDescription() {
-    return Constants.TASK_GENERATE_TESTS_DESCRIPTION;
+    return Constants.GENERATE_TESTS_TASK_DESCRIPTION;
   }
 }

@@ -42,10 +42,10 @@ public class CheckForRandoop extends DescribedTask {
   }
 
   @Override protected String getTaskName() {
-    return Constants.TASK_CHECK_FOR_RANDOOP;
+    return Constants.CHECK_FOR_RANDOOP_TASK_NAME;
   }
 
   @Override protected String getTaskDescription() {
-    return Constants.TASK_CHECK_FOR_RANDOOP_DESCRIPTION;
+    return Constants.CHECK_FOR_RANDOOP_TASK_DESCRIPTION;
   }
 }

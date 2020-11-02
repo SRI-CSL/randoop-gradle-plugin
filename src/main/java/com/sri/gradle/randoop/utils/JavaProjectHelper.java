@@ -6,10 +6,12 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import org.gradle.api.Project;
+import org.gradle.api.Task;
 import org.gradle.api.file.Directory;
 import org.gradle.api.file.DirectoryProperty;
 import org.gradle.api.file.RegularFile;
@@ -38,6 +40,24 @@ public class JavaProjectHelper {
     return classpath;
   }
 
+  public <T extends Task> T task(String taskName, Class<T> taskType) {
+    return taskType.cast(task(getProject(), taskName));
+  }
+
+  public static Task task(Project project, String taskName) {
+    return project.getTasks().getByName(taskName);
+  }
+
+  public <T extends Task> Optional<T> findTask(
+      String taskName, Class<T> taskType) {
+    return findTask(taskName).map(taskType::cast);
+  }
+
+  public Optional<Task> findTask(String taskName) {
+    return Optional.ofNullable(project.getTasks().findByName(taskName));
+  }
+
+
   public Optional<File> findClassListFile(){
     final Directory resourcesDir = getTestResourcesDir();
     final Path resourcesDirPath = resourcesDir.getAsFile().toPath();
@@ -63,6 +83,10 @@ public class JavaProjectHelper {
     return project;
   }
 
+  public File getDriverDir() {
+    return new File(getProject().getBuildDir(), "driver");
+  }
+
   public DirectoryProperty getBuildDir(){
     Objects.requireNonNull(getProject());
     return getProject().getLayout().getBuildDirectory();
@@ -71,6 +95,11 @@ public class JavaProjectHelper {
   public Directory getSrcMainDir(){
     Objects.requireNonNull(getProject());
     return getProjectDir().dir(Constants.PROJECT_MAIN_SRC_DIR);
+  }
+
+  public Directory getSrcTestDir(){
+    Objects.requireNonNull(getProject());
+    return getProjectDir().dir(Constants.PROJECT_TEST_SRC_DIR);
   }
 
   public Directory getTestResourcesDir(){
@@ -93,6 +122,22 @@ public class JavaProjectHelper {
 
   public Directory getBuildTestDir() {
     return getBuildDir().dir(Constants.PROJECT_TEST_CLASS_DIR).get();
+  }
+
+  public SourceSet getTestSourceSet() {
+    return sourceSet(getProject(), SourceSet.TEST_SOURCE_SET_NAME);
+  }
+
+  public static SourceSet sourceSet(Project project, String sourceSetName) {
+    return sourceSets(project).getByName(sourceSetName);
+  }
+
+  public static SourceSetContainer sourceSets(Project project) {
+    return extension(project, SourceSetContainer.class);
+  }
+
+  public static <T> T extension(Project project, Class<T> extensionType) {
+    return project.getExtensions().getByType(extensionType);
   }
 
   private static SourceSet getTestSourceSet(Project project) {
