@@ -18,14 +18,16 @@ import org.gradle.api.tasks.TaskAction;
 public class CleanupRandoopOutput extends DescribedTask {
   private final DirectoryProperty junitOutputDir;
 
-  public CleanupRandoopOutput(){
+  public CleanupRandoopOutput() {
     this.junitOutputDir = getProject().getObjects().directoryProperty(); // unchecked warning
   }
 
   @TaskAction
-  public void cleanupRandoopOutput(){
-    Set<File> randoopGeneratedTests = MoreFiles.getMatchingFiles(
-        getJunitOutputDir().getAsFile().get().toPath(), Constants.EXPECTED_RANDOOP_TEST_NAME_REGEX);
+  public void cleanupRandoopOutput() {
+    Set<File> randoopGeneratedTests =
+        MoreFiles.getMatchingFiles(
+            getJunitOutputDir().getAsFile().get().toPath(),
+            Constants.EXPECTED_RANDOOP_TEST_NAME_REGEX);
 
     final JavaProjectHelper helper = new JavaProjectHelper(getProject());
     final File classListFile = helper.getClassListFile().getAsFile();
@@ -38,9 +40,11 @@ public class CleanupRandoopOutput extends DescribedTask {
 
     randoopGeneratedTests.forEach(CleanupRandoopOutput::deleteFile);
 
-    randoopGeneratedTests = ImmutableStream.setCopyOf(randoopGeneratedTests.stream().filter(f -> Files.exists(f.toPath())));
+    randoopGeneratedTests =
+        ImmutableStream.setCopyOf(
+            randoopGeneratedTests.stream().filter(f -> Files.exists(f.toPath())));
 
-    if (!randoopGeneratedTests.isEmpty()){
+    if (!randoopGeneratedTests.isEmpty()) {
       throw new GradleException("Unable to delete all Randoop generated files");
     }
 
@@ -52,22 +56,26 @@ public class CleanupRandoopOutput extends DescribedTask {
    *
    * @param file file object
    */
-  private static void deleteFile(File file){
+  private static void deleteFile(File file) {
     Objects.requireNonNull(file);
     try {
       Files.delete(file.toPath());
-    } catch (IOException ignored){}
+    } catch (IOException ignored) {
+    }
   }
 
-  @OutputDirectory public DirectoryProperty getJunitOutputDir() {
+  @OutputDirectory
+  public DirectoryProperty getJunitOutputDir() {
     return this.junitOutputDir;
   }
 
-  @Override protected String getTaskName() {
+  @Override
+  protected String getTaskName() {
     return Constants.CLEANUP_RANDOOP_TASK_NAME;
   }
 
-  @Override protected String getTaskDescription() {
+  @Override
+  protected String getTaskDescription() {
     return Constants.CLEANUP_RANDOOP_TASK_DESCRIPTION;
   }
 }

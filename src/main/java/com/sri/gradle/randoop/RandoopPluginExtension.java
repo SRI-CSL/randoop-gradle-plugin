@@ -18,7 +18,6 @@ public class RandoopPluginExtension {
   private final Property<Integer> outputLimit;
   private final Property<String> junitPackageName;
 
-
   @SuppressWarnings("UnstableApiUsage")
   public RandoopPluginExtension(Project project) {
     this.randoopJar = project.getObjects().fileProperty();

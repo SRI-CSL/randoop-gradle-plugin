@@ -12,9 +12,11 @@ public final class Classfinder {
   private static final char PKG_SEPARATOR = '.';
   private static final char DIR_SEPARATOR = '/';
   private static final String CLASS_FILE_SUFFIX = ".class";
-  private static final String BAD_PACKAGE_ERROR = "Unable to get resources from path '%s'. Are you sure the package '%s' exists?";
+  private static final String BAD_PACKAGE_ERROR =
+      "Unable to get resources from path '%s'. Are you sure the package '%s' exists?";
 
-  public static List<Class<?>> findClasses(final String scannedPackage, final ClassLoader classLoader) {
+  public static List<Class<?>> findClasses(
+      final String scannedPackage, final ClassLoader classLoader) {
     final String scannedPath = scannedPackage.replace(PKG_SEPARATOR, DIR_SEPARATOR);
     final URL scannedUrl = classLoader.getResource(scannedPath);
 
@@ -27,7 +29,8 @@ public final class Classfinder {
     return ImmutableList.copyOf(collectClassesIfAny(scannedPackage, classLoader, scannedDir));
   }
 
-  private static List<Class<?>> findClasses(File file, String scannedPackage, ClassLoader classLoader) {
+  private static List<Class<?>> findClasses(
+      File file, String scannedPackage, ClassLoader classLoader) {
     final List<Class<?>> classes = new ArrayList<>();
     final String resource = scannedPackage + PKG_SEPARATOR + file.getName();
 
@@ -45,19 +48,19 @@ public final class Classfinder {
     return classes;
   }
 
-  private static List<Class<?>> collectClassesIfAny(final String scannedPackage, final ClassLoader classLoader,
-      final File scannedDir) {
+  private static List<Class<?>> collectClassesIfAny(
+      final String scannedPackage, final ClassLoader classLoader, final File scannedDir) {
 
     List<Class<?>> classes = new ArrayList<>();
     final Optional<File[]> optList = Optional.ofNullable(scannedDir.listFiles());
 
-    optList.ifPresent(files -> {
-      for (File each : files) {
-        classes.addAll(findClasses(each, scannedPackage, classLoader));
-      }
-    });
+    optList.ifPresent(
+        files -> {
+          for (File each : files) {
+            classes.addAll(findClasses(each, scannedPackage, classLoader));
+          }
+        });
 
     return classes;
   }
-
 }

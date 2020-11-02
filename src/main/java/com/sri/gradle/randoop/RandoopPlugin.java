@@ -27,14 +27,17 @@ import org.gradle.api.tasks.compile.JavaCompile;
 
 public class RandoopPlugin implements Plugin<Project> {
 
-  @Override public void apply(Project project) {
+  @Override
+  public void apply(Project project) {
     project.getPlugins().apply(JavaPlugin.class);
 
-    RandoopPluginExtension extension = project.getExtensions().create(
-        RANDOOP_PLUGIN_EXTENSION, RandoopPluginExtension.class, project);
+    RandoopPluginExtension extension =
+        project
+            .getExtensions()
+            .create(RANDOOP_PLUGIN_EXTENSION, RandoopPluginExtension.class, project);
 
     // Cleans up any previously generated files (if needed)
-    if (project.hasProperty(Constants.FORCE_CLEANUP_PROPERTY)){
+    if (project.hasProperty(Constants.FORCE_CLEANUP_PROPERTY)) {
       configureCleanupRandoopOutput(project, extension);
     }
 
@@ -57,7 +60,7 @@ public class RandoopPlugin implements Plugin<Project> {
     project.getLogger().quiet("Executing " + checkForRandoopTests.getName());
   }
 
-  private void configureCleanupRandoopOutput(Project project, RandoopPluginExtension extension){
+  private void configureCleanupRandoopOutput(Project project, RandoopPluginExtension extension) {
     final CleanupRandoopOutput cleanupRandoopOutput = createCleanupRandoop(project, extension);
     cleanupRandoopOutput.dependsOn("clean");
 
@@ -73,7 +76,7 @@ public class RandoopPlugin implements Plugin<Project> {
     aJavaCompile.dependsOn(cleanupRandoopOutput);
   }
 
-  private JavaCompile configureJavaCompile(Project project, Gentests gentests){
+  private JavaCompile configureJavaCompile(Project project, Gentests gentests) {
     final JavaProjectHelper projectHelper = new JavaProjectHelper(project);
 
     Optional<JavaCompile> javaCompile =
@@ -102,18 +105,21 @@ public class RandoopPlugin implements Plugin<Project> {
 
     // Don't convert to lambda. More info:
     // https://github.com/gradle/gradle/issues/5510#issuecomment-416860213
-    gentests.doLast(new Action<Task>() {
-      @Override public void execute(Task ignored) {
-        compileMutator.mutateJavaCompileTask(testDriverJavaCompile);
-      }
-    });
+    gentests.doLast(
+        new Action<Task>() {
+          @Override
+          public void execute(Task ignored) {
+            compileMutator.mutateJavaCompileTask(testDriverJavaCompile);
+          }
+        });
 
     return testDriverJavaCompile;
   }
 
-  private CheckForRandoopTests createCheckForTests(Project project, RandoopPluginExtension extension){
-    final CheckForRandoopTests checkRandoopTestTask = project.getTasks().create(
-        CHECK_FOR_RANDOOP_TESTS_TASK_NAME, CheckForRandoopTests.class);
+  private CheckForRandoopTests createCheckForTests(
+      Project project, RandoopPluginExtension extension) {
+    final CheckForRandoopTests checkRandoopTestTask =
+        project.getTasks().create(CHECK_FOR_RANDOOP_TESTS_TASK_NAME, CheckForRandoopTests.class);
     checkRandoopTestTask.setGroup(GROUP);
 
     checkRandoopTestTask.getJunitOutputDir().set(extension.getJunitOutputDir());
@@ -122,7 +128,8 @@ public class RandoopPlugin implements Plugin<Project> {
   }
 
   private Gentests createGentestsTask(Project project, RandoopPluginExtension extension) {
-    final Gentests generateTestTask = project.getTasks().create(GENERATE_TESTS_TASK_NAME, Gentests.class);
+    final Gentests generateTestTask =
+        project.getTasks().create(GENERATE_TESTS_TASK_NAME, Gentests.class);
     generateTestTask.setGroup(GROUP);
     generateTestTask.setDescription(RANDOOP_PLUGIN_DESCRIPTION);
 
@@ -140,26 +147,27 @@ public class RandoopPlugin implements Plugin<Project> {
     return generateTestTask;
   }
 
-  private CleanupRandoopOutput createCleanupRandoop(Project project, RandoopPluginExtension extension){
-    final CleanupRandoopOutput cleanupRandoopOutput = project.getTasks().create(
-        CLEANUP_RANDOOP_TASK_NAME, CleanupRandoopOutput.class);
+  private CleanupRandoopOutput createCleanupRandoop(
+      Project project, RandoopPluginExtension extension) {
+    final CleanupRandoopOutput cleanupRandoopOutput =
+        project.getTasks().create(CLEANUP_RANDOOP_TASK_NAME, CleanupRandoopOutput.class);
     cleanupRandoopOutput.setGroup(GROUP);
     cleanupRandoopOutput.setDescription(Constants.CLEANUP_RANDOOP_TASK_DESCRIPTION);
     cleanupRandoopOutput.getJunitOutputDir().set(extension.getJunitOutputDir());
     return cleanupRandoopOutput;
   }
 
-  private CheckForRandoop createCheckForRandoop(Project project){
-    final CheckForRandoop checkForRandoop = project.getTasks().create(
-        CHECK_FOR_RANDOOP_TASK_NAME, CheckForRandoop.class);
+  private CheckForRandoop createCheckForRandoop(Project project) {
+    final CheckForRandoop checkForRandoop =
+        project.getTasks().create(CHECK_FOR_RANDOOP_TASK_NAME, CheckForRandoop.class);
     checkForRandoop.setGroup(GROUP);
     checkForRandoop.setDescription(Constants.CHECK_FOR_RANDOOP_TASK_DESCRIPTION);
     return checkForRandoop;
   }
 
-  private GenerateClasslist createGenerateClasslist(Project project){
-    final GenerateClasslist generateClasslist = project.getTasks().create(
-        GENERATE_CLASS_LIST_TASK_NAME, GenerateClasslist.class);
+  private GenerateClasslist createGenerateClasslist(Project project) {
+    final GenerateClasslist generateClasslist =
+        project.getTasks().create(GENERATE_CLASS_LIST_TASK_NAME, GenerateClasslist.class);
     generateClasslist.setGroup(GROUP);
     generateClasslist.setDescription("");
     return generateClasslist;

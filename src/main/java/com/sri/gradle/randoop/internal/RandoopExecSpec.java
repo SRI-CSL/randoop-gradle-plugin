@@ -33,17 +33,19 @@ public class RandoopExecSpec {
   private Object[] args = new Object[0];
   private File workingDirectory = Constants.USER_WORKING_DIR;
 
-  private static List<Class<?>> findAllCompiledClasses(final Project project, String packageName){
+  private static List<Class<?>> findAllCompiledClasses(final Project project, String packageName) {
     final JavaProjectHelper projectHelper = new JavaProjectHelper(project);
     final List<URL> compiledClasses = new LinkedList<>();
-    project.files(projectHelper.getBuildMainDir())
-        .forEach(e -> {
-          try {
-            compiledClasses.add(e.toURI().toURL());
-          } catch (MalformedURLException ex) {
-            throw new RandoopExecException("Could not add artifact!", ex);
-          }
-        });
+    project
+        .files(projectHelper.getBuildMainDir())
+        .forEach(
+            e -> {
+              try {
+                compiledClasses.add(e.toURI().toURL());
+              } catch (MalformedURLException ex) {
+                throw new RandoopExecException("Could not add artifact!", ex);
+              }
+            });
 
     final URLClassLoader classLoader = new URLClassLoader(convert(compiledClasses));
     final List<Class<?>> allClassesOfPackage = Classfinder.findClasses(packageName, classLoader);
@@ -55,8 +57,7 @@ public class RandoopExecSpec {
   }
 
   public void args(Object... args) {
-    this.args = Stream.concat(Arrays.stream(this.args), Arrays.stream(args))
-        .toArray(Object[]::new);
+    this.args = Stream.concat(Arrays.stream(this.args), Arrays.stream(args)).toArray(Object[]::new);
   }
 
   public void forkOptions(Action<JavaForkOptions> configureFork) {
@@ -79,7 +80,7 @@ public class RandoopExecSpec {
     return main;
   }
 
-  public File getWorkingDir(){
+  public File getWorkingDir() {
     return workingDirectory;
   }
 
@@ -95,46 +96,47 @@ public class RandoopExecSpec {
     this.classpath = classpath;
   }
 
-  public void setClassListFile(File classListFile){
-    if (classListFile != null){
+  public void setClassListFile(File classListFile) {
+    if (classListFile != null) {
       args(String.format("--classlist=%s", classListFile.getAbsolutePath()));
     }
   }
 
-  public void setCommand(String command){
-    if (!Strings.isNullOrEmpty(command)){
+  public void setCommand(String command) {
+    if (!Strings.isNullOrEmpty(command)) {
       args(command);
     }
   }
 
-  public void setDebugChecks(boolean flag){
+  public void setDebugChecks(boolean flag) {
     args(String.format("--debug-checks=%s", flag));
   }
 
-  public void setForkOptions(){
+  public void setForkOptions() {
     final ForkOptions options = new ForkOptions();
-    forkOptions(fork -> {
-      fork.setWorkingDir(getWorkingDir());
-      fork.setJvmArgs(options.getJvmArgs());
-      fork.setMinHeapSize(options.getMemoryInitialSize());
-      fork.setMaxHeapSize(options.getMemoryMaximumSize());
-      fork.setDefaultCharacterEncoding(StandardCharsets.UTF_8.name());
-    });
+    forkOptions(
+        fork -> {
+          fork.setWorkingDir(getWorkingDir());
+          fork.setJvmArgs(options.getJvmArgs());
+          fork.setMinHeapSize(options.getMemoryInitialSize());
+          fork.setMaxHeapSize(options.getMemoryMaximumSize());
+          fork.setDefaultCharacterEncoding(StandardCharsets.UTF_8.name());
+        });
   }
 
-  public void setFlakyTestBehavior(String enumStr){
+  public void setFlakyTestBehavior(String enumStr) {
     args(String.format("--flaky-test-behavior=%s", enumStr));
   }
 
-  public void setJUnitOutputDir(File outputDir){
+  public void setJUnitOutputDir(File outputDir) {
     args(String.format("--junit-output-dir=%s", outputDir.getAbsolutePath()));
   }
 
-  public void setJUnitPackageName(String packageName){
+  public void setJUnitPackageName(String packageName) {
     args(String.format("--junit-package-name=%s", packageName));
   }
 
-  public void setJUnitReflectionAllowed(boolean flag){
+  public void setJUnitReflectionAllowed(boolean flag) {
     args(String.format("--junit-reflection-allowed=%s", flag));
   }
 
@@ -142,43 +144,43 @@ public class RandoopExecSpec {
     this.main = main;
   }
 
-  public void setNoErrorRevealingTests(boolean flag){
+  public void setNoErrorRevealingTests(boolean flag) {
     args(String.format("--no-error-revealing-tests=%s", flag));
   }
 
-  public void setOnlyTestPublicMembers(boolean value){
+  public void setOnlyTestPublicMembers(boolean value) {
     args("--only-test-public-members=" + value);
   }
 
-  public void setOutputLimit(int limit){
+  public void setOutputLimit(int limit) {
     args(String.format("--output-limit=%d", limit));
   }
 
-  public void setOutOfMemoryErrorOption(OutOfMemoryError option){
+  public void setOutOfMemoryErrorOption(OutOfMemoryError option) {
     args("--oom-exception=" + option);
   }
 
-  public void setRegressionTestBasename(String name){
-    if (name != null && !name.isEmpty()){
+  public void setRegressionTestBasename(String name) {
+    if (name != null && !name.isEmpty()) {
       args(String.format("--regression-test-basename=%s", name));
     }
   }
 
-  public void setSilentlyIgnoreBadClassNames(){
+  public void setSilentlyIgnoreBadClassNames() {
     args("--silently-ignore-bad-class-names=true");
   }
 
-  public void setStopOnErrorTest(boolean flag){
+  public void setStopOnErrorTest(boolean flag) {
     args(String.format("--stop-on-error-test=%s", flag));
   }
 
-  public void setTimelimit(int timeLimitSeconds){
+  public void setTimelimit(int timeLimitSeconds) {
     args("--time-limit=" + timeLimitSeconds);
   }
 
-  public void setTestClasses(Project project, String... packs){
+  public void setTestClasses(Project project, String... packs) {
     final Set<Class<?>> uniqueClasses = new HashSet<>();
-    for (String each : packs){
+    for (String each : packs) {
       uniqueClasses.addAll(findAllCompiledClasses(project, each));
     }
 
@@ -188,17 +190,16 @@ public class RandoopExecSpec {
     }
   }
 
-  public void setUseThreads(){
+  public void setUseThreads() {
     args("--usethreads");
   }
 
-  public void setWorkingDir(Path workingDir){
+  public void setWorkingDir(Path workingDir) {
     Objects.requireNonNull(workingDir);
     setWorkingDir(workingDir.toFile());
   }
 
-  public void setWorkingDir(File workingDir){
+  public void setWorkingDir(File workingDir) {
     this.workingDirectory = workingDir;
   }
-
 }

@@ -1,4 +1,5 @@
 # Randoop Gradle Plugin
+
 (experimental) randoop gradle plugin
 
 This Gradle plug-in creates a task to run [Randoop](https://randoop.github.io/randoop/) on Java projects.
@@ -8,6 +9,7 @@ This Gradle plug-in creates a task to run [Randoop](https://randoop.github.io/ra
 To use this plug-in, [you must have downloaded Randoop and have it as dependency](https://github.com/randoop/randoop/releases/latest).
 
 Add the plug-in dependency and apply it in your project's `build.gradle`:
+
 ```groovy
 buildscript {
     repositories {
@@ -33,6 +35,7 @@ apply plugin: 'com.sri.gradle.randoop'
 ## Randoop configuration
 
 In the build.gradle of the project that applies the plugin:
+
 ```groovy
 runRandoop {
     randoopJar = file("libs/randoop.jar")
@@ -48,9 +51,18 @@ runRandoop {
 }
 ```
 
-## Task
+## Randoop Tasks
 
-* `gentests` - runs Randoop'.
+-   `cleanupRandoopOutput` - Deletes Randoop-generated files
+-   `checkForRandoop` - Checks if Randoop is in your classpath.
+-   `generateClassListFile` - Generates a classList.txt file for Randoop.
+-   `generateTests` - Generates unit tests with Randoop.
+-   `checkForRandoopTests` - Checks if Randoop generated the unit tests
+
+Additional build properties:
+
+-   `-Pforce` - Tells the plugin to delete all files in the specified `junitOutputDir`
+-   `-Prerun` - Tells the plugin to re-build all tests files in the specified `junitOutputDir`
 
 ## Slides
 

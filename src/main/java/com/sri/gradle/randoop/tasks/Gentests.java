@@ -32,7 +32,7 @@ public class Gentests extends DescribedTask {
   public Gentests() {
     this.junitOutputDir = getProject().getObjects().directoryProperty(); // unchecked warning
     this.timeoutSeconds = getProject().getObjects().property(Integer.class);
-    this.randoopJar = getProject().getObjects().fileProperty();  // unchecked warning
+    this.randoopJar = getProject().getObjects().fileProperty(); // unchecked warning
 
     this.outputLimit = getProject().getObjects().property(Integer.class);
     this.usethreads = getProject().getObjects().property(Boolean.class);
@@ -41,53 +41,70 @@ public class Gentests extends DescribedTask {
     this.stopOnErrorTest = getProject().getObjects().property(Boolean.class);
     this.flakyTestBehavior = getProject().getObjects().property(String.class);
     this.junitPackageName = getProject().getObjects().property(String.class);
-
   }
 
-  @Input public Property<String> getFlakyTestBehavior() {
+  @Input
+  public Property<String> getFlakyTestBehavior() {
     return flakyTestBehavior;
   }
 
-  @Input public Property<String> getJunitPackageName() {
+  @Input
+  public Property<String> getJunitPackageName() {
     return junitPackageName;
   }
 
-  @OutputDirectory public DirectoryProperty getJunitOutputDir() {
+  @OutputDirectory
+  public DirectoryProperty getJunitOutputDir() {
     return this.junitOutputDir;
   }
 
-  @Input @Optional public Property<Integer> getTimeoutSeconds() {
+  @Input
+  @Optional
+  public Property<Integer> getTimeoutSeconds() {
     return timeoutSeconds;
   }
 
-  @InputFile public RegularFileProperty getRandoopJar() {
+  @InputFile
+  public RegularFileProperty getRandoopJar() {
     return this.randoopJar;
   }
 
-  @Input @Optional public Property<Integer> getOutputLimit() {
+  @Input
+  @Optional
+  public Property<Integer> getOutputLimit() {
     return outputLimit;
   }
 
-  @Input @Optional public Property<Boolean> getUsethreads() {
+  @Input
+  @Optional
+  public Property<Boolean> getUsethreads() {
     return usethreads;
   }
 
-  @Input @Optional public Property<Boolean> getNoErrorRevealingTests() {
+  @Input
+  @Optional
+  public Property<Boolean> getNoErrorRevealingTests() {
     return noErrorRevealingTests;
   }
 
-  @Input @Optional public Property<Boolean> getJunitReflectionAllowed() {
+  @Input
+  @Optional
+  public Property<Boolean> getJunitReflectionAllowed() {
     return junitReflectionAllowed;
   }
 
-  @Input @Optional public Property<Boolean> getStopOnErrorTest() {
+  @Input
+  @Optional
+  public Property<Boolean> getStopOnErrorTest() {
     return stopOnErrorTest;
   }
 
-  @TaskAction public void generateTests() {
+  @TaskAction
+  public void generateTests() {
     try {
       final JavaProjectHelper projectHelper = new JavaProjectHelper(getProject());
-      final File classListFile = projectHelper.findClassListFile().orElseThrow(IllegalArgumentException::new);
+      final File classListFile =
+          projectHelper.findClassListFile().orElseThrow(IllegalArgumentException::new);
 
       final File randoopJar = Objects.requireNonNull(getRandoopJar().getAsFile().get());
       final Set<File> classpath = projectHelper.getClasspath(randoopJar);
@@ -95,27 +112,28 @@ public class Gentests extends DescribedTask {
       final File junitOutputDir = getJunitOutputDir().getAsFile().get();
 
       final RandoopExecutor mainExecutor = new RandoopExecutor(getProject());
-      mainExecutor.exec(spec -> {
-        spec.setWorkingDir(getProject().getProjectDir());
-        spec.setClasspath(getProject().files(classpath));
-        spec.setMain(Constants.RANDOOP_MAIN_CLASS);
-        spec.setCommand("gentests");
-        spec.setTimelimit(getTimeoutSeconds().getOrElse(30));
-        spec.setStopOnErrorTest(getStopOnErrorTest().getOrElse(false));
-        spec.setFlakyTestBehavior(getFlakyTestBehavior().getOrElse("discard"));
-        spec.setNoErrorRevealingTests(getNoErrorRevealingTests().getOrElse(true));
-        spec.setJUnitReflectionAllowed(getJunitReflectionAllowed().getOrElse(false));
-        spec.setJUnitPackageName(getJunitPackageName().get());
-        spec.setJUnitOutputDir(junitOutputDir);
+      mainExecutor.exec(
+          spec -> {
+            spec.setWorkingDir(getProject().getProjectDir());
+            spec.setClasspath(getProject().files(classpath));
+            spec.setMain(Constants.RANDOOP_MAIN_CLASS);
+            spec.setCommand("gentests");
+            spec.setTimelimit(getTimeoutSeconds().getOrElse(30));
+            spec.setStopOnErrorTest(getStopOnErrorTest().getOrElse(false));
+            spec.setFlakyTestBehavior(getFlakyTestBehavior().getOrElse("discard"));
+            spec.setNoErrorRevealingTests(getNoErrorRevealingTests().getOrElse(true));
+            spec.setJUnitReflectionAllowed(getJunitReflectionAllowed().getOrElse(false));
+            spec.setJUnitPackageName(getJunitPackageName().get());
+            spec.setJUnitOutputDir(junitOutputDir);
 
-        if (getUsethreads().isPresent() && getUsethreads().get()){
-          spec.setUseThreads();
-        }
+            if (getUsethreads().isPresent() && getUsethreads().get()) {
+              spec.setUseThreads();
+            }
 
-        spec.setClassListFile(classListFile);
-        spec.setOutputLimit(getOutputLimit().getOrElse(2000));
-        spec.setDebugChecks(true);
-      });
+            spec.setClassListFile(classListFile);
+            spec.setOutputLimit(getOutputLimit().getOrElse(2000));
+            spec.setDebugChecks(true);
+          });
 
     } catch (Exception e) {
       throw new GradleException("Failed to generate tests", e);
@@ -124,11 +142,13 @@ public class Gentests extends DescribedTask {
     getLogger().quiet("Successfully generated tests");
   }
 
-  @Override protected String getTaskName() {
+  @Override
+  protected String getTaskName() {
     return Constants.GENERATE_TESTS_TASK_NAME;
   }
 
-  @Override protected String getTaskDescription() {
+  @Override
+  protected String getTaskDescription() {
     return Constants.GENERATE_TESTS_TASK_DESCRIPTION;
   }
 }

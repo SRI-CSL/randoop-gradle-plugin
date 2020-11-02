@@ -4,7 +4,6 @@ import com.sri.gradle.randoop.utils.ImmutableStream;
 import com.sri.gradle.randoop.utils.JavaProjectHelper;
 import com.sri.gradle.randoop.utils.MoreFiles;
 import java.io.File;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -34,15 +33,18 @@ public class JavaCompileMutator {
     configureSourcesAndDestinations(javaCompile);
   }
 
-  private void configureUpToDateWhen(JavaCompile javaCompile){
-    javaCompile.getOutputs().upToDateWhen(spec -> {
-      if (javaCompile.getProject().hasProperty(Constants.RE_BUILD_PROJECT)) {
-        javaCompile.getProject().getLogger().quiet("Compiling Randoop generated classes");
-        return false;
-      } else {
-        return true;
-      }
-    });
+  private void configureUpToDateWhen(JavaCompile javaCompile) {
+    javaCompile
+        .getOutputs()
+        .upToDateWhen(
+            spec -> {
+              if (javaCompile.getProject().hasProperty(Constants.RE_BUILD_PROJECT)) {
+                javaCompile.getProject().getLogger().quiet("Compiling Randoop generated classes");
+                return false;
+              } else {
+                return true;
+              }
+            });
   }
 
   private void configureCompilerArgs(JavaCompile javaCompile) {
@@ -52,7 +54,8 @@ public class JavaCompileMutator {
 
   private void configureClasspath(JavaCompile javaCompile) {
     Set<File> runtimeClasspath = getProjectHelper().getRuntimeClasspath();
-    javaCompile.setClasspath(getProjectHelper().getProject().files(this.compileJavaClasspath, runtimeClasspath));
+    javaCompile.setClasspath(
+        getProjectHelper().getProject().files(this.compileJavaClasspath, runtimeClasspath));
   }
 
   // Setting the sourcepath and source set is necessary when using forked compilation for
@@ -72,26 +75,19 @@ public class JavaCompileMutator {
 
     final SourceSet sourceSet = getProjectHelper().getTestSourceSet();
     final Set<File> javaFiles = new HashSet<>();
-    for (File eachDir : sourceSet.getJava().getSrcDirs()){
-      javaFiles.addAll(MoreFiles.getMatchingFiles(
-          eachDir.toPath(),
-          Constants.EXPECTED_RANDOOP_TEST_NAME_REGEX
-      ));
+    for (File eachDir : sourceSet.getJava().getSrcDirs()) {
+      javaFiles.addAll(
+          MoreFiles.getMatchingFiles(eachDir.toPath(), Constants.EXPECTED_RANDOOP_TEST_NAME_REGEX));
     }
 
-    final Set<File> randoopOutDir = ImmutableStream.setCopyOf(
-        javaFiles.stream()
-            .filter(Objects::nonNull)
-            .map(File::getParentFile));
+    final Set<File> randoopOutDir =
+        ImmutableStream.setCopyOf(
+            javaFiles.stream().filter(Objects::nonNull).map(File::getParentFile));
 
     javaCompile.setSource(sds);
-    if (!randoopOutDir.isEmpty()){
+    if (!randoopOutDir.isEmpty()) {
       javaCompile.setSource(sds);
-      javaCompile.getOptions()
-          .setSourcepath(
-              javaCompile
-                  .getProject()
-                  .files(randoopOutDir));
+      javaCompile.getOptions().setSourcepath(javaCompile.getProject().files(randoopOutDir));
     }
   }
 
@@ -99,7 +95,7 @@ public class JavaCompileMutator {
     return new ArrayList<>(javaCompile.getOptions().getCompilerArgs());
   }
 
-  JavaProjectHelper getProjectHelper(){
+  JavaProjectHelper getProjectHelper() {
     return projectHelper;
   }
 }
