@@ -12,15 +12,15 @@ import org.gradle.api.tasks.OutputDirectory;
 import org.gradle.api.tasks.TaskAction;
 
 @SuppressWarnings("UnstableApiUsage")
-public class CheckForRandoopTests extends DescribedTask {
+public class RunRandoop extends DescribedTask {
   private final DirectoryProperty junitOutputDir;
 
-  public CheckForRandoopTests() {
+  public RunRandoop() {
     this.junitOutputDir = getProject().getObjects().directoryProperty(); // unchecked warning
   }
 
   @TaskAction
-  public void checkForRandoopTests() {
+  public void runRandoop() {
     final Set<File> outputDirs =
         ImmutableStream.setCopyOf(
             MoreFiles.getMatchingFiles(
@@ -34,7 +34,7 @@ public class CheckForRandoopTests extends DescribedTask {
       throw new GradleException("Unable to find Randoop-generated test cases.");
     }
 
-    getLogger().quiet("Found Randoop-generated files at " + getJunitOutputDir().get().getAsFile());
+    getLogger().quiet("Randoop successfully generated tests at " + getJunitOutputDir().get().getAsFile());
   }
 
   @OutputDirectory

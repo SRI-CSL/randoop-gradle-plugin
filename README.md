@@ -53,16 +53,15 @@ runRandoop {
 
 ## Randoop Tasks
 
--   `cleanupRandoopOutput` - Deletes Randoop-generated files
--   `checkForRandoop` - Checks if Randoop is in your classpath.
--   `generateClassListFile` - Generates a classList.txt file for Randoop.
--   `generateTests` - Generates unit tests with Randoop.
--   `checkForRandoopTests` - Checks if Randoop generated the unit tests
+-   `cleanupRandoopOutput` - Deletes Randoop-generated files in `junitOutputDir`.
+-   `checkForRandoop` - Checks if Randoop is in the project's classpath.
+-   `generateClassListFile` - Generates a classList.txt file from the current project's classes.
+-   `generateTests` - Generates unit tests with Randoop for classes in classList.txt file.
+-   `runRandoop` - Checks if Randoop generated the unit tests
 
 Additional build properties:
 
--   `-Pforce` - Tells the plugin to delete all files in the specified `junitOutputDir`
--   `-Prerun` - Tells the plugin to re-build all tests files in the specified `junitOutputDir`
+-   `-Prebuild` - Tells the plugin to re-build all tests files in the specified `junitOutputDir`
 
 ## Slides
 

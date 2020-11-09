@@ -124,13 +124,13 @@ public class Gentests extends DescribedTask {
             spec.setNoErrorRevealingTests(getNoErrorRevealingTests().getOrElse(true));
             spec.setJUnitReflectionAllowed(getJunitReflectionAllowed().getOrElse(false));
             spec.setJUnitPackageName(getJunitPackageName().get());
-            spec.setJUnitOutputDir(junitOutputDir);
+            spec.setJUnitOutputDir(getProject().getProjectDir(), junitOutputDir);
 
             if (getUsethreads().isPresent() && getUsethreads().get()) {
               spec.setUseThreads();
             }
 
-            spec.setClassListFile(classListFile);
+            spec.setClassListFile(getProject().getProjectDir(), classListFile);
             spec.setOutputLimit(getOutputLimit().getOrElse(2000));
             spec.setDebugChecks(true);
           });

@@ -10,7 +10,7 @@ import static com.sri.gradle.randoop.Constants.RANDOOP_PLUGIN_DESCRIPTION;
 import static com.sri.gradle.randoop.Constants.RANDOOP_PLUGIN_EXTENSION;
 
 import com.sri.gradle.randoop.tasks.CheckForRandoop;
-import com.sri.gradle.randoop.tasks.CheckForRandoopTests;
+import com.sri.gradle.randoop.tasks.RunRandoop;
 import com.sri.gradle.randoop.tasks.CleanupRandoopOutput;
 import com.sri.gradle.randoop.tasks.GenerateClasslist;
 import com.sri.gradle.randoop.tasks.Gentests;
@@ -36,8 +36,8 @@ public class RandoopPlugin implements Plugin<Project> {
             .getExtensions()
             .create(RANDOOP_PLUGIN_EXTENSION, RandoopPluginExtension.class, project);
 
-    // Cleans up any previously generated files (if needed)
-    if (project.hasProperty(Constants.FORCE_CLEANUP_PROPERTY)) {
+    // Cleans up any previously generated files (if project re-build is triggered)
+    if (project.hasProperty(Constants.REBUILD_PROJECT)) {
       configureCleanupRandoopOutput(project, extension);
     }
 
@@ -54,10 +54,10 @@ public class RandoopPlugin implements Plugin<Project> {
 
     // Compiles
     final JavaCompile randoopJavaCompile = configureJavaCompile(project, gentests);
-    CheckForRandoopTests checkForRandoopTests = createCheckForTests(project, extension);
-    checkForRandoopTests.dependsOn(randoopJavaCompile, JavaBasePlugin.BUILD_TASK_NAME);
+    RunRandoop runRandoop = createCheckForTests(project, extension);
+    runRandoop.dependsOn(randoopJavaCompile, JavaBasePlugin.BUILD_TASK_NAME);
 
-    project.getLogger().quiet("Executing " + checkForRandoopTests.getName());
+    project.getLogger().quiet("Executing " + runRandoop.getName());
   }
 
   private void configureCleanupRandoopOutput(Project project, RandoopPluginExtension extension) {
@@ -116,10 +116,10 @@ public class RandoopPlugin implements Plugin<Project> {
     return testDriverJavaCompile;
   }
 
-  private CheckForRandoopTests createCheckForTests(
+  private RunRandoop createCheckForTests(
       Project project, RandoopPluginExtension extension) {
-    final CheckForRandoopTests checkRandoopTestTask =
-        project.getTasks().create(CHECK_FOR_RANDOOP_TESTS_TASK_NAME, CheckForRandoopTests.class);
+    final RunRandoop checkRandoopTestTask =
+        project.getTasks().create(CHECK_FOR_RANDOOP_TESTS_TASK_NAME, RunRandoop.class);
     checkRandoopTestTask.setGroup(GROUP);
 
     checkRandoopTestTask.getJunitOutputDir().set(extension.getJunitOutputDir());

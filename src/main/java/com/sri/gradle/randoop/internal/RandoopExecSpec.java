@@ -96,10 +96,17 @@ public class RandoopExecSpec {
     this.classpath = classpath;
   }
 
-  public void setClassListFile(File classListFile) {
+  public void setClassListFile(File projectDir, File classListFile) {
     if (classListFile != null) {
-      args(String.format("--classlist=%s", classListFile.getAbsolutePath()));
+      setClassListFile(projectDir.toPath(), classListFile.toPath());
     }
+  }
+
+  public void setClassListFile(Path projectDir, Path classListFile) {
+    Objects.requireNonNull(projectDir);
+    Objects.requireNonNull(classListFile);
+    final Path resolved = projectDir.resolve(classListFile);
+    args(String.format("--classlist=%s", resolved));
   }
 
   public void setCommand(String command) {
@@ -128,8 +135,13 @@ public class RandoopExecSpec {
     args(String.format("--flaky-test-behavior=%s", enumStr));
   }
 
-  public void setJUnitOutputDir(File outputDir) {
-    args(String.format("--junit-output-dir=%s", outputDir.getAbsolutePath()));
+  public void setJUnitOutputDir(File projectDir, File junitOutputDir) {
+    setJUnitOutputDir(projectDir.toPath(), junitOutputDir.toPath());
+  }
+
+  public void setJUnitOutputDir(Path projectDir, Path junitOutputDir) {
+    final Path resolved = projectDir.resolve(junitOutputDir);
+    args(String.format("--junit-output-dir=%s", resolved));
   }
 
   public void setJUnitPackageName(String packageName) {
