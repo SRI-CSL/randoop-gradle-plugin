@@ -1,10 +1,8 @@
 package com.sri.gradle.randoop;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import com.sri.gradle.randoop.utils.Classfinder;
 import com.sri.gradle.randoop.utils.ClasslistGenerator;
 import com.sri.gradle.randoop.utils.Javafinder;
 import java.io.File;
@@ -14,13 +12,6 @@ import java.util.List;
 import org.junit.Test;
 
 public class RandoopPluginTest {
-  @Test public void testClassfinder(){
-    List<Class<?>> files = Classfinder.findClasses(
-        "com.sri.gradle.randoop", getClass().getClassLoader());
-
-    assertFalse(files.isEmpty());
-  }
-
   @Test public void testJavafinder(){
     Path dir = new File("src/main/java/com/sri/gradle/randoop/utils").toPath();
     System.out.println(dir);
