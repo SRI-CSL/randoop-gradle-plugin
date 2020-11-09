@@ -38,7 +38,7 @@ public class JavaCompileMutator {
         .getOutputs()
         .upToDateWhen(
             spec -> {
-              if (javaCompile.getProject().hasProperty(Constants.RE_BUILD_PROJECT)) {
+              if (javaCompile.getProject().hasProperty(Constants.REBUILD_PROJECT)) {
                 javaCompile.getProject().getLogger().quiet("Compiling Randoop generated classes");
                 return false;
               } else {

@@ -21,15 +21,14 @@ public class Constants {
       "Generates a file that lists classes to test. All of their methods are methods under test";
   public static final String CHECK_FOR_RANDOOP_TASK_NAME = "checkForRandoop";
   public static final String CHECK_FOR_RANDOOP_TASK_DESCRIPTION =
-      "Checks if Randoop is installed on one's computer.";
+      "Checks if Randoop is in CLASSPATH.";
   public static final String CLEANUP_RANDOOP_TASK_NAME = "cleanupRandoopOutput";
   public static final String CLEANUP_RANDOOP_TASK_DESCRIPTION =
       "Deletes all Randoop-generated tests";
-  public static final String CHECK_FOR_RANDOOP_TESTS_TASK_NAME = "checkForRandoopTests";
-  public static final String CHECK_FOR_RANDOOP_TESTS_TASK_DESCRIPTION =
-      "Checks if Randoop generated the unit tests";
-  public static final String FORCE_CLEANUP_PROPERTY = "force";
-  public static final String RE_BUILD_PROJECT = "rebuild";
+  public static final String RUN_RANDOOP_TASK_NAME = "runRandoop";
+  public static final String RUN_RANDOOP_TASK_DESCRIPTION =
+      "Runs the Randoop process";
+  public static final String REBUILD_PROJECT = "rebuild";
 
   // Regular expression which matches expected names of JUnit test classes.
   // thx to https://github.com/sevntu-checkstyle/sevntu.checkstyle
