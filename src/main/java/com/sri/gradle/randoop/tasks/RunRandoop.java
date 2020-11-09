@@ -44,11 +44,11 @@ public class RunRandoop extends DescribedTask {
 
   @Override
   protected String getTaskName() {
-    return Constants.CHECK_FOR_RANDOOP_TESTS_TASK_NAME;
+    return Constants.RUN_RANDOOP_TASK_NAME;
   }
 
   @Override
   protected String getTaskDescription() {
-    return Constants.CHECK_FOR_RANDOOP_TESTS_TASK_DESCRIPTION;
+    return Constants.RUN_RANDOOP_TASK_DESCRIPTION;
   }
 }

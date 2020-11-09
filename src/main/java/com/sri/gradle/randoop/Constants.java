@@ -25,8 +25,8 @@ public class Constants {
   public static final String CLEANUP_RANDOOP_TASK_NAME = "cleanupRandoopOutput";
   public static final String CLEANUP_RANDOOP_TASK_DESCRIPTION =
       "Deletes all Randoop-generated tests";
-  public static final String CHECK_FOR_RANDOOP_TESTS_TASK_NAME = "runRandoop";
-  public static final String CHECK_FOR_RANDOOP_TESTS_TASK_DESCRIPTION =
+  public static final String RUN_RANDOOP_TASK_NAME = "runRandoop";
+  public static final String RUN_RANDOOP_TASK_DESCRIPTION =
       "Runs the Randoop process";
   public static final String REBUILD_PROJECT = "rebuild";
 

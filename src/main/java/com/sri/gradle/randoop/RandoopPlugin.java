@@ -1,7 +1,7 @@
 package com.sri.gradle.randoop;
 
 import static com.sri.gradle.randoop.Constants.CHECK_FOR_RANDOOP_TASK_NAME;
-import static com.sri.gradle.randoop.Constants.CHECK_FOR_RANDOOP_TESTS_TASK_NAME;
+import static com.sri.gradle.randoop.Constants.RUN_RANDOOP_TASK_NAME;
 import static com.sri.gradle.randoop.Constants.CLEANUP_RANDOOP_TASK_NAME;
 import static com.sri.gradle.randoop.Constants.GENERATE_CLASS_LIST_TASK_NAME;
 import static com.sri.gradle.randoop.Constants.GENERATE_TESTS_TASK_NAME;
@@ -119,7 +119,7 @@ public class RandoopPlugin implements Plugin<Project> {
   private RunRandoop createCheckForTests(
       Project project, RandoopPluginExtension extension) {
     final RunRandoop checkRandoopTestTask =
-        project.getTasks().create(CHECK_FOR_RANDOOP_TESTS_TASK_NAME, RunRandoop.class);
+        project.getTasks().create(RUN_RANDOOP_TASK_NAME, RunRandoop.class);
     checkRandoopTestTask.setGroup(GROUP);
 
     checkRandoopTestTask.getJunitOutputDir().set(extension.getJunitOutputDir());
