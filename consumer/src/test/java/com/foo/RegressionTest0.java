@@ -3103,6 +3103,24 @@ public class RegressionTest0 {
             System.out.format("%n%s%n", "RegressionTest0.test195");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
+        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager3 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        foo0.mutate();
+        foo0.mutate();
+        foo0.mutate();
+        com.foo.FooManager fooManager9 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager10 = new com.foo.FooManager(foo0);
+        fooManager10.initialize();
+    }
+
+    @Test
+    public void test196() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest0.test196");
+        com.foo.Foo foo0 = new com.foo.Foo();
+        foo0.mutate();
         foo0.mutate();
         com.foo.FooManager fooManager3 = new com.foo.FooManager(foo0);
         fooManager3.initialize();
@@ -3113,9 +3131,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test196() throws Throwable {
+    public void test197() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test196");
+            System.out.format("%n%s%n", "RegressionTest0.test197");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3134,9 +3152,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test197() throws Throwable {
+    public void test198() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test197");
+            System.out.format("%n%s%n", "RegressionTest0.test198");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3151,9 +3169,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test198() throws Throwable {
+    public void test199() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test198");
+            System.out.format("%n%s%n", "RegressionTest0.test199");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3168,9 +3186,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test199() throws Throwable {
+    public void test200() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test199");
+            System.out.format("%n%s%n", "RegressionTest0.test200");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3180,9 +3198,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test200() throws Throwable {
+    public void test201() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test200");
+            System.out.format("%n%s%n", "RegressionTest0.test201");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3199,9 +3217,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test201() throws Throwable {
+    public void test202() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test201");
+            System.out.format("%n%s%n", "RegressionTest0.test202");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3215,9 +3233,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test202() throws Throwable {
+    public void test203() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test202");
+            System.out.format("%n%s%n", "RegressionTest0.test203");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3236,9 +3254,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test203() throws Throwable {
+    public void test204() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test203");
+            System.out.format("%n%s%n", "RegressionTest0.test204");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -3254,9 +3272,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test204() throws Throwable {
+    public void test205() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test204");
+            System.out.format("%n%s%n", "RegressionTest0.test205");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3271,9 +3289,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test205() throws Throwable {
+    public void test206() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test205");
+            System.out.format("%n%s%n", "RegressionTest0.test206");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3293,9 +3311,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test206() throws Throwable {
+    public void test207() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test206");
+            System.out.format("%n%s%n", "RegressionTest0.test207");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         foo0.mutate();
@@ -3305,9 +3323,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test207() throws Throwable {
+    public void test208() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test207");
+            System.out.format("%n%s%n", "RegressionTest0.test208");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3325,9 +3343,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test208() throws Throwable {
+    public void test209() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test208");
+            System.out.format("%n%s%n", "RegressionTest0.test209");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3348,9 +3366,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test209() throws Throwable {
+    public void test210() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test209");
+            System.out.format("%n%s%n", "RegressionTest0.test210");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3364,9 +3382,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test210() throws Throwable {
+    public void test211() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test210");
+            System.out.format("%n%s%n", "RegressionTest0.test211");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3381,9 +3399,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test211() throws Throwable {
+    public void test212() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test211");
+            System.out.format("%n%s%n", "RegressionTest0.test212");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3397,9 +3415,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test212() throws Throwable {
+    public void test213() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test212");
+            System.out.format("%n%s%n", "RegressionTest0.test213");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3411,9 +3429,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test213() throws Throwable {
+    public void test214() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test213");
+            System.out.format("%n%s%n", "RegressionTest0.test214");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3427,9 +3445,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test214() throws Throwable {
+    public void test215() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test214");
+            System.out.format("%n%s%n", "RegressionTest0.test215");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3444,9 +3462,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test215() throws Throwable {
+    public void test216() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test215");
+            System.out.format("%n%s%n", "RegressionTest0.test216");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3463,9 +3481,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test216() throws Throwable {
+    public void test217() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test216");
+            System.out.format("%n%s%n", "RegressionTest0.test217");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -3474,9 +3492,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test217() throws Throwable {
+    public void test218() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test217");
+            System.out.format("%n%s%n", "RegressionTest0.test218");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3486,9 +3504,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test218() throws Throwable {
+    public void test219() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test218");
+            System.out.format("%n%s%n", "RegressionTest0.test219");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3503,9 +3521,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test219() throws Throwable {
+    public void test220() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test219");
+            System.out.format("%n%s%n", "RegressionTest0.test220");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3526,9 +3544,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test220() throws Throwable {
+    public void test221() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test220");
+            System.out.format("%n%s%n", "RegressionTest0.test221");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3540,9 +3558,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test221() throws Throwable {
+    public void test222() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test221");
+            System.out.format("%n%s%n", "RegressionTest0.test222");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3558,9 +3576,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test222() throws Throwable {
+    public void test223() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test222");
+            System.out.format("%n%s%n", "RegressionTest0.test223");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3577,9 +3595,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test223() throws Throwable {
+    public void test224() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test223");
+            System.out.format("%n%s%n", "RegressionTest0.test224");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3597,9 +3615,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test224() throws Throwable {
+    public void test225() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test224");
+            System.out.format("%n%s%n", "RegressionTest0.test225");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3616,9 +3634,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test225() throws Throwable {
+    public void test226() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test225");
+            System.out.format("%n%s%n", "RegressionTest0.test226");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3632,9 +3650,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test226() throws Throwable {
+    public void test227() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test226");
+            System.out.format("%n%s%n", "RegressionTest0.test227");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3653,9 +3671,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test227() throws Throwable {
+    public void test228() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test227");
+            System.out.format("%n%s%n", "RegressionTest0.test228");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3672,9 +3690,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test228() throws Throwable {
+    public void test229() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test228");
+            System.out.format("%n%s%n", "RegressionTest0.test229");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3689,9 +3707,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test229() throws Throwable {
+    public void test230() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test229");
+            System.out.format("%n%s%n", "RegressionTest0.test230");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3706,9 +3724,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test230() throws Throwable {
+    public void test231() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test230");
+            System.out.format("%n%s%n", "RegressionTest0.test231");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3727,9 +3745,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test231() throws Throwable {
+    public void test232() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test231");
+            System.out.format("%n%s%n", "RegressionTest0.test232");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -3743,9 +3761,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test232() throws Throwable {
+    public void test233() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test232");
+            System.out.format("%n%s%n", "RegressionTest0.test233");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3759,9 +3777,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test233() throws Throwable {
+    public void test234() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test233");
+            System.out.format("%n%s%n", "RegressionTest0.test234");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3775,9 +3793,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test234() throws Throwable {
+    public void test235() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test234");
+            System.out.format("%n%s%n", "RegressionTest0.test235");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3794,9 +3812,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test235() throws Throwable {
+    public void test236() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test235");
+            System.out.format("%n%s%n", "RegressionTest0.test236");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3808,30 +3826,6 @@ public class RegressionTest0 {
         com.foo.FooManager fooManager8 = new com.foo.FooManager(foo0);
         java.lang.Class<?> wildcardClass9 = foo0.getClass();
         org.junit.Assert.assertNotNull(wildcardClass9);
-    }
-
-    @Test
-    public void test236() throws Throwable {
-        if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test236");
-        com.foo.Foo foo0 = new com.foo.Foo();
-        foo0.mutate();
-        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager6 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        com.foo.FooManager fooManager8 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager9 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager10 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager11 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager12 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        com.foo.FooManager fooManager14 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager15 = new com.foo.FooManager(foo0);
-        java.lang.Class<?> wildcardClass16 = fooManager15.getClass();
-        org.junit.Assert.assertNotNull(wildcardClass16);
     }
 
     @Test
@@ -3853,14 +3847,38 @@ public class RegressionTest0 {
         com.foo.FooManager fooManager12 = new com.foo.FooManager(foo0);
         foo0.mutate();
         com.foo.FooManager fooManager14 = new com.foo.FooManager(foo0);
-        java.lang.Class<?> wildcardClass15 = fooManager14.getClass();
-        org.junit.Assert.assertNotNull(wildcardClass15);
+        com.foo.FooManager fooManager15 = new com.foo.FooManager(foo0);
+        java.lang.Class<?> wildcardClass16 = fooManager15.getClass();
+        org.junit.Assert.assertNotNull(wildcardClass16);
     }
 
     @Test
     public void test238() throws Throwable {
         if (debug)
             System.out.format("%n%s%n", "RegressionTest0.test238");
+        com.foo.Foo foo0 = new com.foo.Foo();
+        foo0.mutate();
+        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        foo0.mutate();
+        foo0.mutate();
+        com.foo.FooManager fooManager6 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        com.foo.FooManager fooManager8 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager9 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager10 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager11 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager12 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        com.foo.FooManager fooManager14 = new com.foo.FooManager(foo0);
+        java.lang.Class<?> wildcardClass15 = fooManager14.getClass();
+        org.junit.Assert.assertNotNull(wildcardClass15);
+    }
+
+    @Test
+    public void test239() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest0.test239");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3876,9 +3894,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test239() throws Throwable {
+    public void test240() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test239");
+            System.out.format("%n%s%n", "RegressionTest0.test240");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3898,9 +3916,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test240() throws Throwable {
+    public void test241() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test240");
+            System.out.format("%n%s%n", "RegressionTest0.test241");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3914,9 +3932,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test241() throws Throwable {
+    public void test242() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test241");
+            System.out.format("%n%s%n", "RegressionTest0.test242");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3932,9 +3950,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test242() throws Throwable {
+    public void test243() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test242");
+            System.out.format("%n%s%n", "RegressionTest0.test243");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3946,9 +3964,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test243() throws Throwable {
+    public void test244() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test243");
+            System.out.format("%n%s%n", "RegressionTest0.test244");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3961,9 +3979,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test244() throws Throwable {
+    public void test245() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test244");
+            System.out.format("%n%s%n", "RegressionTest0.test245");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3980,9 +3998,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test245() throws Throwable {
+    public void test246() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test245");
+            System.out.format("%n%s%n", "RegressionTest0.test246");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -3995,9 +4013,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test246() throws Throwable {
+    public void test247() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test246");
+            System.out.format("%n%s%n", "RegressionTest0.test247");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4009,9 +4027,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test247() throws Throwable {
+    public void test248() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test247");
+            System.out.format("%n%s%n", "RegressionTest0.test248");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4022,9 +4040,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test248() throws Throwable {
+    public void test249() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test248");
+            System.out.format("%n%s%n", "RegressionTest0.test249");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4041,9 +4059,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test249() throws Throwable {
+    public void test250() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test249");
+            System.out.format("%n%s%n", "RegressionTest0.test250");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4059,9 +4077,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test250() throws Throwable {
+    public void test251() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test250");
+            System.out.format("%n%s%n", "RegressionTest0.test251");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -4072,9 +4090,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test251() throws Throwable {
+    public void test252() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test251");
+            System.out.format("%n%s%n", "RegressionTest0.test252");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4092,9 +4110,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test252() throws Throwable {
+    public void test253() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test252");
+            System.out.format("%n%s%n", "RegressionTest0.test253");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4108,9 +4126,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test253() throws Throwable {
+    public void test254() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test253");
+            System.out.format("%n%s%n", "RegressionTest0.test254");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4126,9 +4144,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test254() throws Throwable {
+    public void test255() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test254");
+            System.out.format("%n%s%n", "RegressionTest0.test255");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4143,9 +4161,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test255() throws Throwable {
+    public void test256() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test255");
+            System.out.format("%n%s%n", "RegressionTest0.test256");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4162,9 +4180,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test256() throws Throwable {
+    public void test257() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test256");
+            System.out.format("%n%s%n", "RegressionTest0.test257");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4177,9 +4195,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test257() throws Throwable {
+    public void test258() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test257");
+            System.out.format("%n%s%n", "RegressionTest0.test258");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4195,9 +4213,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test258() throws Throwable {
+    public void test259() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test258");
+            System.out.format("%n%s%n", "RegressionTest0.test259");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4214,9 +4232,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test259() throws Throwable {
+    public void test260() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test259");
+            System.out.format("%n%s%n", "RegressionTest0.test260");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4232,9 +4250,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test260() throws Throwable {
+    public void test261() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test260");
+            System.out.format("%n%s%n", "RegressionTest0.test261");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4249,9 +4267,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test261() throws Throwable {
+    public void test262() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test261");
+            System.out.format("%n%s%n", "RegressionTest0.test262");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4267,9 +4285,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test262() throws Throwable {
+    public void test263() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test262");
+            System.out.format("%n%s%n", "RegressionTest0.test263");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4284,9 +4302,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test263() throws Throwable {
+    public void test264() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test263");
+            System.out.format("%n%s%n", "RegressionTest0.test264");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4303,9 +4321,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test264() throws Throwable {
+    public void test265() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test264");
+            System.out.format("%n%s%n", "RegressionTest0.test265");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4324,9 +4342,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test265() throws Throwable {
+    public void test266() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test265");
+            System.out.format("%n%s%n", "RegressionTest0.test266");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4340,9 +4358,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test266() throws Throwable {
+    public void test267() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test266");
+            System.out.format("%n%s%n", "RegressionTest0.test267");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4359,9 +4377,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test267() throws Throwable {
+    public void test268() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test267");
+            System.out.format("%n%s%n", "RegressionTest0.test268");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4372,9 +4390,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test268() throws Throwable {
+    public void test269() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test268");
+            System.out.format("%n%s%n", "RegressionTest0.test269");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4389,9 +4407,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test269() throws Throwable {
+    public void test270() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test269");
+            System.out.format("%n%s%n", "RegressionTest0.test270");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4409,9 +4427,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test270() throws Throwable {
+    public void test271() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test270");
+            System.out.format("%n%s%n", "RegressionTest0.test271");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4430,9 +4448,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test271() throws Throwable {
+    public void test272() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test271");
+            System.out.format("%n%s%n", "RegressionTest0.test272");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4443,9 +4461,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test272() throws Throwable {
+    public void test273() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test272");
+            System.out.format("%n%s%n", "RegressionTest0.test273");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4463,9 +4481,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test273() throws Throwable {
+    public void test274() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test273");
+            System.out.format("%n%s%n", "RegressionTest0.test274");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4477,9 +4495,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test274() throws Throwable {
+    public void test275() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test274");
+            System.out.format("%n%s%n", "RegressionTest0.test275");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -4491,9 +4509,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test275() throws Throwable {
+    public void test276() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test275");
+            System.out.format("%n%s%n", "RegressionTest0.test276");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -4510,9 +4528,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test276() throws Throwable {
+    public void test277() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test276");
+            System.out.format("%n%s%n", "RegressionTest0.test277");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4527,9 +4545,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test277() throws Throwable {
+    public void test278() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test277");
+            System.out.format("%n%s%n", "RegressionTest0.test278");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4545,9 +4563,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test278() throws Throwable {
+    public void test279() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test278");
+            System.out.format("%n%s%n", "RegressionTest0.test279");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -4561,9 +4579,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test279() throws Throwable {
+    public void test280() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test279");
+            System.out.format("%n%s%n", "RegressionTest0.test280");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4584,9 +4602,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test280() throws Throwable {
+    public void test281() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test280");
+            System.out.format("%n%s%n", "RegressionTest0.test281");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4603,9 +4621,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test281() throws Throwable {
+    public void test282() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test281");
+            System.out.format("%n%s%n", "RegressionTest0.test282");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4620,9 +4638,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test282() throws Throwable {
+    public void test283() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test282");
+            System.out.format("%n%s%n", "RegressionTest0.test283");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -4634,9 +4652,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test283() throws Throwable {
+    public void test284() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test283");
+            System.out.format("%n%s%n", "RegressionTest0.test284");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4654,9 +4672,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test284() throws Throwable {
+    public void test285() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test284");
+            System.out.format("%n%s%n", "RegressionTest0.test285");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         foo0.mutate();
@@ -4665,9 +4683,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test285() throws Throwable {
+    public void test286() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test285");
+            System.out.format("%n%s%n", "RegressionTest0.test286");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4678,9 +4696,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test286() throws Throwable {
+    public void test287() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test286");
+            System.out.format("%n%s%n", "RegressionTest0.test287");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4698,9 +4716,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test287() throws Throwable {
+    public void test288() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test287");
+            System.out.format("%n%s%n", "RegressionTest0.test288");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4711,9 +4729,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test288() throws Throwable {
+    public void test289() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test288");
+            System.out.format("%n%s%n", "RegressionTest0.test289");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4732,9 +4750,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test289() throws Throwable {
+    public void test290() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test289");
+            System.out.format("%n%s%n", "RegressionTest0.test290");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4749,9 +4767,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test290() throws Throwable {
+    public void test291() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test290");
+            System.out.format("%n%s%n", "RegressionTest0.test291");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4767,9 +4785,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test291() throws Throwable {
+    public void test292() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test291");
+            System.out.format("%n%s%n", "RegressionTest0.test292");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4782,9 +4800,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test292() throws Throwable {
+    public void test293() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test292");
+            System.out.format("%n%s%n", "RegressionTest0.test293");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4796,9 +4814,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test293() throws Throwable {
+    public void test294() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test293");
+            System.out.format("%n%s%n", "RegressionTest0.test294");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4812,9 +4830,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test294() throws Throwable {
+    public void test295() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test294");
+            System.out.format("%n%s%n", "RegressionTest0.test295");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4830,9 +4848,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test295() throws Throwable {
+    public void test296() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test295");
+            System.out.format("%n%s%n", "RegressionTest0.test296");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4846,9 +4864,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test296() throws Throwable {
+    public void test297() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test296");
+            System.out.format("%n%s%n", "RegressionTest0.test297");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4861,36 +4879,21 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test297() throws Throwable {
+    public void test298() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test297");
+            System.out.format("%n%s%n", "RegressionTest0.test298");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager3 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager5 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager6 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager7 = new com.foo.FooManager(foo0);
         foo0.mutate();
         foo0.mutate();
-        java.lang.Class<?> wildcardClass10 = foo0.getClass();
-        org.junit.Assert.assertNotNull(wildcardClass10);
-    }
-
-    @Test
-    public void test298() throws Throwable {
-        if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test298");
-        com.foo.Foo foo0 = new com.foo.Foo();
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager3 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager7 = new com.foo.FooManager(foo0);
-        fooManager7.initialize();
+        com.foo.FooManager fooManager8 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager9 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager10 = new com.foo.FooManager(foo0);
+        fooManager10.initialize();
     }
 
     @Test
@@ -4899,13 +4902,17 @@ public class RegressionTest0 {
             System.out.format("%n%s%n", "RegressionTest0.test299");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        com.foo.FooManager fooManager6 = new com.foo.FooManager(foo0);
-        java.lang.Class<?> wildcardClass7 = fooManager6.getClass();
-        org.junit.Assert.assertNotNull(wildcardClass7);
+        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
+        fooManager2.initialize();
+        fooManager2.initialize();
+        fooManager2.initialize();
+        fooManager2.initialize();
+        fooManager2.initialize();
+        fooManager2.initialize();
+        fooManager2.initialize();
+        fooManager2.initialize();
+        fooManager2.initialize();
+        fooManager2.initialize();
     }
 
     @Test
@@ -4913,12 +4920,12 @@ public class RegressionTest0 {
         if (debug)
             System.out.format("%n%s%n", "RegressionTest0.test300");
         com.foo.Foo foo0 = new com.foo.Foo();
-        com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
+        foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        foo0.mutate();
-        foo0.mutate();
-        foo0.mutate();
+        com.foo.FooManager fooManager3 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager5 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager6 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager7 = new com.foo.FooManager(foo0);
         foo0.mutate();
         foo0.mutate();
@@ -4934,6 +4941,67 @@ public class RegressionTest0 {
         foo0.mutate();
         foo0.mutate();
         com.foo.FooManager fooManager3 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        foo0.mutate();
+        foo0.mutate();
+        com.foo.FooManager fooManager7 = new com.foo.FooManager(foo0);
+        fooManager7.initialize();
+    }
+
+    @Test
+    public void test302() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest0.test302");
+        com.foo.Foo foo0 = new com.foo.Foo();
+        foo0.mutate();
+        foo0.mutate();
+        com.foo.FooManager fooManager3 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        com.foo.FooManager fooManager5 = new com.foo.FooManager(foo0);
+        fooManager5.initialize();
+    }
+
+    @Test
+    public void test303() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest0.test303");
+        com.foo.Foo foo0 = new com.foo.Foo();
+        foo0.mutate();
+        foo0.mutate();
+        foo0.mutate();
+        com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        com.foo.FooManager fooManager6 = new com.foo.FooManager(foo0);
+        java.lang.Class<?> wildcardClass7 = fooManager6.getClass();
+        org.junit.Assert.assertNotNull(wildcardClass7);
+    }
+
+    @Test
+    public void test304() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest0.test304");
+        com.foo.Foo foo0 = new com.foo.Foo();
+        com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        foo0.mutate();
+        foo0.mutate();
+        foo0.mutate();
+        com.foo.FooManager fooManager7 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        foo0.mutate();
+        java.lang.Class<?> wildcardClass10 = foo0.getClass();
+        org.junit.Assert.assertNotNull(wildcardClass10);
+    }
+
+    @Test
+    public void test305() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest0.test305");
+        com.foo.Foo foo0 = new com.foo.Foo();
+        foo0.mutate();
+        foo0.mutate();
+        com.foo.FooManager fooManager3 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
         foo0.mutate();
         com.foo.FooManager fooManager6 = new com.foo.FooManager(foo0);
@@ -4942,9 +5010,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test302() throws Throwable {
+    public void test306() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test302");
+            System.out.format("%n%s%n", "RegressionTest0.test306");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -4959,9 +5027,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test303() throws Throwable {
+    public void test307() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test303");
+            System.out.format("%n%s%n", "RegressionTest0.test307");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4978,9 +5046,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test304() throws Throwable {
+    public void test308() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test304");
+            System.out.format("%n%s%n", "RegressionTest0.test308");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -4997,9 +5065,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test305() throws Throwable {
+    public void test309() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test305");
+            System.out.format("%n%s%n", "RegressionTest0.test309");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5020,9 +5088,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test306() throws Throwable {
+    public void test310() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test306");
+            System.out.format("%n%s%n", "RegressionTest0.test310");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5038,9 +5106,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test307() throws Throwable {
+    public void test311() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test307");
+            System.out.format("%n%s%n", "RegressionTest0.test311");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5060,9 +5128,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test308() throws Throwable {
+    public void test312() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test308");
+            System.out.format("%n%s%n", "RegressionTest0.test312");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5080,9 +5148,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test309() throws Throwable {
+    public void test313() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test309");
+            System.out.format("%n%s%n", "RegressionTest0.test313");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5095,9 +5163,45 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test310() throws Throwable {
+    public void test314() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test310");
+            System.out.format("%n%s%n", "RegressionTest0.test314");
+        com.foo.Foo foo0 = new com.foo.Foo();
+        foo0.mutate();
+        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager3 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager5 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        foo0.mutate();
+        com.foo.FooManager fooManager8 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager9 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager10 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager11 = new com.foo.FooManager(foo0);
+        fooManager11.initialize();
+    }
+
+    @Test
+    public void test315() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest0.test315");
+        com.foo.Foo foo0 = new com.foo.Foo();
+        foo0.mutate();
+        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        foo0.mutate();
+        foo0.mutate();
+        com.foo.FooManager fooManager8 = new com.foo.FooManager(foo0);
+        fooManager8.initialize();
+        fooManager8.initialize();
+    }
+
+    @Test
+    public void test316() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest0.test316");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5115,9 +5219,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test311() throws Throwable {
+    public void test317() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test311");
+            System.out.format("%n%s%n", "RegressionTest0.test317");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5135,9 +5239,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test312() throws Throwable {
+    public void test318() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test312");
+            System.out.format("%n%s%n", "RegressionTest0.test318");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5153,9 +5257,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test313() throws Throwable {
+    public void test319() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test313");
+            System.out.format("%n%s%n", "RegressionTest0.test319");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5173,9 +5277,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test314() throws Throwable {
+    public void test320() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test314");
+            System.out.format("%n%s%n", "RegressionTest0.test320");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5193,9 +5297,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test315() throws Throwable {
+    public void test321() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test315");
+            System.out.format("%n%s%n", "RegressionTest0.test321");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5211,9 +5315,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test316() throws Throwable {
+    public void test322() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test316");
+            System.out.format("%n%s%n", "RegressionTest0.test322");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5230,9 +5334,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test317() throws Throwable {
+    public void test323() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test317");
+            System.out.format("%n%s%n", "RegressionTest0.test323");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5246,9 +5350,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test318() throws Throwable {
+    public void test324() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test318");
+            System.out.format("%n%s%n", "RegressionTest0.test324");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5263,9 +5367,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test319() throws Throwable {
+    public void test325() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test319");
+            System.out.format("%n%s%n", "RegressionTest0.test325");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5282,9 +5386,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test320() throws Throwable {
+    public void test326() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test320");
+            System.out.format("%n%s%n", "RegressionTest0.test326");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5299,9 +5403,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test321() throws Throwable {
+    public void test327() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test321");
+            System.out.format("%n%s%n", "RegressionTest0.test327");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5321,9 +5425,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test322() throws Throwable {
+    public void test328() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test322");
+            System.out.format("%n%s%n", "RegressionTest0.test328");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5342,9 +5446,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test323() throws Throwable {
+    public void test329() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test323");
+            System.out.format("%n%s%n", "RegressionTest0.test329");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5360,9 +5464,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test324() throws Throwable {
+    public void test330() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test324");
+            System.out.format("%n%s%n", "RegressionTest0.test330");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -5374,9 +5478,29 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test325() throws Throwable {
+    public void test331() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test325");
+            System.out.format("%n%s%n", "RegressionTest0.test331");
+        com.foo.Foo foo0 = new com.foo.Foo();
+        foo0.mutate();
+        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager3 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        foo0.mutate();
+        foo0.mutate();
+        foo0.mutate();
+        foo0.mutate();
+        foo0.mutate();
+        com.foo.FooManager fooManager11 = new com.foo.FooManager(foo0);
+        fooManager11.initialize();
+        fooManager11.initialize();
+    }
+
+    @Test
+    public void test332() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest0.test332");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5390,9 +5514,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test326() throws Throwable {
+    public void test333() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test326");
+            System.out.format("%n%s%n", "RegressionTest0.test333");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5405,9 +5529,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test327() throws Throwable {
+    public void test334() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test327");
+            System.out.format("%n%s%n", "RegressionTest0.test334");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5427,9 +5551,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test328() throws Throwable {
+    public void test335() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test328");
+            System.out.format("%n%s%n", "RegressionTest0.test335");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5445,9 +5569,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test329() throws Throwable {
+    public void test336() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test329");
+            System.out.format("%n%s%n", "RegressionTest0.test336");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5462,9 +5586,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test330() throws Throwable {
+    public void test337() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test330");
+            System.out.format("%n%s%n", "RegressionTest0.test337");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5485,9 +5609,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test331() throws Throwable {
+    public void test338() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test331");
+            System.out.format("%n%s%n", "RegressionTest0.test338");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5506,9 +5630,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test332() throws Throwable {
+    public void test339() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test332");
+            System.out.format("%n%s%n", "RegressionTest0.test339");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5524,9 +5648,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test333() throws Throwable {
+    public void test340() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test333");
+            System.out.format("%n%s%n", "RegressionTest0.test340");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5546,9 +5670,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test334() throws Throwable {
+    public void test341() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test334");
+            System.out.format("%n%s%n", "RegressionTest0.test341");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -5558,9 +5682,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test335() throws Throwable {
+    public void test342() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test335");
+            System.out.format("%n%s%n", "RegressionTest0.test342");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5579,9 +5703,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test336() throws Throwable {
+    public void test343() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test336");
+            System.out.format("%n%s%n", "RegressionTest0.test343");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5596,9 +5720,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test337() throws Throwable {
+    public void test344() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test337");
+            System.out.format("%n%s%n", "RegressionTest0.test344");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5611,9 +5735,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test338() throws Throwable {
+    public void test345() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test338");
+            System.out.format("%n%s%n", "RegressionTest0.test345");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5630,9 +5754,27 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test339() throws Throwable {
+    public void test346() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test339");
+            System.out.format("%n%s%n", "RegressionTest0.test346");
+        com.foo.Foo foo0 = new com.foo.Foo();
+        foo0.mutate();
+        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager3 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        com.foo.FooManager fooManager6 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        foo0.mutate();
+        com.foo.FooManager fooManager9 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        com.foo.FooManager fooManager11 = new com.foo.FooManager(foo0);
+    }
+
+    @Test
+    public void test347() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest0.test347");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5649,9 +5791,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test340() throws Throwable {
+    public void test348() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test340");
+            System.out.format("%n%s%n", "RegressionTest0.test348");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5668,9 +5810,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test341() throws Throwable {
+    public void test349() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test341");
+            System.out.format("%n%s%n", "RegressionTest0.test349");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5688,9 +5830,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test342() throws Throwable {
+    public void test350() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test342");
+            System.out.format("%n%s%n", "RegressionTest0.test350");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5708,9 +5850,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test343() throws Throwable {
+    public void test351() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test343");
+            System.out.format("%n%s%n", "RegressionTest0.test351");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5727,9 +5869,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test344() throws Throwable {
+    public void test352() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test344");
+            System.out.format("%n%s%n", "RegressionTest0.test352");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5744,9 +5886,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test345() throws Throwable {
+    public void test353() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test345");
+            System.out.format("%n%s%n", "RegressionTest0.test353");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5763,9 +5905,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test346() throws Throwable {
+    public void test354() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test346");
+            System.out.format("%n%s%n", "RegressionTest0.test354");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5781,9 +5923,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test347() throws Throwable {
+    public void test355() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test347");
+            System.out.format("%n%s%n", "RegressionTest0.test355");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -5796,9 +5938,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test348() throws Throwable {
+    public void test356() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test348");
+            System.out.format("%n%s%n", "RegressionTest0.test356");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5819,9 +5961,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test349() throws Throwable {
+    public void test357() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test349");
+            System.out.format("%n%s%n", "RegressionTest0.test357");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5836,9 +5978,29 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test350() throws Throwable {
+    public void test358() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test350");
+            System.out.format("%n%s%n", "RegressionTest0.test358");
+        com.foo.Foo foo0 = new com.foo.Foo();
+        foo0.mutate();
+        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager3 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        com.foo.FooManager fooManager6 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager7 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        foo0.mutate();
+        com.foo.FooManager fooManager10 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager11 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager12 = new com.foo.FooManager(foo0);
+        fooManager12.initialize();
+    }
+
+    @Test
+    public void test359() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest0.test359");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5850,9 +6012,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test351() throws Throwable {
+    public void test360() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test351");
+            System.out.format("%n%s%n", "RegressionTest0.test360");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5868,9 +6030,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test352() throws Throwable {
+    public void test361() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test352");
+            System.out.format("%n%s%n", "RegressionTest0.test361");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5885,9 +6047,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test353() throws Throwable {
+    public void test362() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test353");
+            System.out.format("%n%s%n", "RegressionTest0.test362");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5904,9 +6066,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test354() throws Throwable {
+    public void test363() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test354");
+            System.out.format("%n%s%n", "RegressionTest0.test363");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5921,9 +6083,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test355() throws Throwable {
+    public void test364() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test355");
+            System.out.format("%n%s%n", "RegressionTest0.test364");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5942,9 +6104,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test356() throws Throwable {
+    public void test365() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test356");
+            System.out.format("%n%s%n", "RegressionTest0.test365");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5963,9 +6125,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test357() throws Throwable {
+    public void test366() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test357");
+            System.out.format("%n%s%n", "RegressionTest0.test366");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -5981,9 +6143,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test358() throws Throwable {
+    public void test367() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test358");
+            System.out.format("%n%s%n", "RegressionTest0.test367");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6000,9 +6162,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test359() throws Throwable {
+    public void test368() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test359");
+            System.out.format("%n%s%n", "RegressionTest0.test368");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6021,9 +6183,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test360() throws Throwable {
+    public void test369() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test360");
+            System.out.format("%n%s%n", "RegressionTest0.test369");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -6039,9 +6201,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test361() throws Throwable {
+    public void test370() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test361");
+            System.out.format("%n%s%n", "RegressionTest0.test370");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -6056,9 +6218,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test362() throws Throwable {
+    public void test371() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test362");
+            System.out.format("%n%s%n", "RegressionTest0.test371");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6071,9 +6233,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test363() throws Throwable {
+    public void test372() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test363");
+            System.out.format("%n%s%n", "RegressionTest0.test372");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -6087,9 +6249,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test364() throws Throwable {
+    public void test373() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test364");
+            System.out.format("%n%s%n", "RegressionTest0.test373");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6102,9 +6264,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test365() throws Throwable {
+    public void test374() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test365");
+            System.out.format("%n%s%n", "RegressionTest0.test374");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -6116,9 +6278,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test366() throws Throwable {
+    public void test375() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test366");
+            System.out.format("%n%s%n", "RegressionTest0.test375");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6131,9 +6293,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test367() throws Throwable {
+    public void test376() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test367");
+            System.out.format("%n%s%n", "RegressionTest0.test376");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6150,9 +6312,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test368() throws Throwable {
+    public void test377() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test368");
+            System.out.format("%n%s%n", "RegressionTest0.test377");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6164,9 +6326,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test369() throws Throwable {
+    public void test378() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test369");
+            System.out.format("%n%s%n", "RegressionTest0.test378");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6183,9 +6345,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test370() throws Throwable {
+    public void test379() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test370");
+            System.out.format("%n%s%n", "RegressionTest0.test379");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6199,9 +6361,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test371() throws Throwable {
+    public void test380() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test371");
+            System.out.format("%n%s%n", "RegressionTest0.test380");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         foo0.mutate();
@@ -6214,9 +6376,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test372() throws Throwable {
+    public void test381() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test372");
+            System.out.format("%n%s%n", "RegressionTest0.test381");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6229,9 +6391,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test373() throws Throwable {
+    public void test382() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test373");
+            System.out.format("%n%s%n", "RegressionTest0.test382");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6253,9 +6415,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test374() throws Throwable {
+    public void test383() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test374");
+            System.out.format("%n%s%n", "RegressionTest0.test383");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6272,9 +6434,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test375() throws Throwable {
+    public void test384() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test375");
+            System.out.format("%n%s%n", "RegressionTest0.test384");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -6287,9 +6449,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test376() throws Throwable {
+    public void test385() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test376");
+            System.out.format("%n%s%n", "RegressionTest0.test385");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6309,9 +6471,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test377() throws Throwable {
+    public void test386() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test377");
+            System.out.format("%n%s%n", "RegressionTest0.test386");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6330,9 +6492,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test378() throws Throwable {
+    public void test387() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test378");
+            System.out.format("%n%s%n", "RegressionTest0.test387");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         foo0.mutate();
@@ -6342,9 +6504,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test379() throws Throwable {
+    public void test388() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test379");
+            System.out.format("%n%s%n", "RegressionTest0.test388");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6362,9 +6524,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test380() throws Throwable {
+    public void test389() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test380");
+            System.out.format("%n%s%n", "RegressionTest0.test389");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6386,9 +6548,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test381() throws Throwable {
+    public void test390() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test381");
+            System.out.format("%n%s%n", "RegressionTest0.test390");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6408,9 +6570,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test382() throws Throwable {
+    public void test391() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test382");
+            System.out.format("%n%s%n", "RegressionTest0.test391");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6426,9 +6588,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test383() throws Throwable {
+    public void test392() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test383");
+            System.out.format("%n%s%n", "RegressionTest0.test392");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6447,9 +6609,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test384() throws Throwable {
+    public void test393() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test384");
+            System.out.format("%n%s%n", "RegressionTest0.test393");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6465,9 +6627,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test385() throws Throwable {
+    public void test394() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test385");
+            System.out.format("%n%s%n", "RegressionTest0.test394");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6479,9 +6641,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test386() throws Throwable {
+    public void test395() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test386");
+            System.out.format("%n%s%n", "RegressionTest0.test395");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6496,9 +6658,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test387() throws Throwable {
+    public void test396() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test387");
+            System.out.format("%n%s%n", "RegressionTest0.test396");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6516,9 +6678,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test388() throws Throwable {
+    public void test397() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test388");
+            System.out.format("%n%s%n", "RegressionTest0.test397");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -6534,9 +6696,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test389() throws Throwable {
+    public void test398() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test389");
+            System.out.format("%n%s%n", "RegressionTest0.test398");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6553,9 +6715,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test390() throws Throwable {
+    public void test399() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test390");
+            System.out.format("%n%s%n", "RegressionTest0.test399");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6573,9 +6735,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test391() throws Throwable {
+    public void test400() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test391");
+            System.out.format("%n%s%n", "RegressionTest0.test400");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6592,9 +6754,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test392() throws Throwable {
+    public void test401() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test392");
+            System.out.format("%n%s%n", "RegressionTest0.test401");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6606,9 +6768,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test393() throws Throwable {
+    public void test402() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test393");
+            System.out.format("%n%s%n", "RegressionTest0.test402");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6628,9 +6790,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test394() throws Throwable {
+    public void test403() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test394");
+            System.out.format("%n%s%n", "RegressionTest0.test403");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6647,9 +6809,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test395() throws Throwable {
+    public void test404() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test395");
+            System.out.format("%n%s%n", "RegressionTest0.test404");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6666,9 +6828,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test396() throws Throwable {
+    public void test405() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test396");
+            System.out.format("%n%s%n", "RegressionTest0.test405");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6683,9 +6845,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test397() throws Throwable {
+    public void test406() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test397");
+            System.out.format("%n%s%n", "RegressionTest0.test406");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -6701,9 +6863,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test398() throws Throwable {
+    public void test407() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test398");
+            System.out.format("%n%s%n", "RegressionTest0.test407");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6725,9 +6887,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test399() throws Throwable {
+    public void test408() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test399");
+            System.out.format("%n%s%n", "RegressionTest0.test408");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6744,9 +6906,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test400() throws Throwable {
+    public void test409() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test400");
+            System.out.format("%n%s%n", "RegressionTest0.test409");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6764,9 +6926,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test401() throws Throwable {
+    public void test410() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test401");
+            System.out.format("%n%s%n", "RegressionTest0.test410");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6784,9 +6946,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test402() throws Throwable {
+    public void test411() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test402");
+            System.out.format("%n%s%n", "RegressionTest0.test411");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6802,9 +6964,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test403() throws Throwable {
+    public void test412() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test403");
+            System.out.format("%n%s%n", "RegressionTest0.test412");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -6817,9 +6979,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test404() throws Throwable {
+    public void test413() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test404");
+            System.out.format("%n%s%n", "RegressionTest0.test413");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6836,9 +6998,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test405() throws Throwable {
+    public void test414() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test405");
+            System.out.format("%n%s%n", "RegressionTest0.test414");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6855,9 +7017,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test406() throws Throwable {
+    public void test415() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test406");
+            System.out.format("%n%s%n", "RegressionTest0.test415");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6875,9 +7037,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test407() throws Throwable {
+    public void test416() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test407");
+            System.out.format("%n%s%n", "RegressionTest0.test416");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6892,9 +7054,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test408() throws Throwable {
+    public void test417() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test408");
+            System.out.format("%n%s%n", "RegressionTest0.test417");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6913,9 +7075,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test409() throws Throwable {
+    public void test418() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test409");
+            System.out.format("%n%s%n", "RegressionTest0.test418");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6939,9 +7101,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test410() throws Throwable {
+    public void test419() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test410");
+            System.out.format("%n%s%n", "RegressionTest0.test419");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6956,9 +7118,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test411() throws Throwable {
+    public void test420() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test411");
+            System.out.format("%n%s%n", "RegressionTest0.test420");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6976,9 +7138,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test412() throws Throwable {
+    public void test421() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test412");
+            System.out.format("%n%s%n", "RegressionTest0.test421");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -6993,9 +7155,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test413() throws Throwable {
+    public void test422() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test413");
+            System.out.format("%n%s%n", "RegressionTest0.test422");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7011,9 +7173,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test414() throws Throwable {
+    public void test423() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test414");
+            System.out.format("%n%s%n", "RegressionTest0.test423");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7032,9 +7194,25 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test415() throws Throwable {
+    public void test424() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test415");
+            System.out.format("%n%s%n", "RegressionTest0.test424");
+        com.foo.Foo foo0 = new com.foo.Foo();
+        foo0.mutate();
+        foo0.mutate();
+        com.foo.FooManager fooManager3 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        foo0.mutate();
+        com.foo.FooManager fooManager7 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        com.foo.FooManager fooManager9 = new com.foo.FooManager(foo0);
+    }
+
+    @Test
+    public void test425() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest0.test425");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7051,9 +7229,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test416() throws Throwable {
+    public void test426() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test416");
+            System.out.format("%n%s%n", "RegressionTest0.test426");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7064,9 +7242,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test417() throws Throwable {
+    public void test427() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test417");
+            System.out.format("%n%s%n", "RegressionTest0.test427");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7082,9 +7260,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test418() throws Throwable {
+    public void test428() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test418");
+            System.out.format("%n%s%n", "RegressionTest0.test428");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7100,9 +7278,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test419() throws Throwable {
+    public void test429() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test419");
+            System.out.format("%n%s%n", "RegressionTest0.test429");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7121,9 +7299,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test420() throws Throwable {
+    public void test430() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test420");
+            System.out.format("%n%s%n", "RegressionTest0.test430");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7142,9 +7320,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test421() throws Throwable {
+    public void test431() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test421");
+            System.out.format("%n%s%n", "RegressionTest0.test431");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7163,9 +7341,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test422() throws Throwable {
+    public void test432() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test422");
+            System.out.format("%n%s%n", "RegressionTest0.test432");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7187,9 +7365,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test423() throws Throwable {
+    public void test433() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test423");
+            System.out.format("%n%s%n", "RegressionTest0.test433");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7203,9 +7381,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test424() throws Throwable {
+    public void test434() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test424");
+            System.out.format("%n%s%n", "RegressionTest0.test434");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7223,9 +7401,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test425() throws Throwable {
+    public void test435() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test425");
+            System.out.format("%n%s%n", "RegressionTest0.test435");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -7239,9 +7417,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test426() throws Throwable {
+    public void test436() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test426");
+            System.out.format("%n%s%n", "RegressionTest0.test436");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7254,9 +7432,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test427() throws Throwable {
+    public void test437() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test427");
+            System.out.format("%n%s%n", "RegressionTest0.test437");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7272,9 +7450,22 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test428() throws Throwable {
+    public void test438() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test428");
+            System.out.format("%n%s%n", "RegressionTest0.test438");
+        com.foo.Foo foo0 = new com.foo.Foo();
+        com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager3 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager5 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+    }
+
+    @Test
+    public void test439() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest0.test439");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7291,9 +7482,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test429() throws Throwable {
+    public void test440() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test429");
+            System.out.format("%n%s%n", "RegressionTest0.test440");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7306,9 +7497,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test430() throws Throwable {
+    public void test441() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test430");
+            System.out.format("%n%s%n", "RegressionTest0.test441");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7327,9 +7518,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test431() throws Throwable {
+    public void test442() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test431");
+            System.out.format("%n%s%n", "RegressionTest0.test442");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7349,9 +7540,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test432() throws Throwable {
+    public void test443() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test432");
+            System.out.format("%n%s%n", "RegressionTest0.test443");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7367,9 +7558,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test433() throws Throwable {
+    public void test444() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test433");
+            System.out.format("%n%s%n", "RegressionTest0.test444");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7389,9 +7580,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test434() throws Throwable {
+    public void test445() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test434");
+            System.out.format("%n%s%n", "RegressionTest0.test445");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7408,9 +7599,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test435() throws Throwable {
+    public void test446() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test435");
+            System.out.format("%n%s%n", "RegressionTest0.test446");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7424,9 +7615,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test436() throws Throwable {
+    public void test447() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test436");
+            System.out.format("%n%s%n", "RegressionTest0.test447");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7444,9 +7635,32 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test437() throws Throwable {
+    public void test448() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test437");
+            System.out.format("%n%s%n", "RegressionTest0.test448");
+        com.foo.Foo foo0 = new com.foo.Foo();
+        com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        foo0.mutate();
+        foo0.mutate();
+        foo0.mutate();
+        com.foo.FooManager fooManager7 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        foo0.mutate();
+        com.foo.FooManager fooManager10 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager11 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager12 = new com.foo.FooManager(foo0);
+        fooManager12.initialize();
+        fooManager12.initialize();
+        fooManager12.initialize();
+        fooManager12.initialize();
+    }
+
+    @Test
+    public void test449() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest0.test449");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         fooManager1.initialize();
@@ -7458,9 +7672,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test438() throws Throwable {
+    public void test450() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test438");
+            System.out.format("%n%s%n", "RegressionTest0.test450");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7479,9 +7693,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test439() throws Throwable {
+    public void test451() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test439");
+            System.out.format("%n%s%n", "RegressionTest0.test451");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7497,9 +7711,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test440() throws Throwable {
+    public void test452() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test440");
+            System.out.format("%n%s%n", "RegressionTest0.test452");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7515,9 +7729,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test441() throws Throwable {
+    public void test453() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test441");
+            System.out.format("%n%s%n", "RegressionTest0.test453");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7536,9 +7750,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test442() throws Throwable {
+    public void test454() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test442");
+            System.out.format("%n%s%n", "RegressionTest0.test454");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7559,9 +7773,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test443() throws Throwable {
+    public void test455() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test443");
+            System.out.format("%n%s%n", "RegressionTest0.test455");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7576,9 +7790,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test444() throws Throwable {
+    public void test456() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test444");
+            System.out.format("%n%s%n", "RegressionTest0.test456");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7596,9 +7810,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test445() throws Throwable {
+    public void test457() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test445");
+            System.out.format("%n%s%n", "RegressionTest0.test457");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7616,9 +7830,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test446() throws Throwable {
+    public void test458() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test446");
+            System.out.format("%n%s%n", "RegressionTest0.test458");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7638,9 +7852,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test447() throws Throwable {
+    public void test459() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test447");
+            System.out.format("%n%s%n", "RegressionTest0.test459");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -7655,9 +7869,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test448() throws Throwable {
+    public void test460() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test448");
+            System.out.format("%n%s%n", "RegressionTest0.test460");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7675,9 +7889,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test449() throws Throwable {
+    public void test461() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test449");
+            System.out.format("%n%s%n", "RegressionTest0.test461");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7695,9 +7909,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test450() throws Throwable {
+    public void test462() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test450");
+            System.out.format("%n%s%n", "RegressionTest0.test462");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7714,9 +7928,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test451() throws Throwable {
+    public void test463() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test451");
+            System.out.format("%n%s%n", "RegressionTest0.test463");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7728,9 +7942,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test452() throws Throwable {
+    public void test464() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test452");
+            System.out.format("%n%s%n", "RegressionTest0.test464");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7752,9 +7966,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test453() throws Throwable {
+    public void test465() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test453");
+            System.out.format("%n%s%n", "RegressionTest0.test465");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7775,9 +7989,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test454() throws Throwable {
+    public void test466() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test454");
+            System.out.format("%n%s%n", "RegressionTest0.test466");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7792,9 +8006,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test455() throws Throwable {
+    public void test467() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test455");
+            System.out.format("%n%s%n", "RegressionTest0.test467");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7810,9 +8024,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test456() throws Throwable {
+    public void test468() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test456");
+            System.out.format("%n%s%n", "RegressionTest0.test468");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7828,9 +8042,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test457() throws Throwable {
+    public void test469() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test457");
+            System.out.format("%n%s%n", "RegressionTest0.test469");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7848,9 +8062,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test458() throws Throwable {
+    public void test470() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test458");
+            System.out.format("%n%s%n", "RegressionTest0.test470");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7864,9 +8078,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test459() throws Throwable {
+    public void test471() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test459");
+            System.out.format("%n%s%n", "RegressionTest0.test471");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7885,9 +8099,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test460() throws Throwable {
+    public void test472() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test460");
+            System.out.format("%n%s%n", "RegressionTest0.test472");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7903,9 +8117,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test461() throws Throwable {
+    public void test473() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test461");
+            System.out.format("%n%s%n", "RegressionTest0.test473");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         foo0.mutate();
@@ -7917,9 +8131,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test462() throws Throwable {
+    public void test474() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test462");
+            System.out.format("%n%s%n", "RegressionTest0.test474");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7938,9 +8152,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test463() throws Throwable {
+    public void test475() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test463");
+            System.out.format("%n%s%n", "RegressionTest0.test475");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7956,9 +8170,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test464() throws Throwable {
+    public void test476() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test464");
+            System.out.format("%n%s%n", "RegressionTest0.test476");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7980,9 +8194,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test465() throws Throwable {
+    public void test477() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test465");
+            System.out.format("%n%s%n", "RegressionTest0.test477");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -7997,9 +8211,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test466() throws Throwable {
+    public void test478() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test466");
+            System.out.format("%n%s%n", "RegressionTest0.test478");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8017,9 +8231,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test467() throws Throwable {
+    public void test479() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test467");
+            System.out.format("%n%s%n", "RegressionTest0.test479");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8038,9 +8252,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test468() throws Throwable {
+    public void test480() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test468");
+            System.out.format("%n%s%n", "RegressionTest0.test480");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         foo0.mutate();
@@ -8054,9 +8268,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test469() throws Throwable {
+    public void test481() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test469");
+            System.out.format("%n%s%n", "RegressionTest0.test481");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8076,9 +8290,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test470() throws Throwable {
+    public void test482() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test470");
+            System.out.format("%n%s%n", "RegressionTest0.test482");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8097,9 +8311,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test471() throws Throwable {
+    public void test483() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test471");
+            System.out.format("%n%s%n", "RegressionTest0.test483");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8117,9 +8331,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test472() throws Throwable {
+    public void test484() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test472");
+            System.out.format("%n%s%n", "RegressionTest0.test484");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8135,9 +8349,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test473() throws Throwable {
+    public void test485() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test473");
+            System.out.format("%n%s%n", "RegressionTest0.test485");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8155,9 +8369,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test474() throws Throwable {
+    public void test486() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test474");
+            System.out.format("%n%s%n", "RegressionTest0.test486");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8176,9 +8390,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test475() throws Throwable {
+    public void test487() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test475");
+            System.out.format("%n%s%n", "RegressionTest0.test487");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8196,9 +8410,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test476() throws Throwable {
+    public void test488() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test476");
+            System.out.format("%n%s%n", "RegressionTest0.test488");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8212,9 +8426,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test477() throws Throwable {
+    public void test489() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test477");
+            System.out.format("%n%s%n", "RegressionTest0.test489");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8232,9 +8446,30 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test478() throws Throwable {
+    public void test490() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test478");
+            System.out.format("%n%s%n", "RegressionTest0.test490");
+        com.foo.Foo foo0 = new com.foo.Foo();
+        foo0.mutate();
+        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        foo0.mutate();
+        foo0.mutate();
+        com.foo.FooManager fooManager6 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        com.foo.FooManager fooManager8 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+        foo0.mutate();
+        com.foo.FooManager fooManager11 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager12 = new com.foo.FooManager(foo0);
+        com.foo.FooManager fooManager13 = new com.foo.FooManager(foo0);
+        foo0.mutate();
+    }
+
+    @Test
+    public void test491() throws Throwable {
+        if (debug)
+            System.out.format("%n%s%n", "RegressionTest0.test491");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8254,9 +8489,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test479() throws Throwable {
+    public void test492() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test479");
+            System.out.format("%n%s%n", "RegressionTest0.test492");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8269,9 +8504,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test480() throws Throwable {
+    public void test493() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test480");
+            System.out.format("%n%s%n", "RegressionTest0.test493");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8288,9 +8523,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test481() throws Throwable {
+    public void test494() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test481");
+            System.out.format("%n%s%n", "RegressionTest0.test494");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8310,9 +8545,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test482() throws Throwable {
+    public void test495() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test482");
+            System.out.format("%n%s%n", "RegressionTest0.test495");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8330,9 +8565,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test483() throws Throwable {
+    public void test496() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test483");
+            System.out.format("%n%s%n", "RegressionTest0.test496");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8345,9 +8580,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test484() throws Throwable {
+    public void test497() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test484");
+            System.out.format("%n%s%n", "RegressionTest0.test497");
         com.foo.Foo foo0 = new com.foo.Foo();
         com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8364,9 +8599,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test485() throws Throwable {
+    public void test498() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test485");
+            System.out.format("%n%s%n", "RegressionTest0.test498");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8387,9 +8622,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test486() throws Throwable {
+    public void test499() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test486");
+            System.out.format("%n%s%n", "RegressionTest0.test499");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8403,9 +8638,9 @@ public class RegressionTest0 {
     }
 
     @Test
-    public void test487() throws Throwable {
+    public void test500() throws Throwable {
         if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test487");
+            System.out.format("%n%s%n", "RegressionTest0.test500");
         com.foo.Foo foo0 = new com.foo.Foo();
         foo0.mutate();
         com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
@@ -8418,240 +8653,6 @@ public class RegressionTest0 {
         com.foo.FooManager fooManager9 = new com.foo.FooManager(foo0);
         foo0.mutate();
         java.lang.Class<?> wildcardClass11 = foo0.getClass();
-        org.junit.Assert.assertNotNull(wildcardClass11);
-    }
-
-    @Test
-    public void test488() throws Throwable {
-        if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test488");
-        com.foo.Foo foo0 = new com.foo.Foo();
-        foo0.mutate();
-        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        com.foo.FooManager fooManager6 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager9 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager10 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        java.lang.Class<?> wildcardClass12 = foo0.getClass();
-        org.junit.Assert.assertNotNull(wildcardClass12);
-    }
-
-    @Test
-    public void test489() throws Throwable {
-        if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test489");
-        com.foo.Foo foo0 = new com.foo.Foo();
-        foo0.mutate();
-        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager5 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager9 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager13 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-    }
-
-    @Test
-    public void test490() throws Throwable {
-        if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test490");
-        com.foo.Foo foo0 = new com.foo.Foo();
-        foo0.mutate();
-        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager5 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        com.foo.FooManager fooManager7 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager8 = new com.foo.FooManager(foo0);
-    }
-
-    @Test
-    public void test491() throws Throwable {
-        if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test491");
-        com.foo.Foo foo0 = new com.foo.Foo();
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager3 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        foo0.mutate();
-        foo0.mutate();
-        foo0.mutate();
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager10 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-    }
-
-    @Test
-    public void test492() throws Throwable {
-        if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test492");
-        com.foo.Foo foo0 = new com.foo.Foo();
-        com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        com.foo.FooManager fooManager6 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        com.foo.FooManager fooManager8 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager9 = new com.foo.FooManager(foo0);
-        java.lang.Class<?> wildcardClass10 = fooManager9.getClass();
-        org.junit.Assert.assertNotNull(wildcardClass10);
-    }
-
-    @Test
-    public void test493() throws Throwable {
-        if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test493");
-        com.foo.Foo foo0 = new com.foo.Foo();
-        foo0.mutate();
-        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager6 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        com.foo.FooManager fooManager8 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager9 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager10 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager11 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager12 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager13 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager14 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager15 = new com.foo.FooManager(foo0);
-    }
-
-    @Test
-    public void test494() throws Throwable {
-        if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test494");
-        com.foo.Foo foo0 = new com.foo.Foo();
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager3 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager5 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager9 = new com.foo.FooManager(foo0);
-        fooManager9.initialize();
-        fooManager9.initialize();
-    }
-
-    @Test
-    public void test495() throws Throwable {
-        if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test495");
-        com.foo.Foo foo0 = new com.foo.Foo();
-        foo0.mutate();
-        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager6 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        foo0.mutate();
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager11 = new com.foo.FooManager(foo0);
-        fooManager11.initialize();
-        fooManager11.initialize();
-    }
-
-    @Test
-    public void test496() throws Throwable {
-        if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test496");
-        com.foo.Foo foo0 = new com.foo.Foo();
-        foo0.mutate();
-        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager5 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager6 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager9 = new com.foo.FooManager(foo0);
-    }
-
-    @Test
-    public void test497() throws Throwable {
-        if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test497");
-        com.foo.Foo foo0 = new com.foo.Foo();
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager3 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager5 = new com.foo.FooManager(foo0);
-        java.lang.Class<?> wildcardClass6 = foo0.getClass();
-        org.junit.Assert.assertNotNull(wildcardClass6);
-    }
-
-    @Test
-    public void test498() throws Throwable {
-        if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test498");
-        com.foo.Foo foo0 = new com.foo.Foo();
-        com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager5 = new com.foo.FooManager(foo0);
-        java.lang.Class<?> wildcardClass6 = foo0.getClass();
-        org.junit.Assert.assertNotNull(wildcardClass6);
-    }
-
-    @Test
-    public void test499() throws Throwable {
-        if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test499");
-        com.foo.Foo foo0 = new com.foo.Foo();
-        com.foo.FooManager fooManager1 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        foo0.mutate();
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager7 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager10 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager11 = new com.foo.FooManager(foo0);
-        fooManager11.initialize();
-    }
-
-    @Test
-    public void test500() throws Throwable {
-        if (debug)
-            System.out.format("%n%s%n", "RegressionTest0.test500");
-        com.foo.Foo foo0 = new com.foo.Foo();
-        foo0.mutate();
-        com.foo.FooManager fooManager2 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager3 = new com.foo.FooManager(foo0);
-        com.foo.FooManager fooManager4 = new com.foo.FooManager(foo0);
-        foo0.mutate();
-        foo0.mutate();
-        com.foo.FooManager fooManager7 = new com.foo.FooManager(foo0);
-        fooManager7.initialize();
-        fooManager7.initialize();
-        fooManager7.initialize();
-        java.lang.Class<?> wildcardClass11 = fooManager7.getClass();
         org.junit.Assert.assertNotNull(wildcardClass11);
     }
 }

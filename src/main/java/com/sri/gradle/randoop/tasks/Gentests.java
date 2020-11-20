@@ -133,6 +133,7 @@ public class Gentests extends DescribedTask {
             spec.setClassListFile(getProject().getProjectDir(), classListFile);
             spec.setOutputLimit(getOutputLimit().getOrElse(2000));
             spec.setDebugChecks(true);
+            spec.setRandoopLog(getProject().getProjectDir().toPath(), "randoop-log.txt");
           });
 
     } catch (Exception e) {

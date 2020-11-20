@@ -9,7 +9,10 @@ import static com.sri.gradle.randoop.Constants.GROUP;
 import static com.sri.gradle.randoop.Constants.RANDOOP_PLUGIN_DESCRIPTION;
 import static com.sri.gradle.randoop.Constants.RANDOOP_PLUGIN_EXTENSION;
 
+import com.sri.gradle.randoop.extensions.RandoopJavaCompileExtension;
+import com.sri.gradle.randoop.extensions.RandoopPluginExtension;
 import com.sri.gradle.randoop.tasks.CheckForRandoop;
+import com.sri.gradle.randoop.tasks.JavaCompileMutator;
 import com.sri.gradle.randoop.tasks.RunRandoop;
 import com.sri.gradle.randoop.tasks.CleanupRandoopOutput;
 import com.sri.gradle.randoop.tasks.GenerateClasslist;

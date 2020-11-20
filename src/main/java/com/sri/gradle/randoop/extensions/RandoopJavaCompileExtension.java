@@ -1,5 +1,6 @@
-package com.sri.gradle.randoop;
+package com.sri.gradle.randoop.extensions;
 
+import com.sri.gradle.randoop.Constants;
 import org.gradle.api.Project;
 import org.gradle.api.tasks.compile.JavaCompile;
 

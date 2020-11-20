@@ -1,5 +1,6 @@
-package com.sri.gradle.randoop;
+package com.sri.gradle.randoop.tasks;
 
+import com.sri.gradle.randoop.Constants;
 import com.sri.gradle.randoop.utils.ImmutableStream;
 import com.sri.gradle.randoop.utils.JavaProjectHelper;
 import com.sri.gradle.randoop.utils.MoreFiles;

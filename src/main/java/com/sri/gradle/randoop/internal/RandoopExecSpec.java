@@ -214,4 +214,10 @@ public class RandoopExecSpec {
   public void setWorkingDir(File workingDir) {
     this.workingDirectory = workingDir;
   }
+
+  public void setRandoopLog(Path workDir, String filename){
+    Objects.requireNonNull(workDir);
+    final Path filePath = workDir.resolve(filename);
+    args("--log=" + workDir.relativize(filePath));
+  }
 }
