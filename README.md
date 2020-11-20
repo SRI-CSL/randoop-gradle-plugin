@@ -62,7 +62,3 @@ runRandoop {
 Additional build properties:
 
 -   `-Prebuild` - Tells the plugin to re-build all tests files in the specified `junitOutputDir`
-
-## Slides
-
-[Slides](https://docs.google.com/presentation/d/1YtCBqJ29rMNYvAiiHstXdWf9F68M34Hp2iufOAfETHw/edit?usp=sharing).
