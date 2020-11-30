@@ -108,8 +108,8 @@ Additional build properties:
 
 ## Example
 
-A simple example of how to run this plugin can be found at this project's `consumer` sub-directory.
-The following snippet shows how to run the plugin on the `consumer` source code:
+A simple example of how to use this plugin on a basic Java project can be found at this project's
+`consumer` sub-directory. From your terminal, run the the following:
 
 ```groovy
 › cd consumer
