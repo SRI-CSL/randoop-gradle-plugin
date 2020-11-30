@@ -4,41 +4,63 @@
 
 (experimental) randoop gradle plugin
 
-This Gradle plug-in creates a task to run [Randoop](https://randoop.github.io/randoop/) on Java projects.
+This Gradle plug-in creates a task named `runRandoop` to run [Randoop](https://randoop.github.io/randoop/) on Java projects.
 
-## Integration
+## Configuration
 
-To use this plug-in, [you must have downloaded Randoop and have it as dependency](https://github.com/randoop/randoop/releases/latest).
-
-Add the plug-in dependency and apply it in your project's `build.gradle`:
+To use this plug-in you must apply the Randoop plugin to the root project’s `build.gradle`:
 
 ```groovy
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        ...
-        classpath 'com.sri.gradle:randoop-gradle-plugin:1.0'
-    }
+plugins {
+    id 'java'
+    id 'maven-publish'
+	id 'com.sri.gradle.randoop' version '0.0.1-SNAPSHOT'
 }
 ```
 
-## Applying the Plugin
+Then, you must specify the location where the plugin can find Randoop,
+as well as other Randoop's required parameters such as Randoop output directory,
+and the name of the package for the generated JUnit files.
 
-### Java
+In the following example, Randoop is in the project's libs directory, the output directory is
+the project's test directory, and the JUnit package name is `com.foo`:
 
 ```groovy
-apply plugin: 'java'
-apply plugin: 'com.sri.gradle.randoop'
+runRandoop {
+    randoopJar = file("libs/randoop.jar")
+    junitOutputDir = file("${projectDir}/src/test/java")
+    ....
+    junitPackageName = 'com.foo'
+}
 ```
 
-## Randoop configuration
-
-In the build.gradle of the project that applies the plugin:
+You can find an example of this configuration below:
 
 ```groovy
+plugins {
+    id 'java'
+    id 'maven-publish'
+	id 'com.sri.gradle.randoop' version '0.0.1-SNAPSHOT'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url 'https://plugins.gradle.org/m2/'
+    }
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:28.0-jre'
+    testImplementation 'org.hamcrest:hamcrest:2.2'
+    testImplementation 'junit:junit:4.13'
+}
+
+tasks.withType(Javadoc){
+	enabled = false
+}
+
 runRandoop {
     randoopJar = file("libs/randoop.jar")
     junitOutputDir = file("${projectDir}/src/test/java")
@@ -53,18 +75,46 @@ runRandoop {
 }
 ```
 
+## Using a locally-built plugin
+
+You can build the plugin locally rather than downloading it from Maven Central.
+
+To build the plugin from source, run `./gradlew build`.
+
+If you want to use a locally-built version of the plugin, you can publish the plugin to your
+local Maven repository by running `./gradlew publishToMavenLocal`. Then, add the following to
+the `settings.gradle` file in the Gradle project that you want to use the plugin:
+
+```
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+    }
+}
+```
+
 ## Randoop Tasks
 
 -   `cleanupRandoopOutput` - Deletes Randoop-generated files in `junitOutputDir`.
 -   `checkForRandoop` - Checks if Randoop is in the project's classpath.
 -   `generateClassListFile` - Generates a classList.txt file from the current project's classes.
 -   `generateTests` - Generates unit tests with Randoop for classes in classList.txt file.
--   `runRandoop` - Checks if Randoop generated the unit tests
+-   `runRandoop` - Runs Randoop test generator (Main task)
 
 Additional build properties:
 
--   `-Prebuild` - Tells the plugin to re-build all tests files in the specified `junitOutputDir`
+-   `-Prebuild` - Tells the plugin to re-build all tests files in the specified `junitOutputDir` location.
 
+## Example
+
+A simple example of how to run this plugin can be found at this project's `consumer` sub-directory.
+The following snippet shows how to run the plugin on the `consumer` source code:
+
+```groovy
+› cd consumer
+› ./gradlew clean; ./gradlew build; ./gradlew runRandoop -Prebuild
+```
 
 ## License
 
