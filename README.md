@@ -96,6 +96,9 @@ pluginManagement {
 
 ## Randoop Tasks
 
+The plug-in support the following tasks. The main task of this plug-in is the `runRandoop` task, which
+runs other supporting tasks, such as `generateClassListFile`. The entire list of tasks is presented here: 
+
 -   `cleanupRandoopOutput` - Deletes Randoop-generated files in `junitOutputDir`.
 -   `checkForRandoop` - Checks if Randoop is in the project's classpath.
 -   `generateClassListFile` - Generates a classList.txt file from the current project's classes.
