@@ -3,7 +3,11 @@ package com.sri.gradle.randoop.tasks;
 import com.sri.gradle.randoop.Constants;
 import com.sri.gradle.randoop.internal.RandoopExecutor;
 import com.sri.gradle.randoop.utils.JavaProjectHelper;
+import com.sri.gradle.randoop.utils.MoreFiles;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.OutputStream;
+import java.nio.file.Path;
 import java.util.Objects;
 import java.util.Set;
 import org.gradle.api.GradleException;
@@ -17,6 +21,7 @@ import org.gradle.api.tasks.OutputDirectory;
 import org.gradle.api.tasks.TaskAction;
 
 public class Gentests extends DescribedTask {
+
   private final RegularFileProperty randoopJar;
   private final DirectoryProperty junitOutputDir;
   private final Property<Integer> timeoutSeconds;
@@ -111,6 +116,17 @@ public class Gentests extends DescribedTask {
 
       final File junitOutputDir = getJunitOutputDir().getAsFile().get();
 
+      Set<File> randoopGeneratedTests =
+          MoreFiles.getMatchingFiles(
+              junitOutputDir.toPath(),
+              Constants.EXPECTED_RANDOOP_TEST_NAME_REGEX);
+
+      if (!randoopGeneratedTests.isEmpty() && projectHelper.hasProperty(Constants.EVIDENCE_ONLY)) {
+        getLogger().quiet("Skipped generation of tests. Tests were already generated.");
+        return;
+      }
+
+      final OutputStream outputStream = new ByteArrayOutputStream();
       final RandoopExecutor mainExecutor = new RandoopExecutor(getProject());
       mainExecutor.exec(
           spec -> {
@@ -133,9 +149,15 @@ public class Gentests extends DescribedTask {
             spec.setClassListFile(getProject().getProjectDir(), classListFile);
             spec.setOutputLimit(getOutputLimit().getOrElse(2000));
             spec.setDebugChecks(true);
-            spec.setRandoopLog(getProject().getProjectDir().toPath(), "randoop-log.txt");
+            spec.setOutputStream(outputStream);
           });
 
+      // captures Randoop output information and then
+      // writes it to a file, which be picked up by the
+      // RandoopDetails task.
+      final Path outputLogFile = getProject().getProjectDir().toPath()
+          .resolve(Constants.RANDOOP_SUMMARY_FILE_NAME);
+      mainExecutor.writeOutput(outputLogFile);
     } catch (Exception e) {
       throw new GradleException("Failed to generate tests", e);
     }

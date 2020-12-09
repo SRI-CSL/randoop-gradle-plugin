@@ -2,13 +2,13 @@
 
 [![License](https://img.shields.io/badge/license-apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
-(experimental) randoop gradle plugin
+(experimental) randoop gradle plug-in
 
 This Gradle plug-in creates a task named `runRandoop` to run [Randoop](https://randoop.github.io/randoop/) on Java projects.
 
 ## Configuration
 
-To use this plug-in you must apply the Randoop plugin to the root project’s `build.gradle`:
+To use this plug-in you must apply the Randoop plug-in to the root project’s `build.gradle`:
 
 ```groovy
 plugins {
@@ -18,12 +18,12 @@ plugins {
 }
 ```
 
-Then, you must specify the location where the plugin can find Randoop,
-as well as other Randoop's required parameters such as Randoop output directory,
-and the name of the package for the generated JUnit files.
+Then, you must specify you must specify a few configuration parameters in your `runRandoop` configuration. 
+For example, the location where the plug-in can find the Randoop tool, the Randoop output directory,
+the name of the package for the generated JUnit files, etc.
 
-In the following example, Randoop is in the project's libs directory, the output directory is
-the project's test directory, and the JUnit package name is `com.foo`:
+In the following example, Randoop is in the project's `libs` directory, the output directory is
+the project's `src/test/java` directory, and the JUnit package name is `com.foo`:
 
 ```groovy
 runRandoop {
@@ -34,7 +34,7 @@ runRandoop {
 }
 ```
 
-You can find an example of this configuration below:
+You can find a complete example of this configuration below:
 
 ```groovy
 plugins {
@@ -53,6 +53,7 @@ repositories {
 
 dependencies {
     implementation 'com.google.guava:guava:28.0-jre'
+    implementation 'com.google.code.gson:gson:2.8.6'
     testImplementation 'org.hamcrest:hamcrest:2.2'
     testImplementation 'junit:junit:4.13'
 }
@@ -75,15 +76,14 @@ runRandoop {
 }
 ```
 
-## Using a locally-built plugin
+## Using a locally-built plug-in
 
-You can build the plugin locally rather than downloading it from Maven Central.
+You can build the plug-in locally rather than downloading it from Maven Central.
 
-To build the plugin from source, run `./gradlew build`.
+To build the plug-in from source, run the `./gradlew build` command.
 
-If you want to use a locally-built version of the plugin, you can publish the plugin to your
-local Maven repository by running `./gradlew publishToMavenLocal`. Then, add the following to
-the `settings.gradle` file in the Gradle project that you want to use the plugin:
+If you want to use a locally-built version of the plug-in, you must add the following configuration to
+the `settings.gradle` file of your Gradle project:
 
 ```
 pluginManagement {
@@ -94,29 +94,131 @@ pluginManagement {
 }
 ```
 
+Then, you can publish the plug-in to your local Maven repository simply by running the `./gradlew publishToMavenLocal` command.
+Make sure you run both the `clean` and the `build` tasks before running this command:
+
+```sh
+› ./gradlew clean
+› ./gradlew build
+› ./gradlew publishToMavenLocal
+```
+
+After that, you can use any of the Gradle tasks offered by the Randoop plug-in.
+
 ## Randoop Tasks
 
-The plug-in support the following tasks. The main task of this plug-in is the `runRandoop` task, which
-runs other supporting tasks, such as `generateClassListFile`. The entire list of tasks is presented here: 
+The plug-in offers the following Gradle tasks:
 
--   `cleanupRandoopOutput` - Deletes Randoop-generated files in `junitOutputDir`.
--   `checkForRandoop` - Checks if Randoop is in the project's classpath.
--   `generateClassListFile` - Generates a classList.txt file from the current project's classes.
--   `generateTests` - Generates unit tests with Randoop for classes in classList.txt file.
--   `runRandoop` - Runs Randoop test generator (Main task)
+- `checkForRandoop` - Checks if Randoop is in the CLASSPATH.
+- `cleanupRandoopOutput` - Deletes all Randoop-generated tests; including the `classlist.txt` file.
+- `generateClassListFile` - Generates a file that lists classes that Randoop will explore to generate tests.
+- `generateTests` - Generates tests for a given project using Randoop (Main task).
+- `randoopEvidence` - Produces an evidence artifact containing the specific details of the Randoop execution.
 
-Additional build properties:
+As shown above, the main task of this plug-in is the `generateTests` task. However, any task can be executed independently.
 
--   `-Prebuild` - Tells the plugin to re-build all tests files in the specified `junitOutputDir` location.
+**Additional build properties:**
 
-## Example
+-   `-Pevidence.only` - Tells the plug-in to only generate the `randoop-evidence.json` file; i.e., test generation won't be triggered. Assumes the build task has already generated tests using Randoop and thus there is a `randoop-summary.txt` file.
 
-A simple example of how to use this plugin on a basic Java project can be found at this project's
-`consumer` sub-directory. From your terminal, run the the following:
+If the above property is not provided, then the plug-in will sequentially execute `cleanupRandoopOutput`, `checkForRandoop`, `generateClassListFile`, `generateTests`, and `randoopEvidence` tasks.
 
-```groovy
+## An example: Applying the Randoop plug-in to a simple Java project
+
+A simple example of how to use this plug-in on a basic Java project can be found at this project's
+`consumer` sub-directory. Here are the steps for using the plug-in:
+
+1. Make sure you publish the plug-in to Maven local first (See steps above)
+
+If `build` tasks throws an error, try running the used commands with the `--stacktrace` or `--debug` options. E.g.,
+
+```sh
+› ./gradlew clean
+› ./gradlew build --stacktrace
+› ./gradlew publishToMavenLocal
+```
+
+2. Run either `randoopEvidence` or `generateTests` tasks
+
+If you want to see the plug-in in action, you can just run the `generateTests` task. That should be enough.
+This task will generate test Java files using Randoop. However, if you want to generate an evidence artifact that provides a summary of a Randoop execution,
+which will also run the `generateTests` task, then you can run the `randoopEvidence` task.
+
+```sh
 › cd consumer
-› ./gradlew clean; ./gradlew build; ./gradlew runRandoop -Prebuild
+› ./gradlew randoopEvidence
+```
+
+On any execution, this task will execute all the Gradle tasks offered by this plugin unless the `-Pevidence.only` property is appended to this command.
+This property tells the plug-in to just re-generate the evidence artifact.
+
+```sh
+› ./gradlew randoopEvidence -Pevidence.only
+```
+
+## Results
+
+Besides generating test Java files, the tasks `generateTests` and `randoopEvidence` generates two files:
+`randoop-summary.txt` and `randoop-evidence.json`. The first (see next) provides a summary of a Randoop execution.
+
+```text
+Randoop for Java version "4.2.3, local changes, branch master, commit 6fb16d1, 2020-03-31".
+Will explore 2 classes
+PUBLIC MEMBERS=6
+Explorer = ForwardGenerator(steps: 0, null steps: 0, num_sequences_generated: 0;
+    allSequences: 0, regresson seqs: 0, error seqs: 0=0=0, invalid seqs: 0, subsumed_sequences: 0, num_failed_output_test: 0;
+    runtimePrimitivesSeen:38)
+
+Progress update: steps=1, test inputs generated=0, failing inputs=0      (Wed Dec 09 12:16:00 PST 2020     38MB used)
+Progress update: steps=1000, test inputs generated=544, failing inputs=0      (Wed Dec 09 12:16:14 PST 2020     168MB used)
+Progress update: steps=1989, test inputs generated=1077, failing inputs=0      (Wed Dec 09 12:16:30 PST 2020     49MB used)
+Normal method executions: 162575
+Exceptional method executions: 1
+
+Average method execution time (normal termination):      0.104
+Average method execution time (exceptional termination): 0.275
+Approximate memory usage 49MB
+Explorer = ForwardGenerator(steps: 1989, null steps: 912, num_sequences_generated: 1077;
+    allSequences: 1077, regresson seqs: 1076, error seqs: 0=0=0, invalid seqs: 0, subsumed_sequences: 0, num_failed_output_test: 1;
+    runtimePrimitivesSeen:38)
+
+About to look for failing assertions in 548 regression sequences.
+
+Regression test output:
+Regression test count: 548
+Writing regression JUnit tests...
+Created file /Users/<user-id>/dev/descert/randoop-gradle-plugin/consumer/src/test/java/com/foo/RegressionTest0.java
+Created file /Users/<user-id>/dev/descert/randoop-gradle-plugin/consumer/src/test/java/com/foo/RegressionTest1.java
+Created file /Users/<user-id>/dev/descert/randoop-gradle-plug-in/consumer/src/test/java/com/foo/RegressionTestDriver.java
+Wrote regression JUnit tests.
+About to look for flaky methods.
+
+Invalid tests generated: 0
+```
+
+The second file is the evidence artifact, which is built using information from the `randoop-summary.txt` file.
+
+```json
+{
+  "DETAILS": {
+    "MEMORY_USAGE": "256MB",
+    "INVALID_TESTS_GENERATED": "0",
+    "COMMIT": "6fb16d1",
+    "RANDOOP_VERSION": "4.2.3",
+    "AVG_NORMAL_TERMINATION_TIME": "0.0827",
+    "REGRESSION_TEST_COUNT": "658",
+    "GENERATED_TEST_COUNT": "3",
+    "BRANCH": "master",
+    "PUBLIC_MEMBERS": "6",
+    "EXPLORED_CLASSES": "2",
+    "DATE": "2020-03-31",
+    "AVG_EXCEPTIONAL_TERMINATION_TIME": "0.210",
+    "NORMAL_EXECUTIONS": "210283",
+    "ACTIVITY": "TEST_GENERATION",
+    "CHANGES": "local",
+    "AGENT": "RANDOOP"
+  }
+}
 ```
 
 ## License

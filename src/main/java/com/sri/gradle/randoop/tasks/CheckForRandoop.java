@@ -30,6 +30,7 @@ public class CheckForRandoop extends DescribedTask {
             spec.setWorkingDir(getProject().getProjectDir());
             spec.setMain(Constants.RANDOOP_MAIN_CLASS);
             spec.args("help");
+            spec.setOutputStream(Constants.QUIET_OUTPUT);
             spec.forkOptions(
                 fork -> {
                   fork.setWorkingDir(spec.getWorkingDir());

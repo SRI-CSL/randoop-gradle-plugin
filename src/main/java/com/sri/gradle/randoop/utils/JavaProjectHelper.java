@@ -139,4 +139,8 @@ public class JavaProjectHelper {
     Objects.requireNonNull(project);
     return ((SourceSetContainer) project.getProperties().get("sourceSets")).getByName("test");
   }
+
+  public boolean hasProperty(String property){
+    return property != null && getProject().hasProperty(property);
+  }
 }

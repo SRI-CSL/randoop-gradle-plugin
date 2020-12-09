@@ -31,6 +31,12 @@ public class GenerateClasslist extends DescribedTask {
     final Path resourcesDirPath = resourcesDir.getAsFile().toPath();
 
     final Path classListFile = projectHelper.getClassListFile().getAsFile().toPath();
+
+    if (Files.exists(classListFile) && projectHelper.hasProperty(Constants.EVIDENCE_ONLY)){
+      getLogger().quiet("Skipped generation of classlist.txt. It already exists.");
+      return;
+    }
+
     try {
       ClasslistGenerator.generateClasslist(javaFiles, classListFile, resourcesDirPath);
     } catch (Exception e) {

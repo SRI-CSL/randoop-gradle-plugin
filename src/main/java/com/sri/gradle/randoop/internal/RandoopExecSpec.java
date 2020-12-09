@@ -6,6 +6,7 @@ import com.sri.gradle.randoop.Constants;
 import com.sri.gradle.randoop.utils.Classfinder;
 import com.sri.gradle.randoop.utils.JavaProjectHelper;
 import java.io.File;
+import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -32,6 +33,7 @@ public class RandoopExecSpec {
   private String main;
   private Object[] args = new Object[0];
   private File workingDirectory = Constants.USER_WORKING_DIR;
+  private OutputStream outputStream;
 
   private static List<Class<?>> findAllCompiledClasses(final Project project, String packageName) {
     final JavaProjectHelper projectHelper = new JavaProjectHelper(project);
@@ -78,6 +80,10 @@ public class RandoopExecSpec {
 
   public String getMain() {
     return main;
+  }
+
+  public OutputStream getOutputStream(){
+    return outputStream;
   }
 
   public File getWorkingDir() {
@@ -170,6 +176,10 @@ public class RandoopExecSpec {
 
   public void setOutOfMemoryErrorOption(OutOfMemoryError option) {
     args("--oom-exception=" + option);
+  }
+
+  public void setOutputStream(OutputStream outputStream){
+    this.outputStream = outputStream;
   }
 
   public void setRegressionTestBasename(String name) {

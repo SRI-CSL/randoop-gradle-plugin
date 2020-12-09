@@ -31,6 +31,14 @@ public class CleanupRandoopOutput extends DescribedTask {
 
     final JavaProjectHelper helper = new JavaProjectHelper(getProject());
     final File classListFile = helper.getClassListFile().getAsFile();
+
+    if (Files.exists(classListFile.toPath()) || !randoopGeneratedTests.isEmpty()){
+      if (helper.hasProperty(Constants.EVIDENCE_ONLY)){
+        getLogger().quiet("Randoop details only");
+        return;
+      }
+    }
+
     deleteFile(classListFile);
 
     if (randoopGeneratedTests.isEmpty()) {

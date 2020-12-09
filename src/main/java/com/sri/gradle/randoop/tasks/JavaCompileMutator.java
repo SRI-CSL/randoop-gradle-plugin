@@ -39,7 +39,7 @@ public class JavaCompileMutator {
         .getOutputs()
         .upToDateWhen(
             spec -> {
-              if (javaCompile.getProject().hasProperty(Constants.REBUILD_PROJECT)) {
+              if (javaCompile.getProject().hasProperty(Constants.EVIDENCE_ONLY)) {
                 javaCompile.getProject().getLogger().quiet("Compiling Randoop generated classes");
                 return false;
               } else {
@@ -70,8 +70,8 @@ public class JavaCompileMutator {
             .getProject()
             .getObjects()
             .sourceDirectorySet(
-                "driver", // a short name for the new set
-                "driver") // a human consumable display name for the set
+                "randoop", // a short name for the new set
+                "randoop") // a human consumable display name for the set
             .srcDir(getProjectHelper().getSrcTestDir());
 
     final SourceSet sourceSet = getProjectHelper().getTestSourceSet();
