@@ -83,6 +83,8 @@ public class RandoopEvidence extends DescribedTask {
     } catch (IOException ioe){
       throw new GradleException("Unable to process " + randoopLogFile, ioe);
     }
+
+    getLogger().quiet("Successfully generated evidence");
   }
 
   @OutputDirectory
