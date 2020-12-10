@@ -52,7 +52,7 @@ public class RandoopPlugin implements Plugin<Project> {
     getRandoopEvidence.getOutputs().upToDateWhen(spec -> false);
     getRandoopEvidence.dependsOn(randoopJavaCompile);
 
-    project.getLogger().quiet("Executing " + getRandoopEvidence.getName());
+    project.getLogger().quiet("Applied Randoop Gradle Plugin");
   }
 
   private Task addAndGetRandoopTaskDependencies(Project project, RandoopPluginExtension extension) {
