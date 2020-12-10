@@ -28,24 +28,9 @@ public class JavaCompileMutator {
   }
 
   public void mutateJavaCompileTask(JavaCompile javaCompile) {
-    configureUpToDateWhen(javaCompile);
     configureCompilerArgs(javaCompile);
     configureClasspath(javaCompile);
     configureSourcesAndDestinations(javaCompile);
-  }
-
-  private void configureUpToDateWhen(JavaCompile javaCompile) {
-    javaCompile
-        .getOutputs()
-        .upToDateWhen(
-            spec -> {
-              if (!javaCompile.getProject().hasProperty(Constants.EVIDENCE_ONLY)) {
-                javaCompile.getProject().getLogger().quiet("Compiling Randoop generated classes");
-                return false;
-              } else {
-                return true;
-              }
-            });
   }
 
   private void configureCompilerArgs(JavaCompile javaCompile) {

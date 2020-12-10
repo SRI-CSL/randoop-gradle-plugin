@@ -26,7 +26,6 @@ import org.gradle.api.GradleException;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.Task;
-import org.gradle.api.plugins.BasePlugin;
 import org.gradle.api.plugins.JavaBasePlugin;
 import org.gradle.api.plugins.JavaPlugin;
 import org.gradle.api.tasks.compile.JavaCompile;
@@ -49,10 +48,9 @@ public class RandoopPlugin implements Plugin<Project> {
 
     // Compiles
     final JavaCompile randoopJavaCompile = configureJavaCompile(project, gentests);
-    // TODO(has) figure out whether this task should not depend on previous tasks.
     RandoopEvidence getRandoopEvidence = createRandoopDetailsTask(project, extension);
     getRandoopEvidence.getOutputs().upToDateWhen(spec -> false);
-    getRandoopEvidence.dependsOn(randoopJavaCompile, JavaBasePlugin.BUILD_TASK_NAME);
+    getRandoopEvidence.dependsOn(randoopJavaCompile);
 
     project.getLogger().quiet("Executing " + getRandoopEvidence.getName());
   }
@@ -60,21 +58,11 @@ public class RandoopPlugin implements Plugin<Project> {
   private Task addAndGetRandoopTaskDependencies(Project project, RandoopPluginExtension extension) {
     final JavaProjectHelper projectHelper = new JavaProjectHelper(project);
     // 1. Clean up any previously generated tests (if any).
-    Optional<Task> cleanTask =
-        projectHelper.findTask(BasePlugin.CLEAN_TASK_NAME, Task.class);
-
-    if (!cleanTask.isPresent()) {
-      throw new GradleException("JavaPlugin is available in this project");
-    }
-
-    final CleanupRandoopOutput cleanupRandoopOutput = createCleanupRandoop(project, extension);
-    final Task cleanup = cleanTask.get();
     if (!project.hasProperty(Constants.EVIDENCE_ONLY)){
+      final CleanupRandoopOutput cleanupRandoopOutput = createCleanupRandoop(project, extension);
       cleanupRandoopOutput.getOutputs().upToDateWhen(spec -> false);
-      cleanup.dependsOn(cleanupRandoopOutput);
     }
 
-//    final JavaProjectHelper projectHelper = new JavaProjectHelper(project);
     Optional<JavaCompile> javaCompile =
         projectHelper.findTask(JavaPlugin.COMPILE_JAVA_TASK_NAME, JavaCompile.class);
 
@@ -83,8 +71,9 @@ public class RandoopPlugin implements Plugin<Project> {
     }
 
     final JavaCompile aJavaCompile = javaCompile.get();
-//    aJavaCompile.dependsOn(cleanupRandoopOutput);
-    aJavaCompile.dependsOn(cleanup);
+    if (!project.hasProperty(Constants.EVIDENCE_ONLY)){
+      aJavaCompile.dependsOn(CLEANUP_RANDOOP_TASK_NAME);
+    }
 
     // 2. Build project and then check if Randoop is in CLASSPATH
     // Checks if Randoop is in your CLASSPATH
