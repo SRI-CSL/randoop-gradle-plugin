@@ -141,7 +141,7 @@ public class RandoopEvidence extends DescribedTask {
 
     void writeTo(Map<String, String> otherRecord) throws IOException {
       final Map<String, Map<String, String>> jsonDoc = new HashMap<>();
-      jsonDoc.put(Constants.EVIDENCE_ONLY.toUpperCase(Locale.ROOT), otherRecord);
+      jsonDoc.put("DETAILS", otherRecord);
 
       if (Files.exists(outFile)){
         Files.delete(outFile);
