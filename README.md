@@ -76,6 +76,19 @@ runRandoop {
 }
 ```
 
+On this `runRandoop` extension object, you can change the following settings:
+
+* `randoopJar`=_file_. The location where the plugin can find Randoop.
+* `junitOutputDir`=_file_. Randoop output directory
+* `timeoutSeconds`=_int_. Maximum number of seconds to spend generating tests. Zero means no limit. If nonzero, Randoop is nondeterministic: it may generate different test suites on different runs.
+* `stopOnErrorTest`=_boolean_. Stop generation as soon as one error-revealing test has been generated. (default false)
+* `flakyTestBehavior`=_enum_. What to do if Randoop generates a flaky test. A flaky test is one that behaves differently on different executions. Options include: (1) halt: Randoop halts with a diagnostic message; (2) discard: Discard the flaky test; (3) output: Output the flaky test, but with flaky assertions commented out.
+* `noErrorRevealingTests`=_boolean_. Whether to output error-revealing tests.
+* `junitReflectionAllowed`=_boolean_. Whether to use JUnit's standard reflective mechanisms for invoking tests.
+* `usethreads`=_boolean_. If true, Randoop executes each test in a separate thread and kills tests that take too long to finish.
+* `outputLimit`=_int_. The number of error-revealing and regression tests reaches the output limit.
+* `junitPackageName`=_string_. Name of the package for the generated JUnit files. When the package is the same as the package of a class under test, then package visibility rules are used to determine whether to include the class or class members in a test.
+
 ## Using a locally-built plug-in
 
 You can build the plug-in locally rather than downloading it from Maven Central.
