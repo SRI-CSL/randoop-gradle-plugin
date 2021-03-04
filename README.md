@@ -29,7 +29,7 @@ the project's `src/test/java` directory, and the JUnit package name is `com.foo`
 runRandoop {
     randoopJar = file("libs/randoop.jar")
     junitOutputDir = file("${projectDir}/src/test/java")
-    ....
+    //....
     junitPackageName = 'com.foo'
 }
 ```
@@ -182,27 +182,29 @@ Explorer = ForwardGenerator(steps: 0, null steps: 0, num_sequences_generated: 0;
     allSequences: 0, regresson seqs: 0, error seqs: 0=0=0, invalid seqs: 0, subsumed_sequences: 0, num_failed_output_test: 0;
     runtimePrimitivesSeen:38)
 
-Progress update: steps=1, test inputs generated=0, failing inputs=0      (Wed Dec 09 12:16:00 PST 2020     38MB used)
-Progress update: steps=1000, test inputs generated=544, failing inputs=0      (Wed Dec 09 12:16:14 PST 2020     168MB used)
-Progress update: steps=1989, test inputs generated=1077, failing inputs=0      (Wed Dec 09 12:16:30 PST 2020     49MB used)
-Normal method executions: 162575
+Progress update: steps=1, test inputs generated=0, failing inputs=0      (Wed Mar 03 20:13:47 PST 2021     66MB used)
+Progress update: steps=1000, test inputs generated=544, failing inputs=0      (Wed Mar 03 20:13:56 PST 2021     1628MB used)
+Progress update: steps=2000, test inputs generated=1081, failing inputs=0      (Wed Mar 03 20:14:06 PST 2021     488MB used)
+Progress update: steps=3000, test inputs generated=1589, failing inputs=0      (Wed Mar 03 20:14:16 PST 2021     4754MB used)
+Progress update: steps=3069, test inputs generated=1629, failing inputs=0      (Wed Mar 03 20:14:17 PST 2021     248MB used)
+Normal method executions: 290613
 Exceptional method executions: 1
 
-Average method execution time (normal termination):      0.104
-Average method execution time (exceptional termination): 0.275
-Approximate memory usage 49MB
-Explorer = ForwardGenerator(steps: 1989, null steps: 912, num_sequences_generated: 1077;
-    allSequences: 1077, regresson seqs: 1076, error seqs: 0=0=0, invalid seqs: 0, subsumed_sequences: 0, num_failed_output_test: 1;
+Average method execution time (normal termination):      0.0612
+Average method execution time (exceptional termination): 0.186
+Approximate memory usage 248MB
+Explorer = ForwardGenerator(steps: 3069, null steps: 1440, num_sequences_generated: 1629;
+    allSequences: 1629, regresson seqs: 1628, error seqs: 0=0=0, invalid seqs: 0, subsumed_sequences: 0, num_failed_output_test: 1;
     runtimePrimitivesSeen:38)
 
-About to look for failing assertions in 548 regression sequences.
+About to look for failing assertions in 834 regression sequences.
 
 Regression test output:
-Regression test count: 548
+Regression test count: 834
 Writing regression JUnit tests...
-Created file /Users/<user-id>/dev/descert/randoop-gradle-plugin/consumer/src/test/java/com/foo/RegressionTest0.java
-Created file /Users/<user-id>/dev/descert/randoop-gradle-plugin/consumer/src/test/java/com/foo/RegressionTest1.java
-Created file /Users/<user-id>/dev/descert/randoop-gradle-plug-in/consumer/src/test/java/com/foo/RegressionTestDriver.java
+Created file /<user-id>/randoop-gradle-plugin/consumer/src/test/java/com/foo/RegressionTest0.java
+Created file /<user-id>/randoop-gradle-plugin/consumer/src/test/java/com/foo/RegressionTest1.java
+Created file /<user-id>/randoop-gradle-plugin/consumer/src/test/java/com/foo/RegressionTestDriver.java
 Wrote regression JUnit tests.
 About to look for flaky methods.
 
@@ -214,22 +216,27 @@ The second file is the evidence artifact, which is built using information from 
 ```json
 {
   "DETAILS": {
-    "MEMORY_USAGE": "256MB",
+    "REGRESSION_TEST_COUNT": "834",
     "INVALID_TESTS_GENERATED": "0",
-    "COMMIT": "6fb16d1",
     "RANDOOP_VERSION": "4.2.3",
-    "AVG_NORMAL_TERMINATION_TIME": "0.0827",
-    "REGRESSION_TEST_COUNT": "658",
-    "GENERATED_TEST_COUNT": "3",
-    "BRANCH": "master",
-    "PUBLIC_MEMBERS": "6",
     "EXPLORED_CLASSES": "2",
-    "DATE": "2020-03-31",
-    "AVG_EXCEPTIONAL_TERMINATION_TIME": "0.210",
-    "NORMAL_EXECUTIONS": "210283",
-    "ACTIVITY": "TEST_GENERATION",
+    "NORMAL_EXECUTIONS": "290613",
     "CHANGES": "local",
-    "AGENT": "RANDOOP"
+    "AGENT": "RANDOOP",
+    "COMMIT": "6fb16d1",
+    "AVG_NORMAL_TERMINATION_TIME": "0.0612",
+    "PUBLIC_MEMBERS": "6",
+    "AVG_EXCEPTIONAL_TERMINATION_TIME": "0.186",
+    "GENERATED_TEST_FILES": [
+      "src/test/java/com/foo/RegressionTest0.java",
+      "src/test/java/com/foo/RegressionTest1.java",
+      "src/test/java/com/foo/RegressionTestDriver.java"
+    ],
+    "BRANCH": "master",
+    "ACTIVITY": "TEST_GENERATION",
+    "GENERATED_TEST_FILES_COUNT": "3",
+    "MEMORY_USAGE": "248MB",
+    "DATE": "2020-03-31"
   }
 }
 ```
