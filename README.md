@@ -213,7 +213,7 @@ Invalid tests generated: 0
 ```
 
 The second file is the evidence summary artifact, which is built using information from the `randoop-summary.txt` file.
-This file aggregate all the information in the other `CSV` files. 
+This file aggregates all the information from the other `CSV` files. 
 
 ```json
 {
