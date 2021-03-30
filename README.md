@@ -171,8 +171,9 @@ This property tells the plug-in to just re-generate the evidence artifact.
 
 ## Results
 
-Besides generating test Java files, the tasks `generateTests` and `randoopEvidence` generates two files:
-`randoop-summary.txt` and `randoop-evidence.json`. The first (see next) provides a summary of a Randoop execution.
+Besides generating test Java files, the tasks `generateTests` and `randoopEvidence` generates the following files:
+`randoop-summary.txt`, `randoop-evidence.json`, `RandoopTestsAndMetrics.csv`, `RandoopJUnitTestGeneration.csv`, and `RandoopToolQualification.csv`. 
+The first (see next) provides information regarding Randoop execution.
 
 ```text
 Randoop for Java version "4.2.3, local changes, branch master, commit 6fb16d1, 2020-03-31".
@@ -211,32 +212,50 @@ About to look for flaky methods.
 Invalid tests generated: 0
 ```
 
-The second file is the evidence artifact, which is built using information from the `randoop-summary.txt` file.
+The second file is the evidence summary artifact, which is built using information from the `randoop-summary.txt` file.
+This file aggregate all the information in the other `CSV` files. 
 
 ```json
 {
   "DETAILS": {
-    "REGRESSION_TEST_COUNT": "834",
-    "INVALID_TESTS_GENERATED": "0",
-    "RANDOOP_VERSION": "4.2.3",
-    "EXPLORED_CLASSES": "2",
-    "NORMAL_EXECUTIONS": "290613",
-    "CHANGES": "local",
-    "AGENT": "RANDOOP",
-    "COMMIT": "6fb16d1",
-    "AVG_NORMAL_TERMINATION_TIME": "0.0612",
-    "PUBLIC_MEMBERS": "6",
-    "AVG_EXCEPTIONAL_TERMINATION_TIME": "0.186",
-    "GENERATED_TEST_FILES": [
-      "src/test/java/com/foo/RegressionTest0.java",
-      "src/test/java/com/foo/RegressionTest1.java",
-      "src/test/java/com/foo/RegressionTestDriver.java"
-    ],
-    "BRANCH": "master",
-    "ACTIVITY": "TEST_GENERATION",
-    "GENERATED_TEST_FILES_COUNT": "3",
-    "MEMORY_USAGE": "248MB",
-    "DATE": "2020-03-31"
+    "RandoopJUnitTestGeneration": {
+      "INVOKEDBY": "RandoopGradlePlugin",
+      "AUTOMATEDBY": "RandoopGradlePlugin",
+      "PARAMETERS": "[--time-limit:30, --flaky-test-behavior:output, --output-limit:2000, --usethread:true, --no-error-revealing-tests:true, --stop-on-error-test:false, --junit-reflection-allowed:false, --junit-package-name:com.foo, --junit-output-dir:src/test/java]"
+    },
+    "RandoopToolQualification": {
+      "RANDOOP_VERSION": "4.2.3",
+      "DATE": "2020-03-31",
+      "SUMMARY": "Runs the Randoop Tool",
+      "QUALIFIEDBY": "SRI International",
+      "INSTALLATION": "https://github.com/SRI-CSL/randoop-gradle-plugin/blob/master/README.md",
+      "USERGUIDE": "https://github.com/SRI-CSL/randoop-gradle-plugin/blob/master/README.md",
+      "RANDOOP_PLUGIN_VERSION": "0.1",
+      "TITLE": "RandoopGradlePlugin",
+      "ACTIVITY": "TestGeneration"
+    },
+    "RandoopTestsAndMetrics": {
+      "BRANCH": "master",
+      "EXPLORED_CLASSES": "2",
+      "COMMIT": "6fb16d1",
+      "PUBLIC_MEMBERS": "6",
+      "NORMAL_EXECUTIONS": "314804",
+      "REGRESSION_TEST_COUNT": "885",
+      "ERROR_REVEALING_TEST_COUNT": "0",
+      "AVG_EXCEPTIONAL_TERMINATION_TIME": "0.224",
+      "MEMORY_USAGE": "4647MB",
+      "EXCEPTIONAL_EXECUTIONS": "0",
+      "GENERATED_TEST_FILES_COUNT": "3",
+      "AVG_NORMAL_TERMINATION_TIME": "0.0572",
+      "GENERATED_TEST_FILES": [
+        "src/test/java/com/foo/RegressionTest0.java",
+        "src/test/java/com/foo/RegressionTest1.java",
+        "src/test/java/com/foo/RegressionTestDriver.java"
+      ],
+      "CHANGES": "local",
+      "INVALID_TESTS_GENERATED": "0",
+      "NUMBEROFTESTCASES": "885"
+    }
   }
 }
 ```
