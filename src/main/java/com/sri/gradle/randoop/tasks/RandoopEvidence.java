@@ -278,7 +278,7 @@ public class RandoopEvidence extends PluginExtendedTask {
 
     void writeJson(Map<String, Map<String, Object>> evidence) throws IOException {
       final Map<String, Map<String, Map<String, Object>>> jsonDoc = new HashMap<>();
-      jsonDoc.put("DETAILS", evidence);
+      jsonDoc.put("Evidence", evidence);
 
       if (Files.exists(outFile)){
         Files.delete(outFile);

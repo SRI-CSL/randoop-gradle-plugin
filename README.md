@@ -217,7 +217,7 @@ This file aggregates all the information from the other `CSV` files.
 
 ```json
 {
-  "DETAILS": {
+  "Evidence": {
     "RandoopJUnitTestGeneration": {
       "INVOKEDBY": "RandoopGradlePlugin",
       "AUTOMATEDBY": "RandoopGradlePlugin",
