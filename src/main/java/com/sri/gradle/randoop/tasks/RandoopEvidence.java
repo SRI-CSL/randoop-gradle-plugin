@@ -6,11 +6,12 @@ import com.google.common.collect.ImmutableSet;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.sri.gradle.randoop.Constants;
+import com.sri.gradle.randoop.internal.CsvWriter;
 import com.sri.gradle.randoop.utils.ImmutableStream;
 import com.sri.gradle.randoop.utils.MoreFiles;
 import org.gradle.api.GradleException;
 import org.gradle.api.file.DirectoryProperty;
-import org.gradle.api.tasks.OutputDirectory;
+import org.gradle.api.provider.Property;
 import org.gradle.api.tasks.TaskAction;
 
 import java.io.File;
@@ -21,7 +22,11 @@ import java.nio.file.Path;
 import java.util.*;
 
 @SuppressWarnings("UnstableApiUsage")
-public class RandoopEvidence extends DescribedTask {
+public class RandoopEvidence extends PluginExtendedTask {
+
+  private static final String METRICS = "RandoopTestsAndMetrics";
+  private static final String CONFIG = "RandoopJUnitTestGeneration";
+  private static final String QUALIFICATION = "RandoopToolQualification";
 
   private static final Set<LineProcessor> PROCESSORS = ImmutableSet.of(
       new RandoopVersion(),
@@ -36,24 +41,57 @@ public class RandoopEvidence extends DescribedTask {
       new InvalidTestCount()
   );
 
+  private static final Map<String, RecordProcessor> CSVPROCESSORS = ImmutableMap.of(
+      METRICS, new MetricsProcessor(),
+      CONFIG, new ConfigProcessor(),
+      QUALIFICATION, new QualificationProcessor()
+  );
+
   private final DirectoryProperty junitOutputDir;
+
+  private final Property<Integer> timeoutSeconds;
+  private final Property<Boolean> stopOnErrorTest;
+  private final Property<String> flakyTestBehavior;
+  private final Property<Boolean> noErrorRevealingTests;
+  private final Property<Boolean> junitReflectionAllowed;
+  private final Property<Boolean> usethreads;
+  private final Property<Integer> outputLimit;
+  private final Property<String> junitPackageName;
 
   public RandoopEvidence() {
     this.junitOutputDir = getProject().getObjects().directoryProperty(); // unchecked warning
+
+    this.timeoutSeconds = getProject().getObjects().property(Integer.class);
+    this.outputLimit = getProject().getObjects().property(Integer.class);
+    this.usethreads = getProject().getObjects().property(Boolean.class);
+    this.noErrorRevealingTests = getProject().getObjects().property(Boolean.class);
+    this.junitReflectionAllowed = getProject().getObjects().property(Boolean.class);
+    this.stopOnErrorTest = getProject().getObjects().property(Boolean.class);
+    this.flakyTestBehavior = getProject().getObjects().property(String.class);
+    this.junitPackageName = getProject().getObjects().property(String.class);
+  }
+
+  private static void initEvidence(Map<String, Map<String, Object>> evidenceObjectMap){
+    evidenceObjectMap.put(METRICS, new HashMap<>());
+    evidenceObjectMap.put(CONFIG, new HashMap<>());
+    evidenceObjectMap.put(QUALIFICATION, new HashMap<>());
   }
 
   @TaskAction
   public void randoopEvidence() {
+    // main data structure
+    final Map<String, Map<String, Object>> evidence = new HashMap<>();
+    initEvidence(evidence);
+
+
     final File junitOutputDir = getJunitOutputDir().getAsFile().get();
     Set<File> randoopGeneratedTests =
         MoreFiles.getMatchingFiles(
             junitOutputDir.toPath(),
             Constants.EXPECTED_RANDOOP_TEST_NAME_REGEX);
 
-    Map<String, Object> generatedTests = new HashMap<>();
-    generatedTests.put("ACTIVITY", "TEST_GENERATION");
-    generatedTests.put("AGENT", "RANDOOP");
-    generatedTests.put("GENERATED_TEST_FILES_COUNT", String.valueOf(randoopGeneratedTests.size()));
+    final Map<String, Object> metrics = new HashMap<>();
+    metrics.put("GENERATED_TEST_FILES_COUNT", String.valueOf(randoopGeneratedTests.size()));
 
     final Path workingDir = getProject()
             .getProjectDir()
@@ -62,8 +100,20 @@ public class RandoopEvidence extends DescribedTask {
     final List<String> unitTests = ImmutableStream.listCopyOf(
             randoopGeneratedTests.stream().map(f -> workingDir.relativize(f.toPath()).toString()));
 
-    generatedTests.put("GENERATED_TEST_FILES", unitTests);
+    metrics.put("GENERATED_TEST_FILES", unitTests);
 
+    // tool configuration
+    evidence.put(CONFIG, getToolConfig(workingDir));
+    // tool qualification
+    final Map<String, Object> qualification = new HashMap<>();
+    qualification.put("TITLE", "RandoopGradlePlugin");
+    qualification.put("SUMMARY", "Runs the Randoop Tool");
+    qualification.put("QUALIFIEDBY", "SRI International");
+    qualification.put("USERGUIDE", "https://github.com/SRI-CSL/randoop-gradle-plugin/blob/master/README.md");
+    qualification.put("INSTALLATION", "https://github.com/SRI-CSL/randoop-gradle-plugin/blob/master/README.md");
+    qualification.put("ACTIVITY", "TestGeneration");
+
+    Map<String, Object> generatedTests = new HashMap<>();
     final Path randoopLogFile = workingDir
         .resolve(Constants.RANDOOP_SUMMARY_FILE_NAME);
 
@@ -75,7 +125,38 @@ public class RandoopEvidence extends DescribedTask {
 
     try {
       final Map<String, Object> allRecords = mainProcessor.mergeRecords(generatedTests);
-      mainProcessor.writeTo(allRecords);
+      // update qualification
+      qualification.put("RANDOOP_VERSION", allRecords.getOrDefault("RANDOOP_VERSION", "MISSING"));
+      qualification.put("DATE", allRecords.getOrDefault("DATE", "MISSING"));
+      qualification.put("RANDOOP_PLUGIN_VERSION", "0.1");
+
+      evidence.put(QUALIFICATION, qualification);
+
+      // tool & metrics
+      metrics.put("CHANGES", allRecords.getOrDefault("CHANGES", "MISSING"));
+      metrics.put("BRANCH", allRecords.getOrDefault("BRANCH", "MISSING"));
+      metrics.put("COMMIT", allRecords.getOrDefault("COMMIT", "MISSING"));
+
+      metrics.put("EXPLORED_CLASSES", allRecords.getOrDefault("EXPLORED_CLASSES", "0"));
+      metrics.put("PUBLIC_MEMBERS", allRecords.getOrDefault("PUBLIC_MEMBERS", "0"));
+      metrics.put("NORMAL_EXECUTIONS", allRecords.getOrDefault("NORMAL_EXECUTIONS", "0"));
+      metrics.put("EXCEPTIONAL_EXECUTIONS", allRecords.getOrDefault("EXCEPTIONAL_EXECUTIONS", "0"));
+      metrics.put("AVG_NORMAL_TERMINATION_TIME", allRecords.getOrDefault("AVG_NORMAL_TERMINATION_TIME", "0"));
+      metrics.put("AVG_EXCEPTIONAL_TERMINATION_TIME", allRecords.getOrDefault("AVG_EXCEPTIONAL_TERMINATION_TIME", "0"));
+      metrics.put("MEMORY_USAGE", allRecords.getOrDefault("MEMORY_USAGE", "0"));
+      metrics.put("REGRESSION_TEST_COUNT", allRecords.getOrDefault("REGRESSION_TEST_COUNT", "0"));
+      metrics.put("INVALID_TESTS_GENERATED", allRecords.getOrDefault("INVALID_TESTS_GENERATED", "0"));
+      metrics.put("ERROR_REVEALING_TEST_COUNT", allRecords.getOrDefault("ERROR_REVEALING_TEST_COUNT", "0"));
+
+      int x = Integer.parseInt(String.valueOf(metrics.getOrDefault("REGRESSION_TEST_COUNT", "0")));
+      int y = Integer.parseInt(String.valueOf(metrics.getOrDefault("INVALID_TESTS_GENERATED", "0")));
+      metrics.put("NUMBEROFTESTCASES", String.valueOf(x + y));
+      evidence.put(METRICS, metrics);
+
+      System.out.println(evidence);
+
+      mainProcessor.writeJson(evidence);
+      mainProcessor.writeCsv(evidence);
       getLogger().debug(allRecords.size() + " records extracted.");
     } catch (IOException ioe){
       throw new GradleException("Unable to process " + randoopLogFile, ioe);
@@ -84,7 +165,48 @@ public class RandoopEvidence extends DescribedTask {
     getLogger().quiet("Successfully generated evidence");
   }
 
-  @OutputDirectory
+  @Override
+  public Property<String> getFlakyTestBehavior() {
+    return flakyTestBehavior;
+  }
+
+  @Override
+  public Property<String> getJunitPackageName() {
+    return junitPackageName;
+  }
+
+  @Override
+  public Property<Integer> getTimeoutSeconds() {
+    return timeoutSeconds;
+  }
+
+  @Override
+  public Property<Integer> getOutputLimit() {
+    return outputLimit;
+  }
+
+  @Override
+  public Property<Boolean> getUsethreads() {
+    return usethreads;
+  }
+
+  @Override
+  public Property<Boolean> getNoErrorRevealingTests() {
+    return noErrorRevealingTests;
+  }
+
+  @Override
+  public Property<Boolean> getJunitReflectionAllowed() {
+    return junitReflectionAllowed;
+  }
+
+  @Override
+  public Property<Boolean> getStopOnErrorTest() {
+    return stopOnErrorTest;
+  }
+
+
+  @Override
   public DirectoryProperty getJunitOutputDir() {
     return this.junitOutputDir;
   }
@@ -99,6 +221,24 @@ public class RandoopEvidence extends DescribedTask {
     return Constants.RANDOOP_DETAILS_TASK_DESCRIPTION;
   }
 
+  private Map<String, Object> getToolConfig(Path workingDir){
+    Map<String, Object> config = new HashMap<>();
+    List<Record> params = new ArrayList<>();
+    params.add(new Record("--time-limit", getTimeoutSeconds().get()));
+    params.add(new Record("--flaky-test-behavior", getFlakyTestBehavior().get()));
+    params.add(new Record("--output-limit", getOutputLimit().get()));
+    params.add(new Record("--usethread", getUsethreads().get()));
+    params.add(new Record("--no-error-revealing-tests", getNoErrorRevealingTests().get()));
+    params.add(new Record("--stop-on-error-test", getStopOnErrorTest().get()));
+    params.add(new Record("--junit-reflection-allowed", getJunitReflectionAllowed().get()));
+    params.add(new Record("--junit-package-name", getJunitPackageName().get()));
+    params.add(new Record("--junit-output-dir", workingDir.relativize(getJunitOutputDir().getAsFile().get().toPath()).toString()));
+
+    config.put("PARAMETERS", params.toString());
+    config.put("AUTOMATEDBY", "RandoopGradlePlugin");
+    config.put("INVOKEDBY", "RandoopGradlePlugin");
+    return config;
+  }
 
   static class ReadWriteRandoopDetails {
     private final Path inputFile;
@@ -136,9 +276,9 @@ public class RandoopEvidence extends DescribedTask {
       return ImmutableMap.of();
     }
 
-    void writeTo(Map<String, Object> otherRecord) throws IOException {
-      final Map<String, Map<String, Object>> jsonDoc = new HashMap<>();
-      jsonDoc.put("DETAILS", otherRecord);
+    void writeJson(Map<String, Map<String, Object>> evidence) throws IOException {
+      final Map<String, Map<String, Map<String, Object>>> jsonDoc = new HashMap<>();
+      jsonDoc.put("DETAILS", evidence);
 
       if (Files.exists(outFile)){
         Files.delete(outFile);
@@ -149,6 +289,16 @@ public class RandoopEvidence extends DescribedTask {
         gson.toJson(jsonDoc, writer);
       }
 
+    }
+
+    void writeCsv(Map<String, Map<String, Object>> evidence){
+      final Path workingDir = outFile.getParent();
+      for (String each : evidence.keySet()){
+        final Map<String, Object> recordMap = evidence.get(each);
+        final RecordProcessor processor = CSVPROCESSORS.getOrDefault(each, null);
+        if (processor == null) continue;
+        processor.process(recordMap, workingDir);
+      }
     }
 
     Map<String, Object> mergeRecords(Map<String, Object> other) throws IOException {
@@ -164,6 +314,66 @@ public class RandoopEvidence extends DescribedTask {
       merged.putAll(other);
 
       return ImmutableMap.copyOf(merged);
+    }
+  }
+
+  public static class Record {
+    String key;
+    Object val;
+    Record(String key, Object val){
+      this.key = key;
+      this.val = val;
+    }
+
+    public String getKey() {
+      return key;
+    }
+
+    public Object getVal() {
+      return val;
+    }
+
+    @Override
+    public String toString() {
+      return key + ":" + val.toString();
+    }
+  }
+
+
+  interface RecordProcessor {
+    void process(Map<String, Object> record, Path outputDir);
+    default Set<Record> recordSet(Map<String, Object> record){
+      final Set<Record> records = new HashSet<>();
+      for (String each : record.keySet()){
+        Object value = record.get(each);
+        final Record r = new Record(each, value);
+        records.add(r);
+      }
+      return records;
+    }
+  }
+
+  static class MetricsProcessor implements RecordProcessor {
+    @Override
+    public void process(Map<String, Object> record, Path outputDir) {
+      final StringBuilder sb = new StringBuilder();
+      CsvWriter.writeCsv(outputDir, "RandoopTestsAndMetrics.csv", sb, recordSet(record));
+    }
+  }
+
+  static class ConfigProcessor implements RecordProcessor {
+    @Override
+    public void process(Map<String, Object> record, Path outputDir) {
+      final StringBuilder sb = new StringBuilder();
+      CsvWriter.writeCsv(outputDir, "RandoopJUnitTestGeneration.csv", sb, recordSet(record));
+    }
+  }
+
+  static class QualificationProcessor implements RecordProcessor {
+    @Override
+    public void process(Map<String, Object> record, Path outputDir) {
+      final StringBuilder sb = new StringBuilder();
+      CsvWriter.writeCsv(outputDir, "RandoopToolQualification.csv", sb, recordSet(record));
     }
   }
 
@@ -190,14 +400,14 @@ public class RandoopEvidence extends DescribedTask {
           .split(",");
 
       final String localChanges = infoArray[1].isEmpty() ? "NONE" : infoArray[1].trim().split(" ")[0].trim();
-      final Map<String, Object> records = new HashMap<>();
-      records.put("RANDOOP_VERSION", infoArray[0]);
-      records.put("CHANGES", localChanges);
-      records.put("BRANCH", infoArray[2].trim().split(" ")[1].trim());
-      records.put("COMMIT", infoArray[3].trim().split(" ")[1].trim());
-      records.put("DATE", infoArray[4].trim());
+      final Map<String, Object> metadata = new HashMap<>();
+      metadata.put("RANDOOP_VERSION", infoArray[0]);
+      metadata.put("CHANGES", localChanges);
+      metadata.put("BRANCH", infoArray[2].trim().split(" ")[1].trim());
+      metadata.put("COMMIT", infoArray[3].trim().split(" ")[1].trim());
+      metadata.put("DATE", infoArray[4].trim());
 
-      return Optional.of(records);
+      return Optional.of(metadata);
     }
   }
 

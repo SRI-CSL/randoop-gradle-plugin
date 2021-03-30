@@ -4,23 +4,21 @@ import com.sri.gradle.randoop.Constants;
 import com.sri.gradle.randoop.internal.RandoopExecutor;
 import com.sri.gradle.randoop.utils.JavaProjectHelper;
 import com.sri.gradle.randoop.utils.MoreFiles;
+import org.gradle.api.GradleException;
+import org.gradle.api.file.DirectoryProperty;
+import org.gradle.api.file.RegularFileProperty;
+import org.gradle.api.provider.Property;
+import org.gradle.api.tasks.InputFile;
+import org.gradle.api.tasks.TaskAction;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.OutputStream;
 import java.nio.file.Path;
 import java.util.Objects;
 import java.util.Set;
-import org.gradle.api.GradleException;
-import org.gradle.api.file.DirectoryProperty;
-import org.gradle.api.file.RegularFileProperty;
-import org.gradle.api.provider.Property;
-import org.gradle.api.tasks.Input;
-import org.gradle.api.tasks.InputFile;
-import org.gradle.api.tasks.Optional;
-import org.gradle.api.tasks.OutputDirectory;
-import org.gradle.api.tasks.TaskAction;
 
-public class Gentests extends DescribedTask {
+public class Gentests extends PluginExtendedTask {
 
   private final RegularFileProperty randoopJar;
   private final DirectoryProperty junitOutputDir;
@@ -48,23 +46,22 @@ public class Gentests extends DescribedTask {
     this.junitPackageName = getProject().getObjects().property(String.class);
   }
 
-  @Input
+  @Override
   public Property<String> getFlakyTestBehavior() {
     return flakyTestBehavior;
   }
 
-  @Input
+  @Override
   public Property<String> getJunitPackageName() {
     return junitPackageName;
   }
 
-  @OutputDirectory
+  @Override
   public DirectoryProperty getJunitOutputDir() {
     return this.junitOutputDir;
   }
 
-  @Input
-  @Optional
+  @Override
   public Property<Integer> getTimeoutSeconds() {
     return timeoutSeconds;
   }
@@ -74,32 +71,27 @@ public class Gentests extends DescribedTask {
     return this.randoopJar;
   }
 
-  @Input
-  @Optional
+  @Override
   public Property<Integer> getOutputLimit() {
     return outputLimit;
   }
 
-  @Input
-  @Optional
+  @Override
   public Property<Boolean> getUsethreads() {
     return usethreads;
   }
 
-  @Input
-  @Optional
+  @Override
   public Property<Boolean> getNoErrorRevealingTests() {
     return noErrorRevealingTests;
   }
 
-  @Input
-  @Optional
+  @Override
   public Property<Boolean> getJunitReflectionAllowed() {
     return junitReflectionAllowed;
   }
 
-  @Input
-  @Optional
+  @Override
   public Property<Boolean> getStopOnErrorTest() {
     return stopOnErrorTest;
   }

@@ -13,12 +13,7 @@ import static com.sri.gradle.randoop.Constants.RANDOOP_PLUGIN_EXTENSION;
 
 import com.sri.gradle.randoop.extensions.RandoopJavaCompileExtension;
 import com.sri.gradle.randoop.extensions.RandoopPluginExtension;
-import com.sri.gradle.randoop.tasks.CheckForRandoop;
-import com.sri.gradle.randoop.tasks.CleanupRandoopOutput;
-import com.sri.gradle.randoop.tasks.GenerateClasslist;
-import com.sri.gradle.randoop.tasks.Gentests;
-import com.sri.gradle.randoop.tasks.JavaCompileMutator;
-import com.sri.gradle.randoop.tasks.RandoopEvidence;
+import com.sri.gradle.randoop.tasks.*;
 import com.sri.gradle.randoop.utils.JavaProjectHelper;
 import java.util.Optional;
 import org.gradle.api.Action;
@@ -30,7 +25,7 @@ import org.gradle.api.plugins.JavaBasePlugin;
 import org.gradle.api.plugins.JavaPlugin;
 import org.gradle.api.tasks.compile.JavaCompile;
 
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "NullableProblems"})
 public class RandoopPlugin implements Plugin<Project> {
 
   @Override
@@ -135,7 +130,7 @@ public class RandoopPlugin implements Plugin<Project> {
     randoopEvidence.setGroup(GROUP);
     randoopEvidence.setDescription(RANDOOP_DETAILS_TASK_DESCRIPTION);
 
-    randoopEvidence.getJunitOutputDir().set(extension.getJunitOutputDir());
+    setTaskConfig(randoopEvidence, extension);
 
     return randoopEvidence;
   }
@@ -147,17 +142,22 @@ public class RandoopPlugin implements Plugin<Project> {
     generateTestTask.setDescription(RANDOOP_PLUGIN_DESCRIPTION);
 
     generateTestTask.getRandoopJar().set(extension.getRandoopJar());
-    generateTestTask.getJunitOutputDir().set(extension.getJunitOutputDir());
-    generateTestTask.getTimeoutSeconds().set(extension.getTimeoutSeconds());
-    generateTestTask.getStopOnErrorTest().set(extension.getStopOnErrorTest());
-    generateTestTask.getFlakyTestBehavior().set(extension.getFlakyTestBehavior());
-    generateTestTask.getNoErrorRevealingTests().set(extension.getNoErrorRevealingTests());
-    generateTestTask.getJunitReflectionAllowed().set(extension.getJunitReflectionAllowed());
-    generateTestTask.getUsethreads().set(extension.getUsethreads());
-    generateTestTask.getOutputLimit().set(extension.getOutputLimit());
-    generateTestTask.getJunitPackageName().set(extension.getJunitPackageName());
+
+    setTaskConfig(generateTestTask, extension);
 
     return generateTestTask;
+  }
+
+  private static void setTaskConfig(PluginExtendedTask task, RandoopPluginExtension extension){
+    task.getJunitOutputDir().set(extension.getJunitOutputDir());
+    task.getTimeoutSeconds().set(extension.getTimeoutSeconds());
+    task.getStopOnErrorTest().set(extension.getStopOnErrorTest());
+    task.getFlakyTestBehavior().set(extension.getFlakyTestBehavior());
+    task.getNoErrorRevealingTests().set(extension.getNoErrorRevealingTests());
+    task.getJunitReflectionAllowed().set(extension.getJunitReflectionAllowed());
+    task.getUsethreads().set(extension.getUsethreads());
+    task.getOutputLimit().set(extension.getOutputLimit());
+    task.getJunitPackageName().set(extension.getJunitPackageName());
   }
 
   private CleanupRandoopOutput createCleanupRandoop(
