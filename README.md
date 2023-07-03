@@ -18,7 +18,7 @@ plugins {
 }
 ```
 
-Then, you must specify you must specify a few configuration parameters in your `runRandoop` configuration. 
+Then, you must specify a few configuration parameters in your `runRandoop` configuration. 
 For example, the location where the plug-in can find the Randoop tool, the Randoop output directory,
 the name of the package for the generated JUnit files, etc.
 
